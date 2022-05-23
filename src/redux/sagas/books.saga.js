@@ -1,4 +1,6 @@
 
+import { put, takeLatest } from 'redux-saga/effects';
+import axios from 'axios';
 
 function* fetchBooks(action) {
     const currentKidId = localStorage.getItem('current_kid_id')
@@ -20,7 +22,7 @@ function* fetchBooks(action) {
 
 
 function* booksSaga() {
-    yield takeEvery('FETCH_BOOKS', fetchBooks);
+    yield takeLatest('FETCH_BOOKS', fetchBooks);
  
   };
   export default booksSaga;

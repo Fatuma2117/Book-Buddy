@@ -26,7 +26,8 @@ import KidProfile from '../KidProfile/KidProfile';
 import ParentBookList from '../ParentBookList/ParentBookList';
 import ParentBookForm from '../ParentBookForm/ParentBookForm';
 import ParentProfile from '../ParentProfile/ParentProfile';
-import ProfileList from '../ProfileList/ProfileList'
+import ProfileList from '../ProfileList/ProfileList';
+import KidList from '../KidList/KidList';
 
 import './App.css';
 
@@ -73,7 +74,8 @@ function App() {
             exact
             path="/ProfileList"
           >
-            <ProfileList/>
+            {/* <ProfileList/> */}
+            <KidList/>
           </ProtectedRoute>
 
           <ProtectedRoute

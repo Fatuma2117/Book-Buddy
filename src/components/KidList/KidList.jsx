@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 function KidList(){
     const dispatch = useDispatch();
+    const kids = useSelector(store => store.kids);
     useEffect(() => {
         dispatch({
             type:'FETCH_KIDS'
@@ -10,7 +11,7 @@ function KidList(){
     },[])
 
     return(
-        <h1></h1>
+      <h1>Kid List</h1>
 
     )
 };

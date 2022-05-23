@@ -2,23 +2,31 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 
-const { rejectUnauthenticated} = require('../modules/authentication-middleware');
+// const { rejectUnauthenticated} = require('../modules/authentication-middleware');
 
 
 
-router.get('/', rejectUnauthenticated, (req, res) => {
-  console.log('req.user', req.user)
+router.get('/', (req, res) => {
+  // console.log('req.user', req.user)
   const sqlQuery = `
-    SELECT * FROM "kids"
-      WHERE "id"=$1;
+    SELECT * FROM "kids";
   `
-  const sqlValues = [req.user.id];
-  pool.query(sqlQuery, sqlValues)
+  pool.query(sqlQuery)
     .then((dbRes) => {
       res.send(dbRes.rows);
     })
     .catch((dbErr) => {
-      console.log('ERROR in GET/books', dbErr);
+      console.log('ERROR in GET/KIDS', dbErr);
       res.sendStatus(500);
     })
 });
+
+
+
+
+
+
+
+
+
+module.exports = router;
