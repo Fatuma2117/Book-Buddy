@@ -1,10 +1,10 @@
-const books = (state = [], action) => {
+const kids = (state = [], action) => {
     switch (action.type) {
-        case 'SET_BOOKS':
+        case 'SET_KIDS':
             return action.payload;
         default:
             return state;
     }
-};
+}
 
-export default books;
+export default kids;

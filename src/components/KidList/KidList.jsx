@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Kid from '../Kid/Kid';
 
 function KidList(){
     const dispatch = useDispatch();
@@ -11,7 +12,15 @@ function KidList(){
     },[])
 
     return(
-      <h1>Kid List</h1>
+        <div>
+    <h1>Kid List</h1>
+    {kids.map(kid => {
+                    return (
+                        <Kid key={kid.id} kid={kid} />
+                    );
+                })}
+
+        </div>
 
     )
 };

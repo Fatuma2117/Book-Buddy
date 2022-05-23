@@ -28,6 +28,7 @@ import ParentBookForm from '../ParentBookForm/ParentBookForm';
 import ParentProfile from '../ParentProfile/ParentProfile';
 import ProfileList from '../ProfileList/ProfileList';
 import KidList from '../KidList/KidList';
+import Kid from '../Kid/Kid';
 
 import './App.css';
 

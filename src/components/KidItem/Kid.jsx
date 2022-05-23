@@ -1,8 +1,0 @@
-
-// function Kid({kid}){
-
-
-//     return(
-        
-//     )
-// }
