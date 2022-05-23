@@ -15,10 +15,18 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
+
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import KidBookList from '../KidBookList/KidBookList';
+import KidBookForm from '../KidBookList/KidBookList';
+import KidBookLog from '../KidBookLog/KidBookLog';
+import KidProfile from '../KidProfile/KidProfile';
+import ParentBookList from '../ParentBookList/ParentBookList';
+import ParentBookForm from '../ParentBookForm/ParentBookForm';
+import ParentProfile from '../ParentProfile/ParentProfile';
+import ProfileList from '../ProfileList/ProfileList'
 
 import './App.css';
 
@@ -60,13 +68,36 @@ function App() {
             <UserPage />
           </ProtectedRoute>
 
+
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
             exact
-            path="/info"
+            path="/ProfileList"
           >
-            <InfoPage />
+            <ProfileList/>
           </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/KidBookList"
+          >
+            <KidBookList />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/KidBookForm"
+          >
+            <KidBookForm/>
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/KidBookLog"
+          >
+            <KidBookLog/>
+          </ProtectedRoute>
+
+
 
           <Route
             exact
@@ -114,6 +145,8 @@ function App() {
           <Route>
             <h1>404</h1>
           </Route>
+
+         
         </Switch>
         <Footer />
       </div>
