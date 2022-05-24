@@ -27,15 +27,17 @@ function Nav() {
             <Link className="navLink" to="/user">
               Home
             </Link>
+            <Link className="navLink" to="/KidList">
+              Kid List
+            </Link>
 
-
-            <Link className="navLink" to="/KidBookList">
+            <Link className="navLink" to="/BookList">
               Book List
             </Link>
-            <Link className="navLink" to="/KidBookForm">
+            <Link className="navLink" to="/BookForm">
                Book Form
             </Link>
-            <Link className="navLink" to="/KidBookLog">
+            <Link className="navLink" to="/BookLog">
               Book Log
             </Link>
 
@@ -43,9 +45,7 @@ function Nav() {
           </>
         )}
 
-        <Link className="navLink" to="/about">
-          About
-        </Link>
+        
       </div>
     </div>
   );

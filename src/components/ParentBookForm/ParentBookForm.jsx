@@ -1,6 +1,6 @@
 // Parents can assign books to specific kids as well as assign points to the new book. 
 
-function ParentBookForm(){
+function ParentForm(){
 
     return(
         <h1>Parent Book Form</h1>
@@ -8,4 +8,4 @@ function ParentBookForm(){
     )
 };
 
-export default ParentBookForm;
+export default ParentForm;

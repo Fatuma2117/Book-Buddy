@@ -4,19 +4,35 @@
 // Input so kids can update the current page they are on. 
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
-function KidBookList(){
+
+function BookList(){
+    // const history = useHistory();
+  
     const dispatch = useDispatch();
+    const books = useSelector(store => store.books);
+    console.log(books)
     useEffect(() => {
         dispatch({
             type:'FETCH_BOOKS'
+        
         })
     },[])
 
     return(
-        <h1>Kid Book List</h1>
+        <div>
 
+      <h1>Kid Book List!</h1> 
+      {books.map(book => {
+                    return (
+                        <Book key={book.id} book={book} />
+                    );
+                })} 
+      {/* <BookItem/> */}
+        </div>
+  
     )
 };
 
-export default KidBookList;
+export default BookList;

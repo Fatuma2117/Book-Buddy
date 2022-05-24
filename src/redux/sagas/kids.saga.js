@@ -7,7 +7,7 @@ function* fetchKids(action) {
             method: 'GET',
             url:'/kids'
         });
-        console.log('get all kids:------>', response.data);
+        console.log('get/ specific user:', response.data);
         yield put({ type: 'SET_KIDS', payload: response.data });
 
     } catch {

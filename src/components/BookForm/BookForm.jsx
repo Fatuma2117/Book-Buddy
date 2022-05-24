@@ -4,12 +4,12 @@
 // Add book button puts the book on the 1.5 kid  book list page.
 
 
-function KidBookForm(){
+function BookForm(){
 
     return(
-        <h1>Kid Book Form</h1>
+        <h1>Kid Book Form...........</h1>
 
     )
 };
 
-export default KidBookForm;
+export default BookForm;

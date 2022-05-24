@@ -13,15 +13,14 @@ import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
-import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import KidBookList from '../KidBookList/KidBookList';
-import KidBookForm from '../KidBookList/KidBookList';
-import KidBookLog from '../KidBookLog/KidBookLog';
+import BookList from '../BookList/BookList';
+import BookForm from '../BookForm/BookForm';
+import BookLog from '../BookLog/BookLog';
 import KidProfile from '../KidProfile/KidProfile';
 import ParentBookList from '../ParentBookList/ParentBookList';
 import ParentBookForm from '../ParentBookForm/ParentBookForm';
@@ -49,14 +48,7 @@ function App() {
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/home" />
 
-          {/* Visiting localhost:3000/about will show the about page. */}
-          <Route
-            // shows AboutPage at all times (logged in or not)
-            exact
-            path="/about"
-          >
-            <AboutPage />
-          </Route>
+       
 
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
@@ -73,7 +65,7 @@ function App() {
 
           <ProtectedRoute
             exact
-            path="/ProfileList"
+            path="/KidList"
           >
             {/* <ProfileList/> */}
             <KidList/>
@@ -81,23 +73,23 @@ function App() {
 
           <ProtectedRoute
             exact
-            path="/KidBookList"
+            path="/BookList"
           >
-            <KidBookList />
+            <BookList />
           </ProtectedRoute>
 
           <ProtectedRoute
             exact
-            path="/KidBookForm"
+            path="/BookForm"
           >
-            <KidBookForm/>
+            <BookForm/>
           </ProtectedRoute>
 
           <ProtectedRoute
             exact
-            path="/KidBookLog"
+            path="/BookLog"
           >
-            <KidBookLog/>
+            <BookLog/>
           </ProtectedRoute>
 
 
