@@ -1,4 +1,3 @@
-import { useHistory } from 'react-router-dom';
 function Book({ book }) {
 
 
@@ -13,9 +12,10 @@ function Book({ book }) {
                     Image: {book.image_url} -
                     Points: {book.points} -
                     Total pages: {book.total_pages}
+                    <button>Delete Book</button>  
                 </li>
             </ul>
-            <button>Delete Book</button>
+          
             {/* <input>update current pages</input> */}
         </div>
     )

@@ -30,6 +30,7 @@ function* createBooks(action) {
     const response = yield axios({
       method: 'POST',
       url: '/books',
+      headers:{currentKidId},
       data: action.payload
     })
     console.log(response)
