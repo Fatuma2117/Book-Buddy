@@ -23,9 +23,36 @@ function* fetchBooks(action) {
         
 }
 
+function* createBooks(action) {
+    const currentKidId = localStorage.getItem('current_kid_id')
+
+    try{
+    const response = yield axios({
+      method: 'POST',
+      url: '/books',
+      data: action.payload
+    })
+    console.log(response)
+
+    yield put({
+      type: 'FETCH_BOOKS'
+    })
+}catch{
+
+    console.log('ERROR/POST Books');
+}
+  }
+
+
+
+
+
+
 
 function* booksSaga() {
     yield takeLatest('FETCH_BOOKS', fetchBooks);
+    yield takeLatest('CREATE_BOOKS', createBooks);
+
  
   };
 

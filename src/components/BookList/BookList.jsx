@@ -33,7 +33,7 @@ function BookList(){
                     );
                 })} 
       {/* <BookItem/> */}
-      {kids.name}
+      {/* {kids.name} */}
         </div>
   
     )

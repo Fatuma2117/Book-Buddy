@@ -28,6 +28,31 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 
 
+router.post('/',rejectUnauthenticated, (req, res) => {
+
+    const sqlQuery = `
+    INSERT into "books"
+    (title, author, publish_year,description,image_url,total_pages)
+    VALUES
+    ($1,$2,$3,$4,$5,$6)
+    `
+    const sqlValues = [
+      req.body.title,
+      req.body.author,
+      req.body.publish_year,
+      req.body.description,
+      req.body.image_url,
+      req.body.total_pages
+    ]
+    pool.query(sqlQuery, sqlValues)
+      .then((dbRes) => {
+        res.sendStatus(201)
+      })
+   
+
+  }
+)
+
 
 
 
