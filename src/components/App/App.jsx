@@ -13,12 +13,21 @@ import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
-import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
+
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import BookList from '../BookList/BookList';
+import BookForm from '../BookForm/BookForm';
+import BookLog from '../BookLog/BookLog';
+import KidProfile from '../KidProfile/KidProfile';
+import ParentBookList from '../ParentBookList/ParentBookList';
+import ParentBookForm from '../ParentBookForm/ParentBookForm';
+import ParentProfile from '../ParentProfile/ParentProfile';
+import ProfileList from '../ProfileList/ProfileList';
+import KidList from '../KidList/KidList';
+import Kid from '../Kid/Kid';
 
 import './App.css';
 
@@ -39,14 +48,7 @@ function App() {
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/home" />
 
-          {/* Visiting localhost:3000/about will show the about page. */}
-          <Route
-            // shows AboutPage at all times (logged in or not)
-            exact
-            path="/about"
-          >
-            <AboutPage />
-          </Route>
+       
 
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
@@ -60,13 +62,37 @@ function App() {
             <UserPage />
           </ProtectedRoute>
 
+
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
             exact
-            path="/info"
+            path="/KidList"
           >
-            <InfoPage />
+            {/* <ProfileList/> */}
+            <KidList/>
           </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/BookList"
+          >
+            <BookList />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/BookForm"
+          >
+            <BookForm/>
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/BookLog"
+          >
+            <BookLog/>
+          </ProtectedRoute>
+
+
 
           <Route
             exact
@@ -114,6 +140,8 @@ function App() {
           <Route>
             <h1>404</h1>
           </Route>
+
+         
         </Switch>
         <Footer />
       </div>
