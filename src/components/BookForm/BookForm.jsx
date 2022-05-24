@@ -4,12 +4,68 @@
 // Add book button puts the book on the 1.5 kid  book list page.
 
 
-function BookForm(){
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
-    return(
-        <h1>Kid Book Form...........</h1>
+function BookForm() {
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
+  const [description,setDescription]=useState('')
+  const [publish_year, setPublish_year] = useState('');
+  const [image_url, setImage_Url] = useState('');
+  const [points, setPoints] = useState();
+  const [total_pages, setTotal_Pages] = useState('');
+  const dispatch = useDispatch();
 
-    )
-};
+let newBook={
+    title,
+    author,
+    description,
+    publish_year,
+    image_url,
+    points,
+    total_pages
+}
+
+
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    dispatch({
+      type: 'CREATE_BOOK',
+      payload: { newBook }
+    })
+    setTitle('');
+    setAuthor('');
+    setDescription('');
+    setPublish_year('');
+    setImage_Url('');
+    setPoints()
+    setTotal_Pages()
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        placeholder=" Title"
+        value={title}
+        onChange={(e) => {setTitle(e.target.value)}}></input>
+          <input
+        placeholder="Author"
+        value={author}
+        onChange={(e) => {setAuthor(e.target.value)}}></input>
+        <input
+        placeholder="Description"
+        value={description}
+        onChange={(e) => {setDescription(e.target.value)}}></input>
+
+
+
+
+      <button>Submit!</button>
+    </form>
+  );
+}
 
 export default BookForm;
