@@ -4,7 +4,7 @@ function Kid({kid}){
     const history = useHistory();
 
     const handleKidClick=()=>{
-        localStorage.setItem('current_kid_id',kid.id)
+        localStorage.setItem('current_kid_id', kid.id)
         history.push('/BookList')
     }
 // console.log(kid.id)

@@ -8,15 +8,14 @@ const { rejectUnauthenticated} = require('../modules/authentication-middleware')
 
 router.get('/', rejectUnauthenticated, (req, res) => {
   // console.log('req.user', req.user)
-  console.log(req.headers.currentKidId)
+  // console.log('line 11--->',req.headers.currentkidid)
   const sqlQuery = `
   SELECT * FROM books
   JOIN kids_books ON books.id=kids_books.book_id
   WHERE kids_books.kid_id=$1
   ;
   `
-
-  const sqlValues = [req.headers.currentKidId];
+  const sqlValues = [req.headers.currentkidid];
   pool.query(sqlQuery, sqlValues)
     .then((dbRes) => {
       res.send(dbRes.rows);

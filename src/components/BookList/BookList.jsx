@@ -5,6 +5,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import Book from '../Book/Book'
+import Kid from '../Kid/Kid'
 
 
 function BookList(){
@@ -12,6 +14,7 @@ function BookList(){
   
     const dispatch = useDispatch();
     const books = useSelector(store => store.books);
+    const kids =useSelector(store=>store.kids)
     console.log(books)
     useEffect(() => {
         dispatch({
@@ -26,10 +29,11 @@ function BookList(){
       <h1>Kid Book List!</h1> 
       {books.map(book => {
                     return (
-                        <Book key={book.id} book={book} />
+                        <Book key={book.id} book={book}/>
                     );
                 })} 
       {/* <BookItem/> */}
+      {kids.name}
         </div>
   
     )

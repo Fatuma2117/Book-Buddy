@@ -1,5 +1,5 @@
 import { useHistory } from 'react-router-dom';
-function Book({ook}){
+function Book({book}){
 
 
 // console.log(kid.id)
@@ -13,7 +13,7 @@ function Book({ook}){
             {book.total_pages}
             </h3>
             <button>Delete Book</button>
-            <input>update current pages</input>
+            {/* <input>update current pages</input> */}
         </div>
     )
 }

@@ -4,7 +4,7 @@ import axios from 'axios';
 
 function* fetchBooks(action) {
     const currentKidId = localStorage.getItem('current_kid_id')
-    
+    parseInt(currentKidId)
             try {
         const response = yield axios({
             method: 'GET',
