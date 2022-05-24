@@ -11,10 +11,9 @@ function Book({ook}){
             {book.book_url}
             {book.points}
             {book.total_pages}
-
-            
-            
             </h3>
+            <button>Delete Book</button>
+            <input>update current pages</input>
         </div>
     )
 }
