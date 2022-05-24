@@ -27,41 +27,35 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 
 
-// router.post('/',rejectUnauthenticated, (req, res) => {
-// console.log(req.headers.currentkidid)
-//     const sqlQuery = `
-//     INSERT into "books"
-//     (title, author, publish_year,description,image_url,total_pages)
+router.post('/',rejectUnauthenticated, (req, res) => {
+console.log(req.headers.currentkidid)
+    const sqlQuery = `
+    INSERT into "books"
+    (title, author, publish_year,description,image_url,total_pages,kid_id)
 
-//     VALUES
-//     ($1,$2,$3,$4,$5,$6)
-//     RETURNING id;
-//     `
-//     const sqlValues = [
-//       req.body.title,
-//       req.body.author,
-//       req.body.publish_year,
-//       req.body.description,
-//       req.body.image_url,
-//       req.body.total_pages
-//     ]
-//     pool.query(sqlQuery, sqlValues)
-//       .then((dbRes) => {
-//         console.log(dbRes.rows[0].id)
-       
-
-      
-//       })
-   
-
-//   }
-// )
+    VALUES
+    ($1,$2,$3,$4,$5,$6,$7);
+    `
+    const sqlValues = [
+      req.body.title,
+      req.body.author,
+      req.body.publish_year,
+      req.body.description,
+      req.body.image_url,
+      req.body.total_pages,
+      req.headers.currentkidid
+    ]
+    pool.query(sqlQuery, sqlValues)
+      .then((dbRes) => {
+        console.log(dbRes.rows)
+      })
+  }
+)
 
 router.delete( '/:id', ( req, res )=>{
   console.log( 'book id to delete', req.params.id );
   const sqlQuery = `DELETE FROM "books" 
-  JOIN kids_books ON books.id=kids_books.book_id
-  WHERE kids_books.kid_id=$1 and  books.id=$2 ;`;
+  WHERE kid_id=$1 and books.id=$2 ;`;
   const sqlValues = [ 
     req.headers.currentkidid,
     req.params.id ];

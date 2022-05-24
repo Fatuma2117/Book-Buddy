@@ -42,7 +42,7 @@ function BookForm() {
     setDescription('');
     setPublish_year('');
     setImage_Url('');
-    setTotal_Pages()
+    setTotal_Pages('')
   }
 
   return (

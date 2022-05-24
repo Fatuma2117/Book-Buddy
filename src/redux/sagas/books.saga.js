@@ -35,7 +35,6 @@ function* createBooks(action) {
       type: 'FETCH_BOOKS'
     })
   } catch {
-
     console.log('ERROR/POST Books');
   }
 }
@@ -56,7 +55,21 @@ function* deleteBooks(action) {
   }
 }
 
-
+function* updateBooks(action) {
+  const currentKidId = localStorage.getItem('current_kid_id')
+  try {
+    const response = yield axios({
+      method: 'PUT',
+      url: `/books/${action.payload}`,
+      headers: { currentKidId }
+    })
+    yield put({
+      type: 'FETCH_BOOKS'
+    })
+  } catch {
+    console.log('ERROR/DELETE Books');
+  }
+}
 
 
 
