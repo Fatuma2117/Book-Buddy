@@ -28,7 +28,6 @@ import ParentProfile from '../ParentProfile/ParentProfile';
 import ProfileList from '../ProfileList/ProfileList';
 import KidList from '../KidList/KidList';
 import Kid from '../Kid/Kid';
-
 import './App.css';
 import {Typography} from '@material-ui/core'
 
@@ -91,6 +90,7 @@ function App() {
             path="/BookLog"
           >
             <BookLog/>
+
           </ProtectedRoute>
 
 

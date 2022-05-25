@@ -18,7 +18,7 @@ function Nav() {
   return (
     <>
 <CssBaseline/>
-<AppBar position="static" color="secondary">
+<AppBar position="static" color="primary">
   <Container maxWidth="xl">
   <Toolbar disableGutters>
   <CollectionsBookmarkIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />

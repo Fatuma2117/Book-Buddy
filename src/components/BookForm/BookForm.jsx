@@ -6,36 +6,41 @@
 
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import Stack from '@mui/material/Stack';
+import TextField from '@mui/material/TextField'
+import { Button} from '@material-ui/core';
+
 
 function BookForm() {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
-  const [description,setDescription]=useState('')
+  const [description, setDescription] = useState('')
   const [publish_year, setPublish_year] = useState('');
   const [image_url, setImage_Url] = useState('');
   const [total_pages, setTotal_Pages] = useState('');
   const dispatch = useDispatch();
 
-// let newBook={
-//     title,
-//     author,
-//     description,
-//     publish_year,
-//     image_url,
-//     total_pages
-// }
+  // let newBook={
+  //     title,
+  //     author,
+  //     description,
+  //     publish_year,
+  //     image_url,
+  //     total_pages
+  // }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     dispatch({
       type: 'CREATE_BOOKS',
-      payload: {  
+      payload: {
         title,
         author,
         description,
         publish_year,
         image_url,
-        total_pages}
+        total_pages
+      }
     })
     setTitle('');
     setAuthor('');
@@ -46,35 +51,84 @@ function BookForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        placeholder=" Title"
-        value={title}
-        onChange={(e) => {setTitle(e.target.value)}}></input>
-          <input
-        placeholder="Author"
-        value={author}
-        onChange={(e) => {setAuthor(e.target.value)}}></input>
-        <input
-        placeholder="Description"
-        value={description}
-        onChange={(e) => {setDescription(e.target.value)}}></input>
-          <input
-        placeholder="Year"
-        value={publish_year}
-        onChange={(e) => {setPublish_year(e.target.value)}}></input>
-           <input
-        placeholder="Image"
-        value={image_url}
-        onChange={(e) => {setImage_Url(e.target.value)}}></input>
-          <input
-        placeholder="Total Pages"
-        value={total_pages}
-        onChange={(e) => {setTotal_Pages(e.target.value)}}></input>
-     
+    // <Stack
+    //   component="form"
+    //   sx={{
+    //     width: '100%',
+    //   }}
+    //   spacing={2}
+    //   noValidate
+    //   autoComplete="off"
+    // >
 
-      <button>Submit!</button>
-    </form>
+      <form onSubmit={handleSubmit}>
+        <TextField
+          hiddenLabel
+          id="filled-hidden-label-normal"
+          defaultValue="Normal"
+          variant="filled"
+          label={'Title'} margin="normal"
+          placeholder=" Title"
+          value={title}
+          onChange={(e) => { setTitle(e.target.value) }} />
+
+        <TextField
+          hiddenLabel
+          id="filled-hidden-label-normal"
+          defaultValue="Normal"
+          variant="filled"
+          label={'Author'} margin="normal"
+          placeholder="Author"
+          value={author}
+          onChange={(e) => { setAuthor(e.target.value) }} />
+
+        <TextField
+
+          hiddenLabel
+          id="filled-hidden-label-normal"
+          defaultValue="Normal"
+          variant="filled" margin="normal"
+          label={'Description'} 
+
+          placeholder="Description"
+          value={description}
+          onChange={(e) => { setDescription(e.target.value) }} />
+        <TextField
+   hiddenLabel
+   id="filled-hidden-label-normal"
+   defaultValue="Normal"
+   variant="filled" margin="normal"
+   label={'Year'} 
+          placeholder="Year"
+          value={publish_year}
+          onChange={(e) => { setPublish_year(e.target.value) }}/>
+        <TextField
+          hiddenLabel
+          id="filled-hidden-label-normal"
+          defaultValue="Normal"
+          variant="filled" margin="normal"
+          label={'Image'} 
+          placeholder="Image"
+          value={image_url}
+          onChange={(e) => { setImage_Url(e.target.value) }}/>
+        <TextField
+          hiddenLabel
+          id="filled-hidden-label-normal"
+          defaultValue="Normal"
+          variant="filled" margin="normal"
+          label={'Total Pages'} 
+          placeholder="Total Pages"
+          value={total_pages}
+          onChange={(e) => { setTotal_Pages(e.target.value) }}/>
+
+
+
+
+
+
+        <Button size ='small'variant="contained" color="primary" >Add Book</Button>
+      </form>
+    // </Stack>
   );
 }
 

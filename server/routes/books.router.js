@@ -52,6 +52,47 @@ console.log(req.headers.currentkidid)
   }
 )
 
+router.put('/:id', (req, res) => {
+  console.log(req.body)
+  const sqlQuery = `
+    UPDATE "books" 
+      SET 
+        completed = $1
+      WHERE id = $2 AND kid_id=$3;
+  `;
+  const sqlValues = [ 
+    True,
+    req.params.id,
+    req.headers.currentkidid
+     ]
+  
+  pool.query(sqlQuery, sqlValues)
+    .then((dbRes) => {
+      res.sendStatus(200);
+    })
+    .catch((dbErr) => {
+      console.log('UPDATE database error', dbErr);
+      res.sendStatus(500);
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 router.delete( '/:id', ( req, res )=>{
   console.log( 'book id to delete', req.params.id );
   const sqlQuery = `DELETE FROM "books" 
