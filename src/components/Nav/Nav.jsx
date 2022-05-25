@@ -1,13 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import './Nav.css';
+// MUI----------------------------------------------------
+// import './Nav.css';
 import { useSelector } from 'react-redux';
+import {Typography} from '@material-ui/core'
+// import CollectionsBookmarkIcon from '@material-ui/icons';
+import {CssBaseline} from '@material-ui/core';
+import {AppBar} from '@material-ui/core';
+import{ Toolbar} from '@material-ui/core';
+// import {BookmarkIcon} from '@material-ui/icons';
 
 function Nav() {
   const user = useSelector((store) => store.user);
 
   return (
+    <>
+<CssBaseline/>
+<AppBar position="relative">
+  <Toolbar>
+    <Typography>
+    {/* <BookmarkIcon/> */}
     <div className="nav">
       <Link to="/home">
         <h2 className="nav-title">Book Tracker App</h2>
@@ -48,6 +61,12 @@ function Nav() {
         
       </div>
     </div>
+
+
+          </Typography>
+    </Toolbar>
+    </AppBar>
+    </>
   );
 }
 

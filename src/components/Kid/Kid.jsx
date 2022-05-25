@@ -1,4 +1,9 @@
 import { useHistory } from 'react-router-dom';
+import {CssBaseline} from '@material-ui/core';
+import {Container} from '@material-ui/core';
+import {Typography} from '@material-ui/core'
+
+
 function Kid({kid}){
 
     const history = useHistory();
@@ -9,9 +14,20 @@ function Kid({kid}){
     }
 // console.log(kid.id)
     return(
-        <div onClick={handleKidClick}>
-            <h3>{kid.name}</h3>
+        <>
+        <CssBaseline/>
+        <Container maxWidth="sm">
+          <div onClick={handleKidClick}>
+           
+            <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
+                   {kid.name}
+            </Typography>
+            
         </div>
+        
+        </Container>
+        </>
+      
     )
 }
 export default Kid;

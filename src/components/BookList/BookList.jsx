@@ -26,7 +26,7 @@ function BookList(){
     return(
         <div>
 
-      <h1>Kid Book List!</h1> 
+    
       {books.map(book => {
                     return (
                         <Book key={book.id} book={book}/>

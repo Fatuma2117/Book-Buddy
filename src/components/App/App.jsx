@@ -30,6 +30,7 @@ import KidList from '../KidList/KidList';
 import Kid from '../Kid/Kid';
 
 import './App.css';
+import {Typography} from '@material-ui/core'
 
 function App() {
   const dispatch = useDispatch();
