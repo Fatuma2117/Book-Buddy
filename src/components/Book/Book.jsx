@@ -1,12 +1,14 @@
 import { useDispatch } from 'react-redux';
 import { Button, Grid } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
-import { Container } from '@material-ui/core'
+import { Container } from '@material-ui/core';
+import useStyles from './styles.js'
 
 
 
 function Book({ book }) {
     const dispatch = useDispatch();
+    const classes = useStyles();
 
     const handleDelete = () => {
         dispatch({
@@ -21,14 +23,18 @@ function Book({ book }) {
 
     // console.log(kid.id)
     return (
-        <Container maxWidth='sm'>
+
+
+
+
+
+        
+        <Container maxWidth='sm' style={{marginTop: '100px'}}>
             <Grid container spacing={2} justifyContent='center' >
                 <Grid item>
-                    <div >
+                    <div className={classes.container}>
 
-                        <Typography variant="h3" align="center" color="textPrimary" gutterBottom>
-                            Book List -
-                        </Typography>
+                       
                         <Typography variant='h5' align='center'>
                             Title: {book.title} -
                             Author: {book.author} -

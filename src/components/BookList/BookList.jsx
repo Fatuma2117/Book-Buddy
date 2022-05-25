@@ -6,7 +6,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Book from '../Book/Book'
-import Kid from '../Kid/Kid'
+import Kid from '../Kid/Kid';
+import {Typography} from '@material-ui/core'
 
 
 function BookList(){
@@ -24,8 +25,16 @@ function BookList(){
     },[])
 
     return(
+
+
+
+
+
         <div>
 
+        <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
+       Book List
+ </Typography>
     
       {books.map(book => {
                     return (
