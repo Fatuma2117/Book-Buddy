@@ -9,7 +9,8 @@ import {Typography} from '@material-ui/core'
 import {CssBaseline} from '@material-ui/core';
 import {AppBar} from '@material-ui/core';
 import{ Toolbar} from '@material-ui/core';
-// import {BookmarkIcon} from '@material-ui/icons';
+import {Container} from '@material-ui/core'
+import CollectionsBookmarkIcon from '@mui/icons-material/CollectionsBookmark';
 
 function Nav() {
   const user = useSelector((store) => store.user);
@@ -17,9 +18,23 @@ function Nav() {
   return (
     <>
 <CssBaseline/>
-<AppBar position="relative">
-  <Toolbar>
-    <Typography>
+<AppBar position="static" color="secondary">
+  <Container maxWidth="xl">
+  <Toolbar disableGutters>
+  <CollectionsBookmarkIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+
+    <Typography
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    >
     {/* <BookmarkIcon/> */}
     <div className="nav">
       <Link to="/home">
@@ -65,6 +80,7 @@ function Nav() {
 
           </Typography>
     </Toolbar>
+    </Container>
     </AppBar>
     </>
   );

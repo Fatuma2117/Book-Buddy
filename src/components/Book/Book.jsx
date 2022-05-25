@@ -22,7 +22,7 @@ function Book({ book }) {
     // console.log(kid.id)
     return (
         <Container maxWidth='sm'>
-            <Grid container >
+            <Grid container spacing={2} justifyContent='center' >
                 <Grid item>
                     <div >
 
@@ -43,7 +43,7 @@ function Book({ book }) {
 
 
 
-                        <Button onClick={handleDelete} variant="contained" color="Secondary">
+                        <Button onClick={handleDelete} variant="contained" color="secondary">
                             Delete
                         </Button>
                     </div>
