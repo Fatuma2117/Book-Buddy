@@ -50,12 +50,6 @@ function* fetchCompleted() {
 
 
 
-
-
-
-
-
-
 function* createBooks(action) {
   const currentKidId = localStorage.getItem('current_kid_id')
   try {
@@ -65,7 +59,7 @@ function* createBooks(action) {
       headers: { currentKidId },
       data: action.payload
     })
-    console.log(response)
+    console.log('respnse from create booooks---------->',response)
     yield put({
       type: 'FETCH_BOOKS'
     })
@@ -99,7 +93,7 @@ function* completeBook(action) {
       headers: { currentKidId }
     })
     yield put({
-      type: 'FETCH_BOOKS'
+      type: 'FETCH_COMPLETED_BOOKS'
     })
   } catch {
     console.log('ERROR/COMPLETE Books');

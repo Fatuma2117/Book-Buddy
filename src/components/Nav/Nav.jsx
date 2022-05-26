@@ -25,7 +25,9 @@ function Nav() {
       <CssBaseline />
       <AppBar position="static" color="secondary">
         <Container maxWidth="xl">
-          <Toolbar disableGutters display="flex" justifyContent="space-between">
+          <Toolbar disableGutters display="flex" 
+          // justifyContent="space-between"
+          >
             {/* <CollectionsBookmarkIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
 
             <Typography
@@ -60,8 +62,7 @@ function Nav() {
                           style={{ color: "#c6ff00"}}
                         
                         
-                        
-  
+                    
                         >
                           Kid List
                         </Button>

@@ -49,28 +49,15 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 router.post('/',rejectUnauthenticated, (req, res) => {
 console.log(req.headers.currentkidid)
+console.log(req.body)
     const sqlQuery = `
     INSERT into "books"
-    (title, author, publish_year,description,image_url,total_pages,kid_id)
+    (title, author, publish_year,description,image_url,total_pages,kid_id,current_page,completed)
 
     VALUES
-    ($1,$2,$3,$4,$5,$6,$7);
+    ($1,$2,$3,$4,$5,$6,$7,$8,$9);
     `
     const sqlValues = [
       req.body.title,
@@ -79,7 +66,9 @@ console.log(req.headers.currentkidid)
       req.body.description,
       req.body.image_url,
       req.body.total_pages,
-      req.headers.currentkidid
+      req.headers.currentkidid,
+      req.body.current_page,
+      false
     ]
     pool.query(sqlQuery, sqlValues)
       .then((dbRes) => {

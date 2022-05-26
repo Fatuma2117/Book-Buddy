@@ -3,12 +3,15 @@
 // So that users can create book items if not found in the API.
 // Add book button puts the book on the 1.5 kid  book list page.
 
+import  { useEffect } from 'react';
 
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField'
 import { Button} from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
+
 
 
 function BookForm() {
@@ -18,16 +21,17 @@ function BookForm() {
   const [publish_year, setPublish_year] = useState('');
   const [image_url, setImage_Url] = useState('');
   const [total_pages, setTotal_Pages] = useState('');
+  const[current_page,setCurrent_page] = useState(0)
   const dispatch = useDispatch();
+  const history = useHistory()
 
-  // let newBook={
-  //     title,
-  //     author,
-  //     description,
-  //     publish_year,
-  //     image_url,
-  //     total_pages
-  // }
+//   useEffect(() => {
+//     dispatch({
+//         type:'FETCH_BOOKS'
+    
+//     })
+// },[])
+
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -39,7 +43,8 @@ function BookForm() {
         description,
         publish_year,
         image_url,
-        total_pages
+        total_pages,
+        current_page
       }
     })
     setTitle('');
@@ -47,7 +52,9 @@ function BookForm() {
     setDescription('');
     setPublish_year('');
     setImage_Url('');
-    setTotal_Pages('')
+    setTotal_Pages('');
+    
+    history.push("/BookList")
   }
 
   return (
@@ -69,7 +76,7 @@ function BookForm() {
           // defaultValue="Normal"
           variant="filled"
           label={'Title'} margin="normal"
-          placeholder=" Title"
+          // placeholder=" Title"
           value={title}
           onChange={(e) => { setTitle(e.target.value) }} />
 
@@ -79,7 +86,7 @@ function BookForm() {
           // defaultValue="Normal"
           variant="filled"
           label={'Author'} margin="normal"
-          placeholder="Author"
+          // placeholder="Author"
           value={author}
           onChange={(e) => { setAuthor(e.target.value) }} />
 
@@ -91,7 +98,7 @@ function BookForm() {
           variant="filled" margin="normal"
           label={'Description'} 
 
-          placeholder="Description"
+          // placeholder="Description"
           value={description}
           onChange={(e) => { setDescription(e.target.value) }} />
         <TextField
@@ -100,7 +107,7 @@ function BookForm() {
   //  defaultValue="Normal"
    variant="filled" margin="normal"
    label={'Year'} 
-          placeholder="Year"
+          // placeholder="Year"
           value={publish_year}
           onChange={(e) => { setPublish_year(e.target.value) }}/>
         <TextField
@@ -109,7 +116,7 @@ function BookForm() {
           // defaultValue="Normal"
           variant="filled" margin="normal"
           label={'Image'} 
-          placeholder="Image"
+          // placeholder="Image"
           value={image_url}
           onChange={(e) => { setImage_Url(e.target.value) }}/>
         <TextField
@@ -118,7 +125,7 @@ function BookForm() {
           // defaultValue="Normal"
           variant="filled" margin="normal"
           label={'Total Pages'} 
-          placeholder="Total Pages"
+          // placeholder="Total Pages"
           value={total_pages}
           onChange={(e) => { setTotal_Pages(e.target.value) }}/>
 
@@ -127,7 +134,7 @@ function BookForm() {
 
 
 
-        <Button size ='small'variant="contained" color="primary" >Add Book</Button>
+        <Button onClick={handleSubmit}size ='small'variant="contained" color="primary" >Add Book</Button>
       {/* </form> */}
     // </Stack>
   );

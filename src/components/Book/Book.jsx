@@ -49,7 +49,7 @@ function Book({ book }) {
 
        
         <Container maxWidth='md' className={classes.cardGrid} style={{marginTop: '100px'}}>
-            <Grid  spacing={4}  style={{
+            <Grid container spacing={4}  style={{
           
           backgroundColor: "#c6ff00",
            
