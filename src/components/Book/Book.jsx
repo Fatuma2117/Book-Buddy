@@ -21,11 +21,13 @@ function Book({ book }) {
     }
 
     const handleCompleted = () => {
+      
         dispatch({
             type: 'COMPLETED_BOOK',
             payload: book.id
 
         })
+        history.push('/BookLog')
     } 
 
 

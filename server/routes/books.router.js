@@ -25,6 +25,42 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     })
 });
 
+router.get('/', rejectUnauthenticated, (req, res) => {
+  // console.log('req.user', req.user)
+  // console.log('line 11--->',req.headers.currentkidid)
+  const sqlQuery = `
+  SELECT * FROM books
+  WHERE kid_id=$1 AND completed = $2
+  ;
+  `
+  const sqlValues = [
+    req.headers.currentkidid,
+    true
+  ];
+  pool.query(sqlQuery, sqlValues)
+    .then((dbRes) => {
+      res.send(dbRes.rows);
+    })
+    .catch((dbErr) => {
+      console.log('ERROR in GET/books', dbErr);
+      res.sendStatus(500);
+    })
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 router.post('/',rejectUnauthenticated, (req, res) => {
@@ -61,7 +97,7 @@ router.put('/:id', (req, res) => {
       WHERE id = $2 AND kid_id=$3;
   `;
   const sqlValues = [ 
-    True,
+    true,
     req.params.id,
     req.headers.currentkidid
      ]
