@@ -5,6 +5,8 @@ import { Button, Grid } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 import { Container } from '@material-ui/core';
 import {Card, CardMedia, CardContent, CardActions} from '@material-ui/core'
+import { useHistory } from 'react-router-dom';
+
 
 
 import useStyles from './styles'
@@ -12,6 +14,8 @@ import useStyles from './styles'
 
 function Book({ book }) {
     const dispatch = useDispatch();
+    const history = useHistory()
+
     const classes = useStyles();
     const [completed,setCompleted]= useState(false)
 
@@ -31,6 +35,7 @@ function Book({ book }) {
 
         })
        setCompleted(!completed)
+       history.push('/BookLog')
     } 
 
 
@@ -44,8 +49,12 @@ function Book({ book }) {
 
        
         <Container maxWidth='md' className={classes.cardGrid} style={{marginTop: '100px'}}>
-            <Grid  spacing={4}  >
-                <Grid container item  md={4}>
+            <Grid  spacing={4}  style={{
+          
+          backgroundColor: "#c6ff00",
+           
+        }} >
+                <Grid container item  md={4} alignItems='center' >
                     <Card  className={classes.Card}>
                         <CardMedia
                         className={classes.cardMedia}

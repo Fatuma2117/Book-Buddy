@@ -14,7 +14,11 @@ function CompletedBook({book}){
         <Container maxWidth='md'style={{marginTop: '100px'}}>
              <div >
             <Grid container spacing={4}  >
-                <Grid item >
+                <Grid item   style={{
+          
+         backgroundColor: "#c6ff00",
+          
+       }}>
                     <Card  height= '20px'>
                     <CardMedia
                         // className={classes.cardMedia}
