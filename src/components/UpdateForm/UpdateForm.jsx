@@ -6,6 +6,7 @@ import TextField from '@mui/material/TextField'
 import { Button } from '@material-ui/core';
 import Stack from '@mui/material/Stack';
 import BookForm from '../BookForm/BookForm'
+import { yellow } from 'material-ui-colors';
 
 
 
@@ -21,7 +22,9 @@ function UpdateForm(){
       const history = useHistory();
       const params = useParams();
       const bookId = params.id;
+const handlePageNumber=()=>{
 
+}
 
 
     return(
@@ -43,10 +46,12 @@ function UpdateForm(){
         id="filled-hidden-label-normal"
         // defaultValue="Normal"
         variant="filled" margin="normal"
-        label={'UPdate Pages'}
-        // placeholder="Total Pages"
+        label={'Add Current Page'}
+        placeholder="Add Current Page"
         // value={total_pages}
-        onChange={(e) => { setTotal_Pages(e.target.value) }} />
+        // onChange={(e) => { setTotal_Pages(e.target.value) }} 
+        />
+        <Button onClick={handlePageNumber} size='small' variant="contained" style={{backgroundColor: yellow [500]}} >Add Current Page</Button>
 
 
 </Stack>
