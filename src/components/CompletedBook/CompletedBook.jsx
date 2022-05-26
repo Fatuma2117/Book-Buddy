@@ -4,20 +4,22 @@ import { Container } from '@material-ui/core';
 import {Card, CardContent} from '@material-ui/core'
 
 
-import useStyles from './styles'
+// import useStyles from './styles'
 
 
-function CompletedBooks({book}){
+function CompletedBook({book}){
     return(
 
        
-        <Container maxWidth='md' className={classes.cardGrid} style={{marginTop: '100px'}}>
-             <div className={classes.container}>
+        <Container maxWidth='md'style={{marginTop: '100px'}}>
+             <div >
             <Grid container spacing={4}  >
                 <Grid item>
                     <Card  height= '20px'>
                        
-                        <CardContent size='small'className={classes.cardContent}>
+                        <CardContent size='small'
+                        // className={classes.cardContent}
+                        >
                         <Typography gutterBottom variant='h5'>
                             Title: {book.title} -
                             Author: {book.author} -
@@ -42,4 +44,4 @@ function CompletedBooks({book}){
     )
     
 }
-export default CompletedBooks;
+export default CompletedBook;

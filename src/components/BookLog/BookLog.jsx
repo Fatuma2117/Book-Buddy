@@ -24,7 +24,7 @@ function BookLog() {
 
             {completedBooks.map(book => {
                     return (
-                        <completedBook key={book.id} book={book}/>
+                        <CompletedBook key={book.id} book={book}/>
                     );
                 })} 
 
