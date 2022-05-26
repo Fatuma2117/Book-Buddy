@@ -53,7 +53,8 @@ function Book({ book }) {
 
 
        
-        <Container maxWidth='lg' className={classes.cardGrid} style={{marginTop: '100px'}}>
+        <Container maxWidth='lg' className={classes.cardGrid} style={{marginTop: '100px',
+        marginLeft: '100px'}}>
             {/* <Grid container spacing={4}  style={{ */}
           
           {/* backgroundColor: "#ffff00", */}

@@ -3,15 +3,17 @@
 // So that users can create book items if not found in the API.
 // Add book button puts the book on the 1.5 kid  book list page.
 
-import { useEffect } from 'react';
 
+import { useEffect } from 'react';
+// import HUE from '@material-ui/core'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField'
 import { Button } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
-
+import { yellow } from 'material-ui-colors';
+import Search from '../Search/Search';
 
 
 function BookForm() {
@@ -24,6 +26,7 @@ function BookForm() {
   const [current_page, setCurrent_page] = useState(0)
   const dispatch = useDispatch();
   const history = useHistory()
+
 
   //   useEffect(() => {
   //     dispatch({
@@ -69,6 +72,7 @@ function BookForm() {
       onSubmit={handleSubmit}
     >
 
+<Search/>
       {/* <form onSubmit={handleSubmit}> */}
       <TextField
         hiddenLabel
@@ -131,7 +135,7 @@ function BookForm() {
 
 
 
-      <Button onClick={handleSubmit} size='small' variant="contained" color="primary" >Add Book</Button>
+      <Button onClick={handleSubmit} size='small' variant="contained" style={{backgroundColor: yellow [500]}} >Add Book</Button>
       {/* </form> */}
      </Stack>
     
