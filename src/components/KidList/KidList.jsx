@@ -23,9 +23,9 @@ function KidList(){
         <div>
             <CssBaseline/>
    
-    <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
+    {/* <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
                    Kid Profile
-            </Typography>
+            </Typography> */}
             <Typography variant="h3" align="center" color="textSecondary" gutterBottom>
                    Choose Your Name
             </Typography>

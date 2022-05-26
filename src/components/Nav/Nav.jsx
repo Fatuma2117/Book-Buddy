@@ -8,20 +8,37 @@ import {Typography} from '@material-ui/core'
 // import CollectionsBookmarkIcon from '@material-ui/icons';
 import {CssBaseline} from '@material-ui/core';
 import {AppBar} from '@material-ui/core';
-import{ Toolbar} from '@material-ui/core';
+import{ Toolbar,Button} from '@material-ui/core';
+import Stack from '@mui/material/Stack';
+
 import {Container} from '@material-ui/core'
 import CollectionsBookmarkIcon from '@mui/icons-material/CollectionsBookmark';
+import { useHistory } from 'react-router-dom';
 
 function Nav() {
   const user = useSelector((store) => store.user);
+const history=useHistory()
+
+  const kidList=()=>{
+    history.push('/KidList')
+  }
+  const bookList=()=>{
+    history.push('/BookList')
+  }
+  const bookForm=()=>{
+    history.push('/BookForm')
+  }
+  const bookLog=()=>{
+    history.push('/BookLog')
+  }
 
   return (
     <>
 <CssBaseline/>
-<AppBar position="static" color="primary">
+<AppBar position="static" color="secondary">
   <Container maxWidth="xl">
-  <Toolbar disableGutters>
-  <CollectionsBookmarkIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+  <Toolbar disableGutters  display="flex" justifyContent="space-between">
+  {/* <CollectionsBookmarkIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
 
     <Typography
     
@@ -37,9 +54,10 @@ function Nav() {
     >
     {/* <BookmarkIcon/> */}
     <div className="nav">
-      <Link to="/home">
-        <h2 className="nav-title">Book Tracker App</h2>
-      </Link>
+
+      <Button to="/home" className="nav-title">
+       Book Tracker App
+      </Button>
       <div>
         {/* If no user is logged in, show these links */}
         {!user.id && (
@@ -52,25 +70,57 @@ function Nav() {
         {/* If a user is logged in, show these links */}
         {user.id && (
           <>
-            <Link className="navLink" to="/user">
+            <Button className="navLink" to="/user">
               Home
-            </Link>
-            <Link className="navLink" to="/KidList">
+            </Button>
+
+
+
+<Stack direction='row' spacing={2}>
+ <Button onClick={kidList}className="navLink" to="/KidList">
               Kid List
-            </Link>
+            </Button>
 
-            <Link className="navLink" to="/BookList">
+
+
+            <Button onClick={bookList}className="navLink" to="/BookList">
               Book List
-            </Link>
-            <Link className="navLink" to="/BookForm">
-               Book Form
-            </Link>
-            <Link className="navLink" to="/BookLog">
-              Book Log
-            </Link>
+            </Button>
 
-            <LogOutButton className="navLink" />
+
+
+
+
+
+
+
+           
+
+
+
+
+
+
+
+
+            <Button className="navLink" to="/BookForm">
+               Book Form
+            </Button>
+            <Button className="navLink" to="/BookLog">
+              Book Log
+            </Button>
+
+            <LogOutButton className="navLink" color="primary"/>
+
+</Stack>
+
           </>
+
+
+
+
+
+
         )}
 
         

@@ -51,21 +51,22 @@ function BookForm() {
   }
 
   return (
-    // <Stack
-    //   component="form"
-    //   sx={{
-    //     width: '100%',
-    //   }}
-    //   spacing={2}
-    //   noValidate
-    //   autoComplete="off"
-    // >
+    <Stack
+      component="form"
+      sx={{
+        width: '100%',
+      }}
+      spacing={2}
+      // noValidate
+      autoComplete="off"
+      onSubmit={handleSubmit}
+    >
 
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}> */}
         <TextField
           hiddenLabel
           id="filled-hidden-label-normal"
-          defaultValue="Normal"
+          // defaultValue="Normal"
           variant="filled"
           label={'Title'} margin="normal"
           placeholder=" Title"
@@ -75,7 +76,7 @@ function BookForm() {
         <TextField
           hiddenLabel
           id="filled-hidden-label-normal"
-          defaultValue="Normal"
+          // defaultValue="Normal"
           variant="filled"
           label={'Author'} margin="normal"
           placeholder="Author"
@@ -86,7 +87,7 @@ function BookForm() {
 
           hiddenLabel
           id="filled-hidden-label-normal"
-          defaultValue="Normal"
+          // defaultValue="Normal"
           variant="filled" margin="normal"
           label={'Description'} 
 
@@ -96,7 +97,7 @@ function BookForm() {
         <TextField
    hiddenLabel
    id="filled-hidden-label-normal"
-   defaultValue="Normal"
+  //  defaultValue="Normal"
    variant="filled" margin="normal"
    label={'Year'} 
           placeholder="Year"
@@ -105,7 +106,7 @@ function BookForm() {
         <TextField
           hiddenLabel
           id="filled-hidden-label-normal"
-          defaultValue="Normal"
+          // defaultValue="Normal"
           variant="filled" margin="normal"
           label={'Image'} 
           placeholder="Image"
@@ -114,7 +115,7 @@ function BookForm() {
         <TextField
           hiddenLabel
           id="filled-hidden-label-normal"
-          defaultValue="Normal"
+          // defaultValue="Normal"
           variant="filled" margin="normal"
           label={'Total Pages'} 
           placeholder="Total Pages"
@@ -127,7 +128,7 @@ function BookForm() {
 
 
         <Button size ='small'variant="contained" color="primary" >Add Book</Button>
-      </form>
+      {/* </form> */}
     // </Stack>
   );
 }

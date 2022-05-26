@@ -1,4 +1,6 @@
 import { useDispatch } from 'react-redux';
+import { useState } from 'react'
+
 import { Button, Grid } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 import { Container } from '@material-ui/core';
@@ -11,6 +13,7 @@ import useStyles from './styles'
 function Book({ book }) {
     const dispatch = useDispatch();
     const classes = useStyles();
+    const [completed,setCompleted]= useState(false)
 
     const handleDelete = () => {
         dispatch({
@@ -27,7 +30,7 @@ function Book({ book }) {
             payload: book.id
 
         })
-        history.push('/BookLog')
+       setCompleted(!completed)
     } 
 
 
@@ -41,15 +44,14 @@ function Book({ book }) {
 
        
         <Container maxWidth='md' className={classes.cardGrid} style={{marginTop: '100px'}}>
-             <div className={classes.container}>
-            <Grid container spacing={4}  >
-                <Grid item>
-                    <Card  height= '20px'>
-                        {/* <CardMedia
+            <Grid  spacing={4}  >
+                <Grid container item  md={4}>
+                    <Card  className={classes.Card}>
+                        <CardMedia
                         className={classes.cardMedia}
-                        image= "https://momlovesbest.com/wp-content/uploads/2020/08/story-1.png"
+                        image= "https://prodimage.images-bn.com/pimages/9780142413852_p0_v3_s192x300.jpg"
                         title="Image title"
-                        /> */}
+                        />
 
                         <CardContent size='small'className={classes.cardContent}>
                         <Typography gutterBottom variant='h5'>
@@ -73,8 +75,10 @@ function Book({ book }) {
                         <Button onClick={handleDelete} size='small' className={classes.buttons} variant="contained" color="primary">
                             Delete
                         </Button>
-                        <Button onClick={handleCompleted} size='small' className={classes.buttons} variant="contained" color="primary">
-                           Completed ✓
+                        <Button onClick={handleCompleted} size='small' className={classes.buttons} 
+                        variant="contained" color={completed ? "secondary" : "primary"}>
+                          Completed ✓ 
+                          
                         </Button>
 
                         </CardActions>
@@ -93,7 +97,6 @@ function Book({ book }) {
                     </Card>
                 </Grid>
             </Grid>
- </div>
         </Container>
     )
 }
