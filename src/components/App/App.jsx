@@ -28,7 +28,7 @@ import ParentProfile from '../ParentProfile/ParentProfile';
 import ProfileList from '../ProfileList/ProfileList';
 import KidList from '../KidList/KidList';
 import Kid from '../Kid/Kid';
-
+import UpdateForm from '../UpdateForm/UpdateForm';
 import './App.css';
 
 function App() {
@@ -90,10 +90,19 @@ function App() {
             path="/BookLog"
           >
             <BookLog/>
+
           </ProtectedRoute>
 
+          {/* <ProtectedRoute exact path="/edit/:id">
+          <UpdateForm />
+        </ProtectedRoute> */}
 
 
+
+
+
+
+  
           <Route
             exact
             path="/login"

@@ -6,36 +6,42 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Book from '../Book/Book'
-import Kid from '../Kid/Kid'
+import Kid from '../Kid/Kid';
+import { Typography } from '@material-ui/core'
 
 
-function BookList(){
+function BookList() {
     // const history = useHistory();
-  
+
     const dispatch = useDispatch();
     const books = useSelector(store => store.books);
-    const kids =useSelector(store=>store.kids)
+    const kids = useSelector(store => store.kids)
     console.log(books)
     useEffect(() => {
         dispatch({
-            type:'FETCH_BOOKS'
-        
+            type: 'FETCH_BOOKS'
+
         })
-    },[])
+    }, [])
 
-    return(
-        <div>
+    return (
 
-      <h1>Kid Book List!</h1> 
-      {books.map(book => {
-                    return (
-                        <Book key={book.id} book={book}/>
-                    );
-                })} 
-      {/* <BookItem/> */}
-      {kids.name}
-        </div>
-  
+
+     <div>
+
+            <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
+                Book List
+            </Typography>
+
+            {books.map(book => {
+                return (
+                    <Book key={book.id} book={book} />
+                );
+            })}
+            {/* <BookItem/> */}
+            {/* {kids.name} */}
+        {/* // </div> */}
+       </div>
     )
 };
 

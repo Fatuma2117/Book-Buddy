@@ -11,6 +11,7 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 const booksRouter = require('./routes/books.router');
 const kidsRouter = require('./routes/kids.router');
+const completedRouter = require('./routes/completed.router');
 
 
 
@@ -29,6 +30,8 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/books', booksRouter);
 app.use('/kids', kidsRouter);
+app.use('/completed', completedRouter);
+
 
 
 

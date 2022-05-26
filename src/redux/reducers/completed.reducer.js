@@ -1,6 +1,6 @@
-const books = (state = [], action) => {
+const completedBooks = (state = [], action) => {
     switch (action.type) {
-        case 'SET_BOOKS':
+        case 'SET_COMPLETED_BOOKS':
             return action.payload;
         default:
             return state;
@@ -8,9 +8,4 @@ const books = (state = [], action) => {
 };
 
 
-
-
-
-
-
-export default books;
+export default completedBooks;
