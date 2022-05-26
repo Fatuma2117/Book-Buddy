@@ -6,7 +6,7 @@ import { Typography } from '@material-ui/core';
 import { Container } from '@material-ui/core';
 import {Card, CardMedia, CardContent, CardActions} from '@material-ui/core'
 import { useHistory } from 'react-router-dom';
-
+import {Box} from '@material-ui/core'
 
 
 import useStyles from './styles'
@@ -58,12 +58,9 @@ function Book({ book }) {
        
         <Container maxWidth='lg' className={classes.cardGrid} style={{marginTop: '100px',
         marginLeft: '100px'}}>
-            {/* <Grid container spacing={4}  style={{ */}
-          
-          {/* backgroundColor: "#ffff00", */}
-           
-        {/* }} > */}
-                <Grid container item  md={4} alignItems='center' >
+     
+                <Grid  item  xs={4}  >
+                    <Box sx={{width:'auto'}}>
                     <Card  className={classes.Card}>
                         <CardMedia
                         className={classes.cardMedia}
@@ -119,6 +116,7 @@ function Book({ book }) {
                     
 
                     </Card>
+                    </Box>
                 </Grid>
             {/* </Grid> */}
         </Container>
