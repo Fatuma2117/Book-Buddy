@@ -115,7 +115,7 @@ function* booksSaga() {
   yield takeLatest('DELETE_BOOKS', deleteBooks);
   yield takeLatest('COMPLETED_BOOK', completeBook);
   yield takeLatest('FETCH_COMPLETED_BOOKS',fetchCompleted)
-  yield takeLatest('UPDATE_BOOKS',updateBooks)
+  yield takeLatest('UPDATE_ONE_BOOK',updateBooks)
 
 };
 

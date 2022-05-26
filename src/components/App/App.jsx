@@ -93,9 +93,9 @@ function App() {
 
           </ProtectedRoute>
 
-          {/* <ProtectedRoute exact path="/edit/:id">
+          <ProtectedRoute exact path="/edit/:id">
           <UpdateForm />
-        </ProtectedRoute> */}
+        </ProtectedRoute>
 
 
 

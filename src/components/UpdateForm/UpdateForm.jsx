@@ -2,6 +2,12 @@
 import { useParams, useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import TextField from '@mui/material/TextField'
+import { Button } from '@material-ui/core';
+import Stack from '@mui/material/Stack';
+import BookForm from '../BookForm/BookForm'
+
+
 
 function UpdateForm(){
     useEffect(() => {
@@ -19,18 +25,31 @@ function UpdateForm(){
 
 
     return(
-        <div>
- <h1>Update Book Form</h1>
- <form>
-
-
-
      
- </form>
+  //  <>Update Book Form</>
+   <Stack
+   component="form"
+   sx={{
+     width: '100%',
+   }}
+   spacing={2}
+   // noValidate
+   autoComplete="off"
+  //  onSubmit={handleSubmit}
+ >
+
+<TextField
+        hiddenLabel
+        id="filled-hidden-label-normal"
+        // defaultValue="Normal"
+        variant="filled" margin="normal"
+        label={'UPdate Pages'}
+        // placeholder="Total Pages"
+        // value={total_pages}
+        onChange={(e) => { setTotal_Pages(e.target.value) }} />
 
 
-
-        </div>
+</Stack>
        
     )
 }

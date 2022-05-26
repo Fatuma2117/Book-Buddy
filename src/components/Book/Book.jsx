@@ -40,7 +40,10 @@ function Book({ book }) {
     } 
 
     const handlePageNumber = () => {
-       setPages((prevValue)=> prevValue + 1)
+      dispatch({
+          type:'UPDATE_ONE_BOOK',
+          payload: book.id
+      })
     
     }
 
@@ -96,10 +99,9 @@ function Book({ book }) {
                           Completed ✓ 
                         </Button>
 
-                        <Button onClick={handlePageNumber} size='small' className={classes.buttons} 
+                        <Button onClick={() => history.push(`/edit/${book.id}`)}size='small' className={classes.buttons} 
                         variant="contained" color={"primary"}>
-                          + Pages Read
-
+                         Update Pages
                         </Button>
                         {/* <Button onClick={() => history.push(`/edit/${book.id}`)} size='small' className={classes.buttons} 
                         variant="contained" color={"primary"}>
