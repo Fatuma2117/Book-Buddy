@@ -100,6 +100,15 @@ function Book({ book }) {
                           + Pages Read
 
                         </Button>
+                        {/* <Button onClick={() => history.push(`/edit/${book.id}`)} size='small' className={classes.buttons} 
+                        variant="contained" color={"primary"}>
+                         Edit Book
+                        </Button> */}
+
+
+
+
+
 
                         </CardActions>
 
