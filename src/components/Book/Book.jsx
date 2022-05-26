@@ -18,6 +18,7 @@ function Book({ book }) {
 
     const classes = useStyles();
     const [completed,setCompleted]= useState(false)
+    const [pages,setPages]=useState(book.current_page)
 
     const handleDelete = () => {
         dispatch({
@@ -38,6 +39,10 @@ function Book({ book }) {
        history.push('/BookLog')
     } 
 
+    const handlePageNumber = () => {
+       setPages((prevValue)=> prevValue + 1)
+    
+    }
 
 
     // console.log(kid.id)
@@ -48,12 +53,12 @@ function Book({ book }) {
 
 
        
-        <Container maxWidth='md' className={classes.cardGrid} style={{marginTop: '100px'}}>
-            <Grid container spacing={4}  style={{
+        <Container maxWidth='lg' className={classes.cardGrid} style={{marginTop: '100px'}}>
+            {/* <Grid container spacing={4}  style={{ */}
           
-          backgroundColor: "#c6ff00",
+          {/* backgroundColor: "#ffff00", */}
            
-        }} >
+        {/* }} > */}
                 <Grid container item  md={4} alignItems='center' >
                     <Card  className={classes.Card}>
                         <CardMedia
@@ -71,7 +76,8 @@ function Book({ book }) {
                             
                             Points: {book.points} -
                             Total pages: {book.total_pages}
-
+                            Current Page: {book.current_page}
+                            {pages}
                         </Typography>
 
 
@@ -87,7 +93,12 @@ function Book({ book }) {
                         <Button onClick={handleCompleted} size='small' className={classes.buttons} 
                         variant="contained" color={completed ? "secondary" : "primary"}>
                           Completed ✓ 
-                          
+                        </Button>
+
+                        <Button onClick={handlePageNumber} size='small' className={classes.buttons} 
+                        variant="contained" color={"primary"}>
+                          + Pages Read
+
                         </Button>
 
                         </CardActions>
@@ -95,17 +106,9 @@ function Book({ book }) {
 
                     
 
-    
-                          
- 
-
-
-
-
-                   
                     </Card>
                 </Grid>
-            </Grid>
+            {/* </Grid> */}
         </Container>
     )
 }

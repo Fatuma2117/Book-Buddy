@@ -2,7 +2,7 @@ html,
 body,
 #react-root {
   height: 100%;
-  background-color: #00acb0;
+  background-color: rgb(140, 193, 243);
 }
 
 body {
