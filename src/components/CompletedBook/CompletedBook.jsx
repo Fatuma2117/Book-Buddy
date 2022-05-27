@@ -36,7 +36,8 @@ function CompletedBook({book}){
                             Publish Year: {book.publish_year} -
                             
                             Points: {book.points} -
-                            Total pages: {book.total_pages}
+                            Total pages: {book.total_pages} -
+                            Completed ✓
 
                         </Typography>
 
