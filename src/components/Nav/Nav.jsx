@@ -14,10 +14,23 @@ import Stack from '@mui/material/Stack';
 import { Container } from '@material-ui/core'
 import CollectionsBookmarkIcon from '@mui/icons-material/CollectionsBookmark';
 import { useHistory } from 'react-router-dom';
-
+import { createTheme, ThemeProvider } from "@material-ui/core";
+import Themes from '../Nav/navStyles'
 function Nav() {
   const user = useSelector((store) => store.user);
   const history = useHistory()
+
+ 
+
+  const theme = createTheme({
+  typography: {
+    fontFamily: ["Train One", "cursive"].join(","),
+  },
+});
+
+
+
+
 
 
   return (
@@ -30,13 +43,27 @@ function Nav() {
           >
             {/* <CollectionsBookmarkIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
 
+
+            <ThemeProvider theme={theme}>
+      <Typography>
+
+   
+
+
+
+
+
+
+
+
+
             <Typography
 
             >
               {/* <BookmarkIcon/> */}
               <div className="nav">
 
-                <Button >
+                <Button theme={theme}>
                   Book Tracker App
                 </Button>
                 <div>
@@ -66,13 +93,14 @@ function Nav() {
                         >
                           Kid List
                         </Button>
-                        <Button onClick={() => history.push("/BookList")} style={{ color: "#c6ff00"}} >
+                        <Button theme={theme} onClick={() => history.push("/BookList")} style={{ color: "#c6ff00"}} >
                           Book List
+                       
                         </Button>
                         <Button onClick={() => history.push("/BookForm")} style={{ color: "#c6ff00"}} >
                           Book Form
                         </Button>
-                        <Button onClick={() => history.push("/BookLog")}style={{ color: "#c6ff00"}}>
+                        <Button  onClick={() => history.push("/BookLog")}style={{ color: "#c6ff00"}}>
                           Book Log
                         </Button>
                         <LogOutButton />
@@ -87,6 +115,8 @@ function Nav() {
 
 
             </Typography>
+            </Typography>
+    </ThemeProvider>
           </Toolbar>
         </Container>
       </AppBar>

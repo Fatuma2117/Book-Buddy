@@ -14,6 +14,7 @@ import { Button } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import { yellow } from 'material-ui-colors';
 import Search from '../Search/Search';
+import { createTheme, ThemeProvider,Typography } from "@material-ui/core";
 
 
 function BookForm() {
@@ -34,7 +35,11 @@ function BookForm() {
 
   //     })
   // },[])
-
+  const theme = createTheme({
+    typography: {
+      fontFamily: ["Train One", "cursive"].join(","),
+    },
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -61,6 +66,11 @@ function BookForm() {
   }
 
   return (
+
+
+    <ThemeProvider theme={theme}>
+      <Typography>
+    
     <Stack
       component="form"
       sx={{
@@ -138,6 +148,8 @@ function BookForm() {
       <Button onClick={handleSubmit} size='small' variant="contained" style={{backgroundColor: yellow [500]}} >Add Book</Button>
       {/* </form> */}
      </Stack>
+     </Typography>
+    </ThemeProvider>
     
   );
 }

@@ -29,14 +29,15 @@ function CompletedBook({book}){
                         <CardContent size='small'
                         // className={classes.cardContent}
                         >
-                        <Typography gutterBottom variant='h5'>
+                        <Typography gutterBottom >
                             Title: {book.title} -
                             Author: {book.author} -
                             Description: {book.description} -
                             Publish Year: {book.publish_year} -
                             
                             Points: {book.points} -
-                            Total pages: {book.total_pages}
+                            Total pages: {book.total_pages} -
+                            Completed ✓
 
                         </Typography>
 

@@ -6,7 +6,7 @@ import { Typography } from '@material-ui/core';
 import { Container } from '@material-ui/core';
 import {Card, CardMedia, CardContent, CardActions} from '@material-ui/core'
 import { useHistory } from 'react-router-dom';
-
+import {Box} from '@material-ui/core'
 
 
 import useStyles from './styles'
@@ -40,7 +40,10 @@ function Book({ book }) {
     } 
 
     const handlePageNumber = () => {
-       setPages((prevValue)=> prevValue + 1)
+      dispatch({
+          type:'UPDATE_ONE_BOOK',
+          payload: book.id
+      })
     
     }
 
@@ -53,14 +56,11 @@ function Book({ book }) {
 
 
        
-        <Container maxWidth='lg' className={classes.cardGrid} style={{marginTop: '100px',
+        <Container maxWidth='md' className={classes.cardGrid} style={{marginTop: '100px',
         marginLeft: '100px'}}>
-            {/* <Grid container spacing={4}  style={{ */}
-          
-          {/* backgroundColor: "#ffff00", */}
-           
-        {/* }} > */}
-                <Grid container item  md={4} alignItems='center' >
+     
+                <Grid  item  xs={4}  >
+                    <Box sx={{width:'auto'}}>
                     <Card  className={classes.Card}>
                         <CardMedia
                         className={classes.cardMedia}
@@ -69,7 +69,7 @@ function Book({ book }) {
                         />
 
                         <CardContent size='small'className={classes.cardContent}>
-                        <Typography gutterBottom variant='h5'>
+                        <Typography gutterBottom >
                             Title: {book.title} -
                             Author: {book.author} -
                             Description: {book.description} -
@@ -78,7 +78,7 @@ function Book({ book }) {
                             Points: {book.points} -
                             Total pages: {book.total_pages}
                             Current Page: {book.current_page}
-                            {pages}
+                            {/* {pages} */}
                         </Typography>
 
 
@@ -92,14 +92,13 @@ function Book({ book }) {
                             Delete
                         </Button>
                         <Button onClick={handleCompleted} size='small' className={classes.buttons} 
-                        variant="contained" color={completed ? "secondary" : "primary"}>
+                        variant="contained" color={"secondary" }>
                           Completed ✓ 
                         </Button>
 
-                        <Button onClick={handlePageNumber} size='small' className={classes.buttons} 
+                        <Button onClick={() => history.push(`/edit/${book.id}`)}size='small' className={classes.buttons} 
                         variant="contained" color={"primary"}>
-                          + Pages Read
-
+                         Update Pages
                         </Button>
                         {/* <Button onClick={() => history.push(`/edit/${book.id}`)} size='small' className={classes.buttons} 
                         variant="contained" color={"primary"}>
@@ -117,6 +116,7 @@ function Book({ book }) {
                     
 
                     </Card>
+                    </Box>
                 </Grid>
             {/* </Grid> */}
         </Container>

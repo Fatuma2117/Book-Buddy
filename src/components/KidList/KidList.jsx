@@ -1,10 +1,15 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Kid from '../Kid/Kid';
+import { useHistory } from 'react-router-dom';
+
 // MUI----------------------------------------
 import {CssBaseline} from '@material-ui/core';
 import {container} from '@material-ui/core'
 import {Typography} from '@material-ui/core'
+import { yellow } from 'material-ui-colors';
+import { Button } from '@material-ui/core';
+import { createTheme, ThemeProvider } from "@material-ui/core";
 
 
 function KidList(){
@@ -15,10 +20,17 @@ function KidList(){
             type:'FETCH_KIDS'
         })
     },[])
+    const theme = createTheme({
+        typography: {
+          fontFamily: ["Train One", "cursive"].join(","),
+        },
+      });
+    const history = useHistory()
 
     return(
         <>
-        
+             <ThemeProvider theme={theme}>
+      <Typography>
          
         <div>
             <CssBaseline/>
@@ -26,7 +38,7 @@ function KidList(){
     {/* <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
                    Kid Profile
             </Typography> */}
-            <Typography variant="h3" align="center" color="textSecondary" gutterBottom>
+            <Typography  variant="h3"align="center" color="textSecondary" gutterBottom>
                    Choose Your Name
             </Typography>
 
@@ -37,8 +49,11 @@ function KidList(){
                         <Kid key={kid.id} kid={kid} />
                     );
                 })}
+ <Button onClick={() => history.push("/ParentBookList")}align="center" size='small' variant="contained" style={{backgroundColor: yellow [500]}} >Parent Portal</Button>
 
         </div>
+        </Typography>
+    </ThemeProvider>
         </>
     )
 };

@@ -8,7 +8,8 @@ import { useHistory } from 'react-router-dom';
 import Book from '../Book/Book'
 import Kid from '../Kid/Kid';
 import { Typography } from '@material-ui/core'
-
+import {Grid} from '@material-ui/core'
+import { createTheme, ThemeProvider } from "@material-ui/core";
 
 function BookList() {
     // const history = useHistory();
@@ -24,23 +25,34 @@ function BookList() {
         })
     }, [])
 
+    const theme = createTheme({
+        typography: {
+          fontFamily: ["Train One", "cursive"].join(","),
+        },
+      });
+
+
+
+
     return (
 
 
      <div>
-
+    <ThemeProvider theme={theme}>
+      <Typography>
             <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
                 Book List
             </Typography>
-
+<Grid container spacing={4}>
             {books.map(book => {
                 return (
                     <Book key={book.id} book={book} />
                 );
             })}
-            {/* <BookItem/> */}
-            {/* {kids.name} */}
-        {/* // </div> */}
+       
+        </Grid>
+        </Typography>
+    </ThemeProvider>
        </div>
     )
 };

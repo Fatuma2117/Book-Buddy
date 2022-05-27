@@ -30,7 +30,7 @@ import KidList from '../KidList/KidList';
 import Kid from '../Kid/Kid';
 import UpdateForm from '../UpdateForm/UpdateForm';
 import './App.css';
-
+import Theme from '../Nav/navStyles'
 function App() {
   const dispatch = useDispatch();
 
@@ -93,10 +93,12 @@ function App() {
 
           </ProtectedRoute>
 
-          {/* <ProtectedRoute exact path="/edit/:id">
+          <ProtectedRoute exact path="/edit/:id">
           <UpdateForm />
-        </ProtectedRoute> */}
-
+        </ProtectedRoute>
+        <ProtectedRoute exact path="/ParentBookList">
+          <ParentBookList />
+        </ProtectedRoute>
 
 
 

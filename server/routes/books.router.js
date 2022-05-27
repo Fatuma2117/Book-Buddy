@@ -5,16 +5,16 @@ const pool = require('../modules/pool');
 const { rejectUnauthenticated} = require('../modules/authentication-middleware');
 
 
-
+/////BookList
 router.get('/', rejectUnauthenticated, (req, res) => {
   // console.log('req.user', req.user)
   // console.log('line 11--->',req.headers.currentkidid)
   const sqlQuery = `
   SELECT * FROM books
-  WHERE kid_id=$1
+  WHERE kid_id=$1 AND completed=$2
   ;
   `
-  const sqlValues = [req.headers.currentkidid];
+  const sqlValues = [req.headers.currentkidid, false];
   pool.query(sqlQuery, sqlValues)
     .then((dbRes) => {
       res.send(dbRes.rows);
@@ -25,12 +25,13 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     })
 });
 
+///////BookLog
 router.get('/', rejectUnauthenticated, (req, res) => {
   // console.log('req.user', req.user)
   // console.log('line 11--->',req.headers.currentkidid)
   const sqlQuery = `
   SELECT * FROM books
-  WHERE kid_id=$1 AND completed = $2
+  WHERE kid_id=$1 AND completed=$2
   ;
   `
   const sqlValues = [
@@ -49,9 +50,33 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 
 
+///// ParentBookLIst
+router.get('/', rejectUnauthenticated, (req, res) => {
+console.log('userId',req.user)
+// console.log('currentKidId', req.headers.currentkidid)
+  const sqlQuery = `
+  SELECT *  FROM books 
+  WHERE user_id=$1 a;
+  ;
+  `
+  const sqlValues = [ 
+    req.user
+   
+  ];
+  pool.query(sqlQuery, sqlValues)
+    .then((dbRes) => {
+      res.send(dbRes.rows);
+    })
+    .catch((dbErr) => {
+      console.log('ERROR in GET/PARENT', dbErr);
+      res.sendStatus(500);
+    })
+});
+/////BookForm
+
 router.post('/',rejectUnauthenticated, (req, res) => {
-console.log(req.headers.currentkidid)
-console.log(req.body)
+// console.log(req.headers.currentkidid)
+// console.log(req.body)
     const sqlQuery = `
     INSERT into "books"
     (title, author, publish_year,description,image_url,total_pages,kid_id,current_page,completed)
@@ -72,10 +97,35 @@ console.log(req.body)
     ]
     pool.query(sqlQuery, sqlValues)
       .then((dbRes) => {
-        console.log(dbRes.rows)
+        // console.log(dbRes.rows)
       })
   }
 )
+
+// BookLog
+router.put('/:id', (req, res) => {
+  // console.log(req.body)
+  const sqlQuery = `
+    UPDATE "books" 
+      SET 
+        completed = $1
+      WHERE id = $2 AND kid_id=$3;
+  `;
+  const sqlValues = [ 
+    true,
+    req.params.id,
+    req.headers.currentkidid
+     ]
+  
+  pool.query(sqlQuery, sqlValues)
+    .then((dbRes) => {
+      res.sendStatus(200);
+    })
+    .catch((dbErr) => {
+      console.log('UPDATE database error', dbErr);
+      res.sendStatus(500);
+    });
+});
 
 router.put('/:id', (req, res) => {
   console.log(req.body)
@@ -100,8 +150,6 @@ router.put('/:id', (req, res) => {
       res.sendStatus(500);
     });
 });
-
-
 
 
 
