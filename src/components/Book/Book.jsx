@@ -69,7 +69,7 @@ function Book({ book }) {
                         />
 
                         <CardContent size='small'className={classes.cardContent}>
-                        <Typography gutterBottom variant='h5'>
+                        <Typography gutterBottom >
                             Title: {book.title} -
                             Author: {book.author} -
                             Description: {book.description} -
@@ -78,7 +78,7 @@ function Book({ book }) {
                             Points: {book.points} -
                             Total pages: {book.total_pages}
                             Current Page: {book.current_page}
-                            {pages}
+                            {/* {pages} */}
                         </Typography>
 
 
@@ -92,7 +92,7 @@ function Book({ book }) {
                             Delete
                         </Button>
                         <Button onClick={handleCompleted} size='small' className={classes.buttons} 
-                        variant="contained" color={completed ? "secondary" : "primary"}>
+                        variant="contained" color={"secondary" }>
                           Completed ✓ 
                         </Button>
 

@@ -29,7 +29,7 @@ function CompletedBook({book}){
                         <CardContent size='small'
                         // className={classes.cardContent}
                         >
-                        <Typography gutterBottom variant='h5'>
+                        <Typography gutterBottom >
                             Title: {book.title} -
                             Author: {book.author} -
                             Description: {book.description} -

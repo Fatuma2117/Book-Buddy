@@ -30,7 +30,7 @@ import KidList from '../KidList/KidList';
 import Kid from '../Kid/Kid';
 import UpdateForm from '../UpdateForm/UpdateForm';
 import './App.css';
-
+import Theme from '../Nav/navStyles'
 function App() {
   const dispatch = useDispatch();
 

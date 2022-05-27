@@ -11,10 +11,10 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   // console.log('line 11--->',req.headers.currentkidid)
   const sqlQuery = `
   SELECT * FROM books
-  WHERE kid_id=$1
+  WHERE kid_id=$1  completed=$2
   ;
   `
-  const sqlValues = [req.headers.currentkidid];
+  const sqlValues = [req.headers.currentkidid, false];
   pool.query(sqlQuery, sqlValues)
     .then((dbRes) => {
       res.send(dbRes.rows);

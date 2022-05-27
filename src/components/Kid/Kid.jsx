@@ -14,19 +14,23 @@ function Kid({kid}){
     }
 // console.log(kid.id)
     return(
-        <>
+       
+       <>
+       <div onClick={handleKidClick}>
         <CssBaseline/>
         <Container maxWidth="sm">
-          <div onClick={handleKidClick}>
+          
            
-            <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
+            <Typography variant="h3" align="center" color="textPrimary" gutterBottom>
                    {kid.name}
             </Typography>
             
-        </div>
+       
         
         </Container>
-        </>
+        </div>
+        </> 
+        
       
     )
 }

@@ -9,6 +9,7 @@ import Book from '../Book/Book'
 import Kid from '../Kid/Kid';
 import { Typography } from '@material-ui/core'
 import {Grid} from '@material-ui/core'
+import { createTheme, ThemeProvider } from "@material-ui/core";
 
 function BookList() {
     // const history = useHistory();
@@ -24,11 +25,21 @@ function BookList() {
         })
     }, [])
 
+    const theme = createTheme({
+        typography: {
+          fontFamily: ["Train One", "cursive"].join(","),
+        },
+      });
+
+
+
+
     return (
 
 
      <div>
-
+    <ThemeProvider theme={theme}>
+      <Typography>
             <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
                 Book List
             </Typography>
@@ -40,6 +51,8 @@ function BookList() {
             })}
        
         </Grid>
+        </Typography>
+    </ThemeProvider>
        </div>
     )
 };
