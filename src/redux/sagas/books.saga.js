@@ -57,6 +57,23 @@ function* fetchParent() {
   }
 
 }
+// function* fetchPoints() {
+//   const currentKidId = localStorage.getItem('current_kid_id')
+  
+//   try {
+//     const response = yield axios({
+//       method: 'GET',
+//       url: `/books`,
+//       headers: { currentKidId }
+//     });
+//     console.log('GET SUM POINTS----->:', response.data);
+//     yield put({ type: 'SET_POINTS', payload: response.data });
+
+//   } catch {
+//     console.log('GET/POINTS error');
+//   }
+
+// }
 
 
 
@@ -136,7 +153,8 @@ function* booksSaga() {
   yield takeLatest('COMPLETED_BOOK', completeBook);
   yield takeLatest('FETCH_COMPLETED_BOOKS',fetchCompleted);
   yield takeLatest('UPDATE_ONE_BOOK',updateBooks);
-  yield takeLatest('FETCH_PARENT',fetchParent)
+  yield takeLatest('FETCH_PARENT',fetchParent);
+  yield takeLatest('FETCH_POINTS',fetchPoints);
 
 };
 

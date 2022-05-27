@@ -93,6 +93,19 @@ function App() {
 
           </ProtectedRoute>
 
+          <ProtectedRoute
+            exact
+            path="/KidProfile"
+          >
+            <KidProfile/>
+
+          </ProtectedRoute>
+
+
+
+
+
+
           <ProtectedRoute exact path="/edit/:id">
           <UpdateForm />
         </ProtectedRoute>
