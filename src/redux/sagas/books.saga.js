@@ -40,7 +40,7 @@ function* fetchCompleted() {
 }
 
 
-function* fetchCompleted() {
+function* fetchParent() {
   const currentKidId = localStorage.getItem('current_kid_id')
   
   try {
@@ -50,25 +50,13 @@ function* fetchCompleted() {
       headers: { currentKidId }
     });
     console.log('GET all Books for parents:', response.data);
-    yield put({ type: 'SET_COMPLETED_BOOKS', payload: response.data });
+    yield put({ type: 'SET_PARENT_BOOKS', payload: response.data });
 
   } catch {
-    console.log('GET/COMPLETED books error');
+    console.log('GET/PARENT books error');
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
