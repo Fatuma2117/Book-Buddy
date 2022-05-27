@@ -56,7 +56,7 @@ function Book({ book }) {
 
 
        
-        <Container maxWidth='lg' className={classes.cardGrid} style={{marginTop: '100px',
+        <Container maxWidth='md' className={classes.cardGrid} style={{marginTop: '100px',
         marginLeft: '100px'}}>
      
                 <Grid  item  xs={4}  >
