@@ -60,6 +60,7 @@ function* fetchParent() {
 
 
 
+
 function* createBooks(action) {
   const currentKidId = localStorage.getItem('current_kid_id')
   try {
@@ -136,7 +137,7 @@ function* booksSaga() {
   yield takeLatest('COMPLETED_BOOK', completeBook);
   yield takeLatest('FETCH_COMPLETED_BOOKS',fetchCompleted);
   yield takeLatest('UPDATE_ONE_BOOK',updateBooks);
-  yield takeLatest('FETCH_PARENT',fetchParent)
+  yield takeLatest('FETCH_PARENT',fetchParent);
 
 };
 

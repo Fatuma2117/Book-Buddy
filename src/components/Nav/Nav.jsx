@@ -64,7 +64,8 @@ function Nav() {
               <div className="nav">
 
                 <Button theme={theme}>
-                  Book Tracker App
+                  Book Buddy -
+                  Tracker App
                 </Button>
                 <div>
                   {/* If no user is logged in, show these links */}
@@ -102,6 +103,9 @@ function Nav() {
                         </Button>
                         <Button  onClick={() => history.push("/BookLog")}style={{ color: "#c6ff00"}}>
                           Book Log
+                        </Button>
+                        <Button  onClick={() => history.push("/KidProfile")}style={{ color: "#c6ff00"}}>
+                          Kid Profile
                         </Button>
                         <LogOutButton />
                       </Stack>
