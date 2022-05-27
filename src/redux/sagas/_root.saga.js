@@ -19,7 +19,7 @@ export default function* rootSaga() {
     userSaga(),
     booksSaga(),
     kidSaga(),
-    pointsSaga
+    pointsSaga()
     
   ]);
 }

@@ -7,6 +7,8 @@ import { Typography } from '@material-ui/core'
 import {Grid} from '@material-ui/core';
 import {Box} from '@material-ui/core'
 import { Container } from '@material-ui/core';
+import { createTheme, ThemeProvider } from "@material-ui/core";
+
 
 import {Card, CardMedia, CardContent, CardActions} from '@material-ui/core'
 
@@ -20,10 +22,16 @@ function KidProfile(){
 
         })
     }, [])
-
+    const theme = createTheme({
+        typography: {
+          fontFamily: ["Train One", "cursive"].join(","),
+        },
+      });
     return(
         <div>
-
+               <ThemeProvider theme={theme}>
+      <Typography>
+<Typography gutterBottom >
     
         <h1>Kid Profile</h1>
       
@@ -33,18 +41,18 @@ function KidProfile(){
                 return(
                    <>  
               
-   Total Points: {point.points} 
+   Total Book Points: {point.sum}
   </>
                     
-                 
-                    
-                    
+                         
 
                 )}) }
 
      
 
-     
+</Typography>
+</Typography>
+    </ThemeProvider>
          </div>
     )
 };

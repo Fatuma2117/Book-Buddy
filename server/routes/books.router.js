@@ -74,27 +74,7 @@ console.log('userId',req.user)
 });
 
 
-//////POINTS
-router.get('/', rejectUnauthenticated, (req, res) => {
-  // console.log('userId',req.user)
-    const sqlQuery = `
-    SELECT sum(books.points)
-    FROM books 
-    WHERE kid_id=$1;
-    `
-    const sqlValues = [ 
-      req.headers.currentkidid,
 
-    ];
-    pool.query(sqlQuery, sqlValues)
-      .then((dbRes) => {
-        res.send(dbRes.rows);
-      })
-      .catch((dbErr) => {
-        console.log('ERROR in GET/PARENT', dbErr);
-        res.sendStatus(500);
-      })
-  });
 /////BookForm
 
 router.post('/',rejectUnauthenticated, (req, res) => {
