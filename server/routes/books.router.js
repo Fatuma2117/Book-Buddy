@@ -72,6 +72,7 @@ console.log('userId',req.user)
       res.sendStatus(500);
     })
 });
+/////BookForm
 
 router.post('/',rejectUnauthenticated, (req, res) => {
 // console.log(req.headers.currentkidid)
@@ -101,6 +102,7 @@ router.post('/',rejectUnauthenticated, (req, res) => {
   }
 )
 
+// BookLog
 router.put('/:id', (req, res) => {
   // console.log(req.body)
   const sqlQuery = `

@@ -19,12 +19,21 @@ console.log('parentBooks',parentBooks)
         <h1>Parent Book List</h1>
         <Grid container spacing={4}>
 
-            {parentBooks &&
+            {
             parentBooks.map(book =>{
                 console.log('parent book',book)
                 return(
-                    <></>
-                //    {book.title}
+                    <div>
+                    Title: {book.title} -
+                    Author: {book.author} -
+                    Description: {book.description} -
+                    Publish Year: {book.publish_year} -
+                    
+                    Points: {book.points} -
+                    Total pages: {book.total_pages}
+                    Current Page: {book.current_page}
+                 </div>
+
                 )}) }
 
         </Grid>
