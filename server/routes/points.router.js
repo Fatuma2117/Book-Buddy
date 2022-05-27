@@ -6,14 +6,14 @@ const { rejectUnauthenticated} = require('../modules/authentication-middleware')
 
 //////POINTS
 router.get('/', rejectUnauthenticated, (req, res) => {
-    // console.log('userId',req.user)
+    console.log('points----->',req.user)
       const sqlQuery = `
       SELECT sum(books.points)
       FROM books 
       WHERE kid_id=$1;
       `
       const sqlValues = [ 
-        req.headers.currentkidid,
+        req.headers.currentkidid
   
       ];
       pool.query(sqlQuery, sqlValues)
@@ -21,7 +21,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
           res.send(dbRes.rows);
         })
         .catch((dbErr) => {
-          console.log('ERROR in GET/PARENT', dbErr);
+          console.log('ERROR in GET/POINTS', dbErr);
           res.sendStatus(500);
         })
     });

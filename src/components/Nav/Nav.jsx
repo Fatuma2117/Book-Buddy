@@ -64,7 +64,8 @@ function Nav() {
               <div className="nav">
 
                 <Button theme={theme}>
-                  Book Tracker App
+                  Book Buddy -
+                  Tracker App
                 </Button>
                 <div>
                   {/* If no user is logged in, show these links */}

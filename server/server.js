@@ -31,7 +31,7 @@ app.use('/api/user', userRouter);
 app.use('/books', booksRouter);
 app.use('/kids', kidsRouter);
 app.use('/completed', completedRouter);
-app.use('/points',pointsRouter)
+app.use('/points', pointsRouter)
 
 
 

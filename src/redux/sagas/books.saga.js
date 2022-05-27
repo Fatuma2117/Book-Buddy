@@ -154,7 +154,7 @@ function* booksSaga() {
   yield takeLatest('FETCH_COMPLETED_BOOKS',fetchCompleted);
   yield takeLatest('UPDATE_ONE_BOOK',updateBooks);
   yield takeLatest('FETCH_PARENT',fetchParent);
-  yield takeLatest('FETCH_POINTS',fetchPoints);
+  // yield takeLatest('FETCH_POINTS',fetchPoints);
 
 };
 
