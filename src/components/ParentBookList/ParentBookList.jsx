@@ -29,6 +29,7 @@ console.log('parentBooks',parentBooks)
             parentBooks.map(book =>{
                 // console.log('parent book',book)
                 return(
+                    
                 <Card style={{
                     height: '100%',
                     display: 'flex',
@@ -36,7 +37,7 @@ console.log('parentBooks',parentBooks)
                    marginTop: '40px',
                    backgroundColor: "palegreen"
                 }}>
-                       
+                       key={book.id}
                     <CardContent >
                     <Box sx={{width:'auto'}}>
                         <Typography>
