@@ -52,12 +52,13 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 ///// ParentBookLIst
 router.get('/', rejectUnauthenticated, (req, res) => {
-console.log('userId',req.user)
+// console.log('userId',req.user)
 // console.log('currentKidId', req.headers.currentkidid)
   const sqlQuery = `
-  SELECT *  FROM books 
-  WHERE user_id=$1
-  ;
+  SELECT kids.name, books
+  FROM books 
+  JOIN kids ON books.kid_id = kids.id
+  WHERE  kids.user_id=$1;
   `
   const sqlValues = [ 
     req.user
@@ -65,7 +66,8 @@ console.log('userId',req.user)
   ];
   pool.query(sqlQuery, sqlValues)
     .then((dbRes) => {
-      res.send(dbRes.rows);
+      // res.send(dbRes.rows);
+      console.log('parentBook response ************',dbRes)
     })
     .catch((dbErr) => {
       console.log('ERROR in GET/PARENT', dbErr);

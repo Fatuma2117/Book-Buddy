@@ -46,7 +46,7 @@ function* fetchParent() {
   try {
     const response = yield axios({
       method: 'GET',
-      url: `/books`,
+      url: `/parent`,
       headers: { currentKidId }
     });
     console.log('GET all Books for parents:', response.data);
