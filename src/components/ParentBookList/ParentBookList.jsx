@@ -19,6 +19,15 @@ function ParentBookList(){
     const dispatch = useDispatch();
     const parentBooks = useSelector(store => store.parentBooks)
 console.log('parentBooks----------------->',parentBooks)
+
+const bull = (
+    <Box
+      component="span"
+      sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
+    >
+      •
+    </Box>
+  );
     return(
         <div>
         <h1>Parent Book List</h1>
@@ -30,29 +39,18 @@ console.log('parentBooks----------------->',parentBooks)
                 // console.log('parent loop book',book)
                 return(
                   
-                <Card style={{
-                    height: '100%',
-                    display: 'flex',
-                   flexGrow: 1,
-                   marginTop: '40px',
-                   backgroundColor: "palegreen"
-                }}>
+                <Card sx={{ minWidth: 275, marginTop:'30'}}>
                       
-                    <CardContent >
-                    <Box sx={{width:'auto'}}>
-                        <Typography>
-                    Kid: {book.name }----
-                    Title: {book.title} -
-                    Author: {book.author} -
-                    Description: {book.description} -
-                    Publish Year: {book.publish_year} -
+                      <CardContent>
                     
-                    Points: {book.points} -
-                    Total pages: {book.total_pages}
-                    Current Page: {book.current_page}
+                      <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                    Kid: {book.name }----
+                    Book: {book.title} --
+                    Current Page:{book.current_page}
+               
                     </Typography>
-               </Box>
-                </CardContent> 
+                    </CardContent>
+ 
 </Card>
 
                 )}) }

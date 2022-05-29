@@ -59,8 +59,6 @@ function* fetchParent() {
 }
 
 
-
-
 function* createBooks(action) {
   const currentKidId = localStorage.getItem('current_kid_id')
   try {
