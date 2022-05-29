@@ -44,7 +44,7 @@ const handleSubmit=()=>{
      width: '100%',
    }}
    spacing={2}
-   // noValidate
+   noValidate
    autoComplete="off"
    onSubmit={handleSubmit}
  >
@@ -53,10 +53,15 @@ const handleSubmit=()=>{
         id="filled-label-normal"
         // defaultValue="Normal"
         variant="filled"
-        label={'Title'} margin="normal"
+        margin="normal"
         // placeholder=" Title"
         value={editBook.title}
-        onChange={(e) => { setTitle(e.target.value) }} 
+        onChange={(e) => { 
+          dispatch({
+            type: 'EDIT_TITLE',
+            payload: e.target.value 
+          })
+        }} 
         />
 
 <TextField
@@ -64,10 +69,15 @@ const handleSubmit=()=>{
         id="filled-hidden-label-normal"
         // defaultValue="Normal"
         variant="filled"
-        label={'Author'} margin="normal"
+         margin="normal"
         // placeholder="Author"
         value={editBook.author}
-        onChange={(e) => { setAuthor(e.target.value) }} 
+        onChange={(e) => { 
+          dispatch({
+            type: 'EDIT_AUTHOR',
+            payload: e.target.value 
+          })
+        }} 
         />
 
 
@@ -77,11 +87,16 @@ hiddenLabel
 id="filled-hidden-label-normal"
 // defaultValue="Normal"
 variant="filled" margin="normal"
-label={'Description'}
+// label={'Description'}
 
 placeholder="Description"
 value={editBook.description}
-onChange={(e) => { setDescription(e.target.value) }} 
+onChange={(e) => { 
+  dispatch({
+    type: 'EDIT_DESCRIPTION',
+    payload: e.target.value 
+  })
+}} 
 />
 
 <TextField
@@ -89,10 +104,15 @@ onChange={(e) => { setDescription(e.target.value) }}
         id="filled-hidden-label-normal"
         //  defaultValue="Normal"
         variant="filled" margin="normal"
-        label={'Year'}
+        // label={'Year'}
         // placeholder="Year"
         value={editBook.publish_year}
-        onChange={(e) => { setPublish_year(e.target.value) }} 
+        onChange={(e) => { 
+          dispatch({
+            type: 'EDIT_PUBLISH_YEAR',
+            payload: e.target.value 
+          })
+        }}  
         />
 
 <TextField
@@ -100,20 +120,31 @@ onChange={(e) => { setDescription(e.target.value) }}
         id="filled-hidden-label-normal"
         // defaultValue="Normal"
         variant="filled" margin="normal"
-        label={'Image'}
+        // label={'Image'}
         // placeholder="Image"
         value={editBook.image_url}
-        onChange={(e) => { setImage_Url(e.target.value) }} />
+        onChange={(e) => { 
+          dispatch({
+            type: 'EDIT_IMAGE_URL',
+            payload: e.target.value 
+          })
+        }} />
 
 <TextField
         hiddenLabel
         id="filled-hidden-label-normal"
         // defaultValue="Normal"
         variant="filled" margin="normal"
-        label={'Total Pages'}
+        // label={'Total Pages'}
         // placeholder="Total Pages"
         value={editBook.total_pages}
-        onChange={(e) => { setTotal_Pages(e.target.value) }} />
+        onChange={(e) => { 
+          dispatch({
+            type: 'EDIT_TOTAL_PAGE',
+            payload: e.target.value 
+          })
+        }} 
+        />
 
 
 
@@ -127,9 +158,14 @@ onChange={(e) => { setDescription(e.target.value) }}
         // label={'Add Current Page'}
         placeholder="Add Current Page"
         value={editBook.current_page}
-        // onChange={(e) => { setTotal_Pages(e.target.value) }} 
+        onChange={(e) => { 
+          dispatch({
+            type: 'EDIT_CURRENT_PAGE',
+            payload: e.target.value 
+          })
+        }} 
         />
-        <Button size='small' variant="contained" style={{backgroundColor: yellow [500]}} >Add Current Page</Button>
+        <Button onClick={handleSubmit}size='small' variant="contained" style={{backgroundColor: yellow [500]}} >Add Current Page</Button>
 
 
 </Stack>

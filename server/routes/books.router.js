@@ -155,14 +155,6 @@ router.put('/:id', (req, res) => {
 });
 
 
-
-
-
-
-
-
-
-
 router.delete( '/:id', ( req, res )=>{
   console.log( 'book id to delete', req.params.id );
   const sqlQuery = `DELETE FROM "books" 
