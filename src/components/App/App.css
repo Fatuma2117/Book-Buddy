@@ -2,9 +2,9 @@ html,
 body,
 #react-root {
   height: 100%;
-  background-color: rgb(140, 193, 243);
+  background-color: rgb(85, 199, 203);
 }
-
+/*   rgb(196, 219, 240) */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0px;
