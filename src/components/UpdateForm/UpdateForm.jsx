@@ -13,9 +13,10 @@ import { yellow } from 'material-ui-colors';
 function UpdateForm(){
     useEffect(() => {
         dispatch({
-          type: 'FETCH_ONE_BOOK',
+          type: 'EDIT_ONE_BOOK',
           payload: bookId
         })
+        console.log(bookId)
       }, [])
 
       const dispatch = useDispatch();

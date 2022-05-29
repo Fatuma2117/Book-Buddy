@@ -98,7 +98,7 @@ function Book({ book }) {
 
                         <Button onClick={() => history.push(`/edit/${book.id}`)}size='small' className={classes.buttons} 
                         variant="contained" color={"primary"}>
-                         Update Pages
+                         Edit 
                         </Button>
                         {/* <Button onClick={() => history.push(`/edit/${book.id}`)} size='small' className={classes.buttons} 
                         variant="contained" color={"primary"}>
