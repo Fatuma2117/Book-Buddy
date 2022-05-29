@@ -56,7 +56,7 @@ console.log('userId',req.user)
 // console.log('currentKidId', req.headers.currentkidid)
   const sqlQuery = `
   SELECT *  FROM books 
-  WHERE user_id=$1 a;
+  WHERE user_id=$1
   ;
   `
   const sqlValues = [ 
@@ -153,20 +153,6 @@ router.put('/:id', (req, res) => {
       res.sendStatus(500);
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 router.delete( '/:id', ( req, res )=>{

@@ -41,7 +41,8 @@ function KidProfile(){
                 return(
                    <>  
               
-   Total Book Points: {point.sum}
+   Total Book Points: {point.sum} ------
+   [insert progress graph here]
   </>
                     
                          
