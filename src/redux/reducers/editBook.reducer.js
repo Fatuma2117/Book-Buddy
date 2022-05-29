@@ -1,4 +1,4 @@
-const editBooks = (state = {}, action) => {
+const editBook = (state = {}, action) => {
     if (action.type === 'SET_EDIT_BOOKS') {
       return action.payload;
     } else if (action.type === 'EDIT_GITHUB_USERNAME') {
@@ -19,4 +19,4 @@ const editBooks = (state = {}, action) => {
     return state;
   }
 
-export default editBooks;
+export default editBook;

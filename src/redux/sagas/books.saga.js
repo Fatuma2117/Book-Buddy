@@ -111,19 +111,19 @@ function* completeBook(action) {
   }
 }
 
-function* editBooks(action) {
+function* editBook(action) {
   const currentKidId = localStorage.getItem('current_kid_id')
   try {
     const response = yield axios({
-      method: 'PUT',
-      url: `/books/${action.payload}`,
+      method: 'GET',
+      url: `/edit/${action.payload}`,
       headers: { currentKidId }
     })
     yield put({
       type: 'SET_EDIT_BOOKS', payload: response.data
     })
   } catch {
-    console.log('ERROR/UPDATED Books');
+    console.log('ERROR/EDIT Books');
   }
 }
 
@@ -136,7 +136,7 @@ function* booksSaga() {
   yield takeLatest('DELETE_BOOKS', deleteBooks);
   yield takeLatest('COMPLETED_BOOK', completeBook);
   yield takeLatest('FETCH_COMPLETED_BOOKS',fetchCompleted);
-  yield takeLatest('EDIT_ONE_BOOK',editBooks);
+  yield takeLatest('EDIT_ONE_BOOK',editBook);
   yield takeLatest('FETCH_PARENT',fetchParent);
 
 };
