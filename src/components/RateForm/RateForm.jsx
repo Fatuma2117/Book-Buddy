@@ -17,17 +17,15 @@ function RateForm(){
     const history = useHistory();
     const params = useParams();
 
-    console.log(params)
+    console.log('params------->',params.id)
 
     const [rating, setRating] = useState("");
-    const books = useSelector((store) => store.books);
+   
 
-    console.log('this***********************',books.books)
-
-    const handleSubmit = ()=>{
+    const handleSubmit = (e)=>{
         e.preventDefault();
         dispatch({
-            type:'ADD_RATING',
+            type:'RATE_BOOK',
             payload: {rating, book: params.id}
         })
         setRating('')

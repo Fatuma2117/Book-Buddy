@@ -53,11 +53,11 @@ function Book({ book }) {
             payload: book.id
 
         })
-        dispatch({
-          type: 'RATE_BOOK',
-          payload: book.id
+      //   dispatch({
+      //     type: 'RATE_BOOK',
+      //     payload: book.id
 
-      })
+      // })
        setCompleted(!completed)
        history.push(`/RateForm/${book.id}`)
     } 

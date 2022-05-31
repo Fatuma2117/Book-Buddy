@@ -172,10 +172,12 @@ function* createParentBook(action) {
 
 function* rateBook(action) {
   const currentKidId = localStorage.getItem('current_kid_id')
+  console.log('rateBook action.payload', action.payload.id)
+   const rating = action.payload
   try {
     const response = yield axios({
       method: 'PUT',
-      url: '/rate',
+      url: `/rate/${rating.id}`,
       headers: { currentKidId },
       data: action.payload
     })

@@ -10,7 +10,7 @@ const {
 
 router.put("/:id",  rejectUnauthenticated,
 (req, res) => {
-    // console.log(req.body)
+    console.log(req.body.rating)
     const sqlQuery = `
     UPDATE "books" 
     SET rate = $1
