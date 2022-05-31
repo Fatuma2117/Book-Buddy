@@ -6,6 +6,7 @@ import { Grid } from "@material-ui/core";
 import { Box } from "@material-ui/core";
 import { Container } from "@material-ui/core";
 import { Button } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 
 import { Card, CardMedia, CardContent, CardActions } from "@material-ui/core";
 
@@ -15,6 +16,8 @@ function ParentBookList() {
       type: "FETCH_PARENT",
     });
   }, []);
+  const history = useHistory();
+
   const dispatch = useDispatch();
   const parentBooks = useSelector((store) => store.parentBooks);
   console.log("parentBooks----------------->", parentBooks);
@@ -52,9 +55,9 @@ function ParentBookList() {
         <Typography>
           <Button
             size="large"
-            style={{ backgroundColor: "#c6ff00" }}
             variant="contained"
             color={"primary"}
+            onClick={() => history.push("/ParentBookForm")}
           >
             ADD NEW BOOK
           </Button>

@@ -14,6 +14,8 @@ import { useHistory } from "react-router-dom";
 import { yellow } from "material-ui-colors";
 import Search from "../Search/Search";
 import { createTheme, ThemeProvider, Typography } from "@material-ui/core";
+import swal from 'sweetalert';
+
 
 function BookForm() {
   const [title, setTitle] = useState("");
@@ -59,6 +61,14 @@ function BookForm() {
     setImage_Url("");
     setTotal_Pages("");
 
+    // history.push("/BookList");
+    swal({
+      title: "Good job!",
+      text: "You added a new book!",
+      icon: "success",
+      button: "Done!",
+      
+    });
     history.push("/BookList");
   };
 
