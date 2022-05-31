@@ -28,11 +28,12 @@ function Book({ book }) {
 
         })
         swal({
-            title: "Are you sure?",
-            text: "Delete book!",
+            title: "DELETE BOOK",
+            text: "Are you sure?",
             icon: "warning",
             buttons: true,
             dangerMode: true,
+
           })
           .then((willDelete) => {
             if (willDelete) {
