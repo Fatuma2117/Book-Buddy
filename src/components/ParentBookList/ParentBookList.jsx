@@ -9,6 +9,9 @@ import { Button } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 
 import { Card, CardMedia, CardContent, CardActions } from "@material-ui/core";
+import { createTheme, ThemeProvider } from "@material-ui/core";
+
+
 
 function ParentBookList() {
   useEffect(() => {
@@ -22,33 +25,40 @@ function ParentBookList() {
   const parentBooks = useSelector((store) => store.parentBooks);
   console.log("parentBooks----------------->", parentBooks);
 
-  const bull = (
-    <Box
-      component="span"
-      sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-    >
-      •
-    </Box>
-  );
+  const theme = createTheme({
+    typography: {
+      fontFamily: ["Train One", "cursive"].join(","),
+    },
+  });
+ 
+
   return (
     <div>
       <h1>Parent Book List</h1>
-      <Grid container spacing={4}>
+      <ThemeProvider theme={theme} >
+      <Container maxWidth='100px'style={{marginTop: '100px'}}>
+      <Grid container spacing={4}  >
+                <Grid item   style={{
+          
+         backgroundColor: "#ffff00",
+          
+       }}>
+          <Card  height= '100px' maxWidth='800px'>
+
         {parentBooks.map((book) => {
           // console.log('parent loop book',book)
           return (
-            <Card sx={{ minWidth: 275 }}>
-              <CardContent>
+           
+              
                 <Typography
-                  sx={{ fontSize: 14 }}
+                  sx={{ fontSize: 22 }}
                   color="text.secondary"
                   gutterBottom
                 >
-                  Kid: {book.name}---- Book: {book.title} -- Current Page:
+                  Name: {book.name}---- Book: {book.title} -- Current Page:
                   {book.current_page}
                 </Typography>
-              </CardContent>
-            </Card>
+           
           );
         })}
 
@@ -62,7 +72,13 @@ function ParentBookList() {
             ADD NEW BOOK
           </Button>
         </Typography>
-      </Grid>
+        </Card>
+        </Grid>
+            </Grid>
+        </Container>
+
+        </ThemeProvider>
+
     </div>
   );
 }

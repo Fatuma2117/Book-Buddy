@@ -18,7 +18,8 @@ function UserPage() {
       backgroundImage: `url(${process.env.PUBLIC_URL + '/images/books.jpeg'})`,
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
-      fontFamily: 'Berkshire Swash', 
+      fontFamily: 'Berkshire Swash',
+      backgroundColor:'#2196f3' ,
       
 color: '#d1c4e9',
 fontSize:'60px'
@@ -44,8 +45,8 @@ fontSize:'60px'
   
   <CssBaseline/>
   <Card className={classes.root}>
-    <box>
-    <typography>
+    <box >
+    <typography >
     We are the music makers, and we are the dreamers of dreams.”
     --- Roald Dahl
     </typography>
