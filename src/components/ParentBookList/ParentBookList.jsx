@@ -67,7 +67,7 @@ function ParentBookList() {
             size="large"
             variant="contained"
             color={"primary"}
-            onClick={() => history.push("/ParentBookForm")}
+            onClick={() => history.push("/BookForm")}
           >
             ADD NEW BOOK
           </Button>

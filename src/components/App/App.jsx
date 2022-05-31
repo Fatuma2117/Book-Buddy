@@ -108,6 +108,9 @@ function App() {
         <ProtectedRoute exact path="/ParentBookList">
           <ParentBookList />
         </ProtectedRoute>
+        <ProtectedRoute exact path="/ParentBookForm">
+          <ParentBookForm />
+        </ProtectedRoute>
 
         <ProtectedRoute exact path="/RateForm/:id">
           <RateForm />

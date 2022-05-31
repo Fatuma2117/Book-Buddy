@@ -11,6 +11,7 @@ import { yellow } from "material-ui-colors";
 import Search from "../Search/Search";
 import { createTheme, ThemeProvider, Typography } from "@material-ui/core";
 import swal from 'sweetalert';
+import BookForm from '../BookForm/BookForm'
 
 
 function ParentForm() {
@@ -57,112 +58,115 @@ function ParentForm() {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <Typography>
-        <Stack
-          component="form"
-          sx={{
-            width: "100%",
-          }}
-          spacing={2}
+  //   <ThemeProvider theme={theme}>
+  //     <Typography>
+  //       <Stack
+  //         component="form"
+  //         sx={{
+  //           width: "100%",
+  //         }}
+  //         spacing={2}
     
-          autoComplete="off"
-          onSubmit={handleSubmit}
-        >
+  //         autoComplete="off"
+  //         onSubmit={handleSubmit}
+  //       >
       
-          <TextField
-            hiddenLabel
-            id="filled-hidden-label-normal"
+  //         <TextField
+  //           hiddenLabel
+  //           id="filled-hidden-label-normal"
          
-            variant="filled"
-            label={"Title"}
-            margin="normal"
+  //           variant="filled"
+  //           label={"Title"}
+  //           margin="normal"
          
-            value={title}
-            onChange={(e) => {
-              setTitle(e.target.value);
-            }}
-          />
+  //           value={title}
+  //           onChange={(e) => {
+  //             setTitle(e.target.value);
+  //           }}
+  //         />
 
-          <TextField
-            hiddenLabel
-            id="filled-hidden-label-normal"
-            variant="filled"
-            label={"Author"}
-            margin="normal"
-            value={author}
-            onChange={(e) => {
-              setAuthor(e.target.value);
-            }}
-          />
+  //         <TextField
+  //           hiddenLabel
+  //           id="filled-hidden-label-normal"
+  //           variant="filled"
+  //           label={"Author"}
+  //           margin="normal"
+  //           value={author}
+  //           onChange={(e) => {
+  //             setAuthor(e.target.value);
+  //           }}
+  //         />
 
-          <TextField
-            hiddenLabel
-            id="filled-hidden-label-normal"
-            // defaultValue="Normal"
-            variant="filled"
-            margin="normal"
-            label={"Description"}
-            placeholder="Description"
-            value={description}
-            onChange={(e) => {
-              setDescription(e.target.value);
-            }}
-          />
-          <TextField
-            hiddenLabel
-            id="filled-hidden-label-normal"
-            //  defaultValue="Normal"
-            variant="filled"
-            margin="normal"
-            label={"Year"}
-            // placeholder="Year"
-            value={publish_year}
-            onChange={(e) => {
-              setPublish_year(e.target.value);
-            }}
-          />
-          <TextField
-            hiddenLabel
-            id="filled-hidden-label-normal"
-            // defaultValue="Normal"
-            variant="filled"
-            margin="normal"
-            label={"Image"}
-            // placeholder="Image"
-            value={image_url}
-            onChange={(e) => {
-              setImage_Url(e.target.value);
-            }}
-          />
-          <TextField
-            hiddenLabel
-            id="filled-hidden-label-normal"
-            // defaultValue="Normal"
-            variant="filled"
-            margin="normal"
-            label={"Total Pages"}
-            // placeholder="Total Pages"
-            value={total_pages}
-            onChange={(e) => {
-              setTotal_Pages(e.target.value);
-            }}
-          />
+  //         <TextField
+  //           hiddenLabel
+  //           id="filled-hidden-label-normal"
+  //           // defaultValue="Normal"
+  //           variant="filled"
+  //           margin="normal"
+  //           label={"Description"}
+  //           placeholder="Description"
+  //           value={description}
+  //           onChange={(e) => {
+  //             setDescription(e.target.value);
+  //           }}
+  //         />
+  //         <TextField
+  //           hiddenLabel
+  //           id="filled-hidden-label-normal"
+  //           //  defaultValue="Normal"
+  //           variant="filled"
+  //           margin="normal"
+  //           label={"Year"}
+  //           // placeholder="Year"
+  //           value={publish_year}
+  //           onChange={(e) => {
+  //             setPublish_year(e.target.value);
+  //           }}
+  //         />
+  //         <TextField
+  //           hiddenLabel
+  //           id="filled-hidden-label-normal"
+  //           // defaultValue="Normal"
+  //           variant="filled"
+  //           margin="normal"
+  //           label={"Image"}
+  //           // placeholder="Image"
+  //           value={image_url}
+  //           onChange={(e) => {
+  //             setImage_Url(e.target.value);
+  //           }}
+  //         />
+  //         <TextField
+  //           hiddenLabel
+  //           id="filled-hidden-label-normal"
+  //           // defaultValue="Normal"
+  //           variant="filled"
+  //           margin="normal"
+  //           label={"Total Pages"}
+  //           // placeholder="Total Pages"
+  //           value={total_pages}
+  //           onChange={(e) => {
+  //             setTotal_Pages(e.target.value);
+  //           }}
+  //         />
 
-          <Button
-            onClick={handleSubmit}
-            size="small"
-            variant="contained"
-            style={{ backgroundColor: yellow[500] }}
-          >
-            Add Book
-          </Button>
-          {/* </form> */}
+  //         <Button
+  //           onClick={handleSubmit}
+  //           size="small"
+  //           variant="contained"
+  //           style={{ backgroundColor: yellow[500] }}
+  //         >
+  //           Add Book
+  //         </Button>
+  //         {/* </form> */}
 
-        </Stack>
-      </Typography>
-    </ThemeProvider>
-  );
+  //       </Stack>
+  //     </Typography>
+  //   </ThemeProvider>
+  // );
+
+  <BookForm/>
+  )
 }
 
 export default ParentForm;
