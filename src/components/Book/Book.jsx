@@ -7,6 +7,7 @@ import { Container } from '@material-ui/core';
 import {Card, CardMedia, CardContent, CardActions} from '@material-ui/core'
 import { useHistory } from 'react-router-dom';
 import {Box} from '@material-ui/core'
+import swal from 'sweetalert';
 
 
 import useStyles from './styles'
@@ -26,6 +27,23 @@ function Book({ book }) {
             payload: book.id
 
         })
+        swal({
+            title: "DELETE BOOK",
+            text: "Are you sure?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              swal("Poof! Your book has been deleted!", {
+                icon: "success",
+              });
+            } else {
+              swal("Your book is safe!");
+            }
+          });
     }
 
     const handleCompleted = () => {
@@ -35,10 +53,17 @@ function Book({ book }) {
             payload: book.id
 
         })
+      //   dispatch({
+      //     type: 'RATE_BOOK',
+      //     payload: book.id
+
+      // })
        setCompleted(!completed)
-       history.push('/BookLog')
+       history.push(`/RateForm/${book.id}`)
     } 
 
+
+    
     const handlePageNumber = () => {
       dispatch({
           type:'UPDATE_ONE_BOOK',

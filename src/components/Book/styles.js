@@ -25,7 +25,11 @@ const useStyles = makeStyles((theme)=>({
     },
     cardContent:{
         flexGrow: 1
-    }
+    },
+    swal:{
+        backgroundColor: 'primary',
+        border: '3px' 
+      }
 }))
 
 

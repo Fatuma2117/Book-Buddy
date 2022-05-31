@@ -37,6 +37,7 @@ function CompletedBook({book}){
                             
                             Points: {book.points} -
                             Total pages: {book.total_pages} -
+                            Rating:{book.rate} -
                             Completed ✓
 
                         </Typography>

@@ -31,6 +31,7 @@ import Kid from '../Kid/Kid';
 import UpdateForm from '../UpdateForm/UpdateForm';
 import './App.css';
 import Theme from '../Nav/navStyles'
+import RateForm from '../RateForm/RateForm'
 function App() {
   const dispatch = useDispatch();
 
@@ -107,7 +108,13 @@ function App() {
         <ProtectedRoute exact path="/ParentBookList">
           <ParentBookList />
         </ProtectedRoute>
+        <ProtectedRoute exact path="/ParentBookForm">
+          <ParentBookForm />
+        </ProtectedRoute>
 
+        <ProtectedRoute exact path="/RateForm/:id">
+          <RateForm />
+        </ProtectedRoute>
 
 
 

@@ -8,7 +8,7 @@ import {CssBaseline} from '@material-ui/core';
 import {container} from '@material-ui/core'
 import {Typography} from '@material-ui/core'
 import { yellow } from 'material-ui-colors';
-import { Button } from '@material-ui/core';
+import { Button, Box } from '@material-ui/core';
 import { createTheme, ThemeProvider } from "@material-ui/core";
 
 
@@ -24,12 +24,15 @@ function KidList(){
         typography: {
           fontFamily: ["Train One", "cursive"].join(","),
         },
+        justifyContent:"center",
+
       });
     const history = useHistory()
 
     return(
         <>
              <ThemeProvider theme={theme}>
+                 <Box mt={15} >
       <Typography>
          
         <div>
@@ -53,6 +56,7 @@ function KidList(){
 
         </div>
         </Typography>
+        </Box>
     </ThemeProvider>
         </>
     )

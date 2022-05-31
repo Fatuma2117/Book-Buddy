@@ -14,6 +14,8 @@ const kidsRouter = require('./routes/kids.router');
 const completedRouter = require('./routes/completed.router');
 const pointsRouter = require('./routes/points.router')
 const editRouter = require('./routes/edit.router')
+const parentRouter = require('./routes/parent.router')
+const rateRouter = require('./routes/rate.router')
 
 
 // Body parser middleware
@@ -34,6 +36,8 @@ app.use('/kids', kidsRouter);
 app.use('/completed', completedRouter);
 app.use('/points', pointsRouter);
 app.use('/edit', editRouter)
+app.use('/parent', parentRouter)
+app.use('/rate', rateRouter)
 
 
 
