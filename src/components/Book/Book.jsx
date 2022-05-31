@@ -54,9 +54,11 @@ function Book({ book }) {
 
         })
        setCompleted(!completed)
-       history.push('/BookLog')
+       history.push('/RateForm')
     } 
 
+
+    
     const handlePageNumber = () => {
       dispatch({
           type:'UPDATE_ONE_BOOK',

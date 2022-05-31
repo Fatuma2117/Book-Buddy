@@ -152,7 +152,41 @@ function* updateBook(action) {
     console.log('ERROR IN UPDATE BOOKS',err)
   }
 }
+function* createParentBook(action) {
+  const currentKidId = localStorage.getItem('current_kid_id')
+  try {
+    const response = yield axios({
+      method: 'POST',
+      url: '/parent',
+      headers: { currentKidId },
+      data: action.payload
+    })
+    console.log('response ParentBook--------->',response)
+    yield put({
+      type: 'FETCH_PARENT' ,payload: response.data
+    })
+  } catch {
+    console.log('ERROR/POST PARENT Books');
+  }
+}
 
+function* rateBook(action) {
+  const currentKidId = localStorage.getItem('current_kid_id')
+  try {
+    const response = yield axios({
+      method: 'POST',
+      url: '/par',
+      headers: { currentKidId },
+      data: action.payload
+    })
+    console.log('response ParentBook--------->',response)
+    yield put({
+      type: 'FETCH_PARENT' ,payload: response.data
+    })
+  } catch {
+    console.log('ERROR/POST PARENT Books');
+  }
+}
 
 function* booksSaga() {
   yield takeLatest('FETCH_BOOKS', fetchBooks);
@@ -163,7 +197,8 @@ function* booksSaga() {
   yield takeLatest('EDIT_ONE_BOOK',editBook);
   yield takeLatest('FETCH_PARENT',fetchParent);
   yield takeLatest('UPDATE_BOOK',updateBook);
-
+yield takeLatest('CREATE_PARENT_BOOKS',createParentBook)
+yield takeLatest('ADD_RATING',rateBook);
 
 };
 
