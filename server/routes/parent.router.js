@@ -21,7 +21,7 @@ router.get("/", rejectUnauthenticated, (req, res) => {
     .query(sqlQuery, sqlValues)
     .then((dbRes) => {
       res.send(dbRes.rows);
-      console.log("parentBook response ************", dbRes.rows);
+      // console.log("parentBook response ************", dbRes.rows);
     })
     .catch((dbErr) => {
       console.log("ERROR in GET/PARENT", dbErr);

@@ -28,12 +28,12 @@ function BookForm() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  //   useEffect(() => {
-  //     dispatch({
-  //         type:'FETCH_BOOKS'
+    useEffect(() => {
+      dispatch({
+          type:'FETCH_API'
 
-  //     })
-  // },[])
+      })
+  },[])
   const theme = createTheme({
     typography: {
       fontFamily: ["Train One", "cursive"].join(","),
