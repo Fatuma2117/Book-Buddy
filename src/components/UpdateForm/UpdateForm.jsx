@@ -165,7 +165,7 @@ onChange={(e) => {
           })
         }} 
         />
-        <Button onClick={handleSubmit}size='small' variant="contained" style={{backgroundColor: yellow [500]}} >Add Current Page</Button>
+        <Button onClick={handleSubmit}size='small' variant="contained" style={{backgroundColor: yellow [500]}} >Update Book</Button>
 
 
 </Stack>
