@@ -6,6 +6,7 @@ import { Button, Grid } from '@material-ui/core';
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import { yellow } from "material-ui-colors";
+import { useParams} from 'react-router-dom';
 
 
 
@@ -14,6 +15,9 @@ import { yellow } from "material-ui-colors";
 function RateForm(){
     const dispatch = useDispatch();
     const history = useHistory();
+    const params = useParams();
+
+    console.log(params)
 
     const [rating, setRating] = useState("");
     const books = useSelector((store) => store.books);
@@ -24,7 +28,7 @@ function RateForm(){
         e.preventDefault();
         dispatch({
             type:'ADD_RATING',
-            payload: {rating}
+            payload: {rating, book: params.id}
         })
         setRating('')
             history.push("/BookLog");

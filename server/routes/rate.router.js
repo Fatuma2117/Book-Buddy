@@ -16,7 +16,7 @@ router.put("/:id",  rejectUnauthenticated,
     SET rate = $1
          WHERE books.id = $2;
     `;
-    const sqlValues = [req.body.rate, req.params.id ];
+    const sqlValues = [req.body.rating, req.body.book];
   
     pool
       .query(sqlQuery, sqlValues)

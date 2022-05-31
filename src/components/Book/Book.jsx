@@ -59,7 +59,7 @@ function Book({ book }) {
 
       })
        setCompleted(!completed)
-       history.push('/RateForm')
+       history.push(`/RateForm/${book.id}`)
     } 
 
 
