@@ -29,7 +29,7 @@ function* apiBooks(action) {
     });
    
     console.log('API RESPONSE-------------->', response.data);
-    yield put({ type: 'SET_BOOKS', payload: response.data });
+    yield put({ type: 'SET_RESULTS', payload: response.data });
 
   } catch {
     console.log('API ERROR');

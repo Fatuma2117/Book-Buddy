@@ -4,10 +4,11 @@ import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import { yellow } from 'material-ui-colors';
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
  function Search() {
   const dispatch = useDispatch();
+  const results = useSelector(store => store.results);
 
 
   const [book, setBook] = useState('');
@@ -51,6 +52,14 @@ import { useDispatch } from "react-redux";
         <SearchIcon />
       </IconButton>
     </Paper>
+
+//     {results.map(result => {
+//           return (
+//       <{result.} />
+//   );
+// })}
+
+      
   );
 }
 export default Search;

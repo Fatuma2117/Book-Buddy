@@ -3,8 +3,6 @@
 // So that users can create book items if not found in the API.
 // Add book button puts the book on the 1.5 kid  book list page.
 
-import { useEffect } from "react";
-// import HUE from '@material-ui/core'
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import Stack from "@mui/material/Stack";
@@ -13,10 +11,6 @@ import { Button } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { yellow } from "material-ui-colors";
 import Search from "../Search/Search";
-import Paper from '@mui/material/Paper';
-import InputBase from '@mui/material/InputBase';
-import IconButton from '@mui/material/IconButton';
-import SearchIcon from '@mui/icons-material/Search';
 import { createTheme, ThemeProvider, Typography } from "@material-ui/core";
 import swal from 'sweetalert';
 
@@ -29,8 +23,7 @@ function BookForm() {
   const [image_url, setImage_Url] = useState("");
   const [total_pages, setTotal_Pages] = useState("");
   const [current_page, setCurrent_page] = useState(0);
-  // const [book, setBook] = useState('');
-  // const [result, setResult] = useState('');
+
 
 
 
@@ -40,12 +33,7 @@ function BookForm() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  //   useEffect(() => {
-  //     dispatch({
-  //         type:'FETCH_API'
 
-  //     })
-  // },[])
   const theme = createTheme({
     typography: {
       fontFamily: ["Train One", "cursive"].join(","),
@@ -73,7 +61,6 @@ function BookForm() {
     setImage_Url("");
     setTotal_Pages("");
 
-    // history.push("/BookList");
     swal({
       title: "Good job!",
       text: "You added a new book!",
@@ -87,28 +74,8 @@ function BookForm() {
   };
 
 
-
-
-
-//   const handleChange=(event)=>{
-//  const book = event.target.value
-//     setBook(book)
-//   }
-
-
-//   const handleSearch=(event)=>{
-//     event.preventDefault();
-
-//     console.log('search bar------->',book)
-
-//     dispatch({
-//       type: 'FETCH_API',
-//       payload: book
-//     })
-
-
-  // }
   return (
+    ///is there a kid?? if not drop down.
     <ThemeProvider theme={theme}>
       <Typography>
         <Stack
@@ -214,31 +181,8 @@ function BookForm() {
             Add Book
           </Button>
 
-{/* 
-          <Paper
-      component="h4"
-      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: '100%' ,marginTop:'20px'}}
-      style={{backgroundColor: yellow [500]}}
-    >
-    
-      <InputBase
-        sx={{ ml: 1, flex: 1 }}
-        placeholder="Search Book"
-        inputProps={{ 'aria-label': 'search google maps' }}
-        onChange={handleChange}
-      />
-      <IconButton onClick={handleSearch}type="submit" sx={{ p: '10px' }} aria-label="search">
-        <SearchIcon />
-      </IconButton>
-    </Paper> */}
 
 <Search/>
-
-
-
-
-
-
 
 
         </Stack>

@@ -122,7 +122,7 @@ router.put("/:id", (req, res) => {
 });
 
 router.put("/:id", (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   const sqlQuery = `
     UPDATE "books" 
       SET 

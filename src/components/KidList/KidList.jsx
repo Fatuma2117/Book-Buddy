@@ -28,6 +28,12 @@ function KidList(){
 
       });
     const history = useHistory()
+    const handleParent=()=>{
+        localStorage.setItem('current_kid_id', 0)
+
+        history.push("/ParentBookList")
+
+    }
 
     return(
         <>
@@ -52,7 +58,7 @@ function KidList(){
                         <Kid key={kid.id} kid={kid} />
                     );
                 })}
- <Button onClick={() => history.push("/ParentBookList")}align="center" size='small' variant="contained" style={{backgroundColor: yellow [500]}} >Parent Portal</Button>
+ <Button onClick={handleParent}align="center" size='small' variant="contained" style={{backgroundColor: yellow [500]}} >Parent Portal</Button>
 
         </div>
         </Typography>
