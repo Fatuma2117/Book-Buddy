@@ -29,7 +29,7 @@ function KidList(){
       });
     const history = useHistory()
     const handleParent=()=>{
-        localStorage.setItem('current_kid_id', 0)
+        localStorage.removeItem('current_kid_id')
 
         history.push("/ParentBookList")
 

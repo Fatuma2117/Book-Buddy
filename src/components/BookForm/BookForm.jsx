@@ -12,8 +12,7 @@ import { useHistory } from "react-router-dom";
 import { yellow } from "material-ui-colors";
 import Search from "../Search/Search";
 import { createTheme, ThemeProvider, Typography } from "@material-ui/core";
-import swal from 'sweetalert';
-
+import swal from "sweetalert";
 
 function BookForm() {
   const [title, setTitle] = useState("");
@@ -24,15 +23,8 @@ function BookForm() {
   const [total_pages, setTotal_Pages] = useState("");
   const [current_page, setCurrent_page] = useState(0);
 
-
-
-
-
-
-
   const dispatch = useDispatch();
   const history = useHistory();
-
 
   const theme = createTheme({
     typography: {
@@ -66,17 +58,15 @@ function BookForm() {
       text: "You added a new book!",
       icon: "success",
       button: "Done!",
-      
     });
     history.push("/BookList");
-
-
   };
-
 
   return (
     ///is there a kid?? if not drop down.
+ <div>
     <ThemeProvider theme={theme}>
+   
       <Typography>
         <Stack
           component="form"
@@ -88,8 +78,7 @@ function BookForm() {
           autoComplete="off"
           onSubmit={handleSubmit}
         >
-         
-        
+ 
           {/* <form onSubmit={handleSubmit}> */}
           <TextField
             hiddenLabel
@@ -181,13 +170,15 @@ function BookForm() {
             Add Book
           </Button>
 
-
-<Search/>
-
-
+          <Search />
+          { localStorage.getItem('current_kid_id') === null &&
+  
+  <h1> no kids on parent</h1>
+} 
         </Stack>
       </Typography>
     </ThemeProvider>
+    </div>
   );
 }
 
