@@ -13,6 +13,10 @@ import { Button } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { yellow } from "material-ui-colors";
 import Search from "../Search/Search";
+import Paper from '@mui/material/Paper';
+import InputBase from '@mui/material/InputBase';
+import IconButton from '@mui/material/IconButton';
+import SearchIcon from '@mui/icons-material/Search';
 import { createTheme, ThemeProvider, Typography } from "@material-ui/core";
 import swal from 'sweetalert';
 
@@ -25,15 +29,23 @@ function BookForm() {
   const [image_url, setImage_Url] = useState("");
   const [total_pages, setTotal_Pages] = useState("");
   const [current_page, setCurrent_page] = useState(0);
+  // const [book, setBook] = useState('');
+  // const [result, setResult] = useState('');
+
+
+
+
+
+
   const dispatch = useDispatch();
   const history = useHistory();
 
-    useEffect(() => {
-      dispatch({
-          type:'FETCH_API'
+  //   useEffect(() => {
+  //     dispatch({
+  //         type:'FETCH_API'
 
-      })
-  },[])
+  //     })
+  // },[])
   const theme = createTheme({
     typography: {
       fontFamily: ["Train One", "cursive"].join(","),
@@ -70,8 +82,32 @@ function BookForm() {
       
     });
     history.push("/BookList");
+
+
   };
 
+
+
+
+
+//   const handleChange=(event)=>{
+//  const book = event.target.value
+//     setBook(book)
+//   }
+
+
+//   const handleSearch=(event)=>{
+//     event.preventDefault();
+
+//     console.log('search bar------->',book)
+
+//     dispatch({
+//       type: 'FETCH_API',
+//       payload: book
+//     })
+
+
+  // }
   return (
     <ThemeProvider theme={theme}>
       <Typography>
@@ -168,7 +204,6 @@ function BookForm() {
               setTotal_Pages(e.target.value);
             }}
           />
- <Search />
 
           <Button
             onClick={handleSubmit}
@@ -178,7 +213,34 @@ function BookForm() {
           >
             Add Book
           </Button>
-          {/* </form> */}
+
+{/* 
+          <Paper
+      component="h4"
+      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: '100%' ,marginTop:'20px'}}
+      style={{backgroundColor: yellow [500]}}
+    >
+    
+      <InputBase
+        sx={{ ml: 1, flex: 1 }}
+        placeholder="Search Book"
+        inputProps={{ 'aria-label': 'search google maps' }}
+        onChange={handleChange}
+      />
+      <IconButton onClick={handleSearch}type="submit" sx={{ p: '10px' }} aria-label="search">
+        <SearchIcon />
+      </IconButton>
+    </Paper> */}
+
+<Search/>
+
+
+
+
+
+
+
+
         </Stack>
       </Typography>
     </ThemeProvider>
