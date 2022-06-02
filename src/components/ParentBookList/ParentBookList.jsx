@@ -64,7 +64,7 @@ function ParentBookList() {
         })} */}
 
 {books.map(book => {
-  console.log('books map*********************************',book)
+  // console.log('books map*********************************',book)
                 return (
                   <Box>
                     <> Name: {book.name}--- 

@@ -34,7 +34,7 @@ router.get("/", rejectUnauthenticated, (req, res) => {
 /////BookForm
 
 router.post("/", rejectUnauthenticated, (req, res) => {
-  console.log('POST*********',req.headers.currentkidid)
+  console.log('POST---------->',req.headers.currentkidid)
   console.log('POST req.body*********',req.body)
   const sqlQuery = `
     INSERT into "books"

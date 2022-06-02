@@ -3,8 +3,8 @@
 // So that users can create book items if not found in the API.
 // Add book button puts the book on the 1.5 kid  book list page.
 
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import { Button } from "@material-ui/core";
@@ -22,6 +22,15 @@ import MenuItem from '@mui/material/MenuItem';
 
 
 function BookForm() {
+
+  useEffect(() => {
+    dispatch({
+        type:'FETCH_KIDS'
+    })
+
+
+
+},[])
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [description, setDescription] = useState("");
@@ -29,9 +38,13 @@ function BookForm() {
   const [image_url, setImage_Url] = useState("");
   const [total_pages, setTotal_Pages] = useState("");
   const [current_page, setCurrent_page] = useState(0);
+  const [kid, setKid] = useState('');
 
   const dispatch = useDispatch();
   const history = useHistory();
+  const kids = useSelector(store => store.kids);
+  console.log('kids reducer***************', kids)
+
 
   const theme = createTheme({
     typography: {
@@ -51,6 +64,7 @@ function BookForm() {
         image_url,
         total_pages,
         current_page,
+        kid
       },
     });
     setTitle("");
@@ -75,9 +89,13 @@ function BookForm() {
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = () => {
-    localStorage.setItem('current_kid_id','3')
+  const handleKid = (kidId) => {
+    localStorage.setItem('current_kid_id', kidId)
     setAnchorEl(null);
+console.log('kidId*************',kidId)
+
+setKid(kidId)
+
   };
 
 
@@ -214,13 +232,23 @@ function BookForm() {
   id="basic-menu"
   anchorEl={anchorEl}
   open={open}
-  onClose={handleClose}
+  // onClose={handleClose}
+  value={kids.id}
   MenuListProps={{
     'aria-labelledby': 'basic-button',
   }}
 >
-  <MenuItem onClick={handleClose}>Manny</MenuItem>
-  {/* <MenuItem onClick={handleClose}>Kid 2</MenuItem> */}
+
+
+{kids.map(kid => {
+                    return (
+                        <MenuItem onClick={()=> handleKid(kid.id)} key={kid.id}>
+                          {kid.name}
+                        </MenuItem> 
+                    );
+                })}
+
+ 
 </Menu>
 </div>
 
