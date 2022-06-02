@@ -6,7 +6,7 @@ const { rejectUnauthenticated} = require('../modules/authentication-middleware')
 
 //////POINTS
 router.get('/', rejectUnauthenticated, (req, res) => {
-    console.log('points----->',req.user)
+    // console.log('points----->',req.user)
       const sqlQuery = `
       SELECT sum(books.points)
       FROM books 

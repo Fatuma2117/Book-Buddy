@@ -50,7 +50,7 @@ function* fetchParent() {
       headers: { currentKidId }
     });
     console.log('GET all Books for parents:', response.data);
-    yield put({ type: 'SET_PARENT_BOOKS', payload: response.data });
+    yield put({ type: 'SET_BOOKS', payload: response.data });
 
   } catch {
     console.log('GET/PARENT books error');
@@ -68,7 +68,7 @@ function* createBooks(action) {
       headers: { currentKidId },
       data: action.payload
     })
-    console.log('response from create books---------->',response)
+    console.log('response from create books*******************************>',response.data)
     yield put({
       type: 'FETCH_BOOKS' ,payload: response.data
     })
@@ -152,23 +152,7 @@ function* updateBook(action) {
     console.log('ERROR IN UPDATE BOOKS',err)
   }
 }
-function* createParentBook(action) {
-  const currentKidId = localStorage.getItem('current_kid_id')
-  try {
-    const response = yield axios({
-      method: 'POST',
-      url: '/parent',
-      headers: { currentKidId },
-      data: action.payload
-    })
-    console.log('response ParentBook--------->',response)
-    yield put({
-      type: 'FETCH_PARENT' ,payload: response.data
-    })
-  } catch {
-    console.log('ERROR/POST PARENT Books');
-  }
-}
+
 
 function* rateBook(action) {
   const currentKidId = localStorage.getItem('current_kid_id')
@@ -199,7 +183,7 @@ function* booksSaga() {
   yield takeLatest('EDIT_ONE_BOOK',editBook);
   yield takeLatest('FETCH_PARENT',fetchParent);
   yield takeLatest('UPDATE_BOOK',updateBook);
-yield takeLatest('CREATE_PARENT_BOOKS',createParentBook)
+// yield takeLatest('CREATE_PARENT_BOOKS',createParentBook)
 yield takeLatest('RATE_BOOK',rateBook);
 
 };

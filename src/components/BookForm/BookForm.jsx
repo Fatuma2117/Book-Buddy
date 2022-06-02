@@ -3,8 +3,6 @@
 // So that users can create book items if not found in the API.
 // Add book button puts the book on the 1.5 kid  book list page.
 
-import { useEffect } from "react";
-// import HUE from '@material-ui/core'
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import Stack from "@mui/material/Stack";
@@ -14,8 +12,8 @@ import { useHistory } from "react-router-dom";
 import { yellow } from "material-ui-colors";
 import Search from "../Search/Search";
 import { createTheme, ThemeProvider, Typography } from "@material-ui/core";
-import swal from 'sweetalert';
-
+import swal from "sweetalert";
+import KidList from '../KidList/KidList'
 
 function BookForm() {
   const [title, setTitle] = useState("");
@@ -25,15 +23,10 @@ function BookForm() {
   const [image_url, setImage_Url] = useState("");
   const [total_pages, setTotal_Pages] = useState("");
   const [current_page, setCurrent_page] = useState(0);
+
   const dispatch = useDispatch();
   const history = useHistory();
 
-  //   useEffect(() => {
-  //     dispatch({
-  //         type:'FETCH_BOOKS'
-
-  //     })
-  // },[])
   const theme = createTheme({
     typography: {
       fontFamily: ["Train One", "cursive"].join(","),
@@ -61,19 +54,20 @@ function BookForm() {
     setImage_Url("");
     setTotal_Pages("");
 
-    // history.push("/BookList");
     swal({
       title: "Good job!",
       text: "You added a new book!",
       icon: "success",
       button: "Done!",
-      
     });
     history.push("/BookList");
   };
 
   return (
+    ///is there a kid?? if not drop down.
+ <div>
     <ThemeProvider theme={theme}>
+   
       <Typography>
         <Stack
           component="form"
@@ -85,8 +79,7 @@ function BookForm() {
           autoComplete="off"
           onSubmit={handleSubmit}
         >
-         
-        
+ 
           {/* <form onSubmit={handleSubmit}> */}
           <TextField
             hiddenLabel
@@ -168,7 +161,6 @@ function BookForm() {
               setTotal_Pages(e.target.value);
             }}
           />
- <Search />
 
           <Button
             onClick={handleSubmit}
@@ -178,10 +170,16 @@ function BookForm() {
           >
             Add Book
           </Button>
-          {/* </form> */}
+
+          <Search />
+          { localStorage.getItem('current_kid_id') === '0' &&
+  
+ <KidList/>
+} 
         </Stack>
       </Typography>
     </ThemeProvider>
+    </div>
   );
 }
 

@@ -28,6 +28,12 @@ function KidList(){
 
       });
     const history = useHistory()
+    const handleParent=()=>{
+        localStorage.setItem('current_kid_id', '0')
+
+        history.push("/ParentBookList")
+
+    }
 
     return(
         <>
@@ -38,12 +44,16 @@ function KidList(){
         <div>
             <CssBaseline/>
    
-    {/* <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
-                   Kid Profile
-            </Typography> */}
-            <Typography  variant="h3"align="center" color="textSecondary" gutterBottom>
+             <Typography  variant="h3"align="center" color="textSecondary" gutterBottom>
+                   Pick A Name
+            </Typography> 
+
+
+
+
+            {/* <Typography  variant="h3"align="center" color="textSecondary" gutterBottom>
                    Choose Your Name
-            </Typography>
+            </Typography> */}
 
 
 
@@ -52,7 +62,14 @@ function KidList(){
                         <Kid key={kid.id} kid={kid} />
                     );
                 })}
- <Button onClick={() => history.push("/ParentBookList")}align="center" size='small' variant="contained" style={{backgroundColor: yellow [500]}} >Parent Portal</Button>
+ <Button onClick={handleParent}align="center" size='small' variant="contained" style={{backgroundColor: yellow [500]}} >Parent Portal</Button>
+
+  
+
+
+
+
+
 
         </div>
         </Typography>

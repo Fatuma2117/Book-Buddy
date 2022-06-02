@@ -7,6 +7,7 @@ import { createTheme, ThemeProvider, Typography } from "@material-ui/core";
 import { Button } from "@material-ui/core";
 import { yellow } from "material-ui-colors";
 import { useHistory } from "react-router-dom";
+import KidProfile from'../KidProfile/KidProfile'
 
 function BookLog() {
   const dispatch = useDispatch();
@@ -37,6 +38,12 @@ function BookLog() {
             return <CompletedBook key={book.id} book={book} />;
           })}
 
+
+
+
+
+ <KidProfile/>
+ 
           <Button
             size="large"
             variant="contained"
@@ -45,6 +52,8 @@ function BookLog() {
           >
             Back To Book List
           </Button>
+
+         
         </Typography>
       </ThemeProvider>
     </div>

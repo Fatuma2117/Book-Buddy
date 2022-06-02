@@ -13,7 +13,7 @@ function LoginForm() {
 
   const login = (event) => {
     event.preventDefault();
-
+    localStorage.removeItem('current_kid_id')
     if (username && password) {
       dispatch({
         type: 'LOGIN',

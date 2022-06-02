@@ -7,6 +7,7 @@ import completedBooks from './completed.reducer'
 import parentBooks from './parent.reducer'
 import points from './points.reducer'
 import editBook from './editBook.reducer'
+import results from './api.reducer'
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
 // This is imported in index.js as rootSaga
@@ -21,7 +22,8 @@ const rootReducer = combineReducers({
   completedBooks,
   parentBooks,
   points,
-  editBook
+  editBook,
+  results
 });
 
 export default rootReducer;

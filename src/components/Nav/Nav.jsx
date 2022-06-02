@@ -117,18 +117,22 @@ function Nav() {
                             >
                               Book Form
                             </Button>
+
+                           
                             <Button
                               onClick={() => history.push("/BookLog")}
                               style={{ color: "#c6ff00" }}
                             >
                               Book Log
                             </Button>
-                            <Button
+                            {/* <Button
                               onClick={() => history.push("/KidProfile")}
                               style={{ color: "#c6ff00" }} 
                             >
                               Kid Profile
-                            </Button>
+                            </Button> */}
+
+                            
                             <LogOutButton />
                         
                         </>

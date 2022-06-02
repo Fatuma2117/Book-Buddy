@@ -30,14 +30,11 @@ function KidProfile() {
       <ThemeProvider theme={theme}>
         <Typography>
           <Typography gutterBottom>
-            <h1>Kid Profile</h1>
-
             {points.map((point) => {
               console.log("points map----->", point);
               return (
                 <>
-                  Total Book Points: {point.sum} ------ [insert progress graph
-                  here]
+                  Total Book Points: {point.sum} ------ 
                 </>
               );
             })}

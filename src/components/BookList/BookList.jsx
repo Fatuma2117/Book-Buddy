@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Book from '../Book/Book'
 import Kid from '../Kid/Kid';
-import { Typography } from '@material-ui/core'
+import { Typography, Button } from '@material-ui/core'
 import {Grid} from '@material-ui/core'
 import { createTheme, ThemeProvider } from "@material-ui/core";
 
@@ -15,6 +15,8 @@ function BookList() {
     // const history = useHistory();
 
     const dispatch = useDispatch();
+    const history = useHistory();
+
     const books = useSelector(store => store.books);
     const kids = useSelector(store => store.kids)
     console.log(books)
@@ -49,7 +51,14 @@ function BookList() {
                     <Book key={book.id} book={book} />
                 );
             })}
-       
+           <Button
+            size="large"
+            variant="contained"
+            color={"primary"}
+            onClick={() => history.push("/BookForm")}
+          >
+            ADD NEW BOOK
+          </Button>
         </Grid>
         </Typography>
     </ThemeProvider>

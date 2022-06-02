@@ -18,6 +18,7 @@ const parentRouter = require('./routes/parent.router')
 const rateRouter = require('./routes/rate.router')
 
 
+
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -38,6 +39,7 @@ app.use('/points', pointsRouter);
 app.use('/edit', editRouter)
 app.use('/parent', parentRouter)
 app.use('/rate', rateRouter)
+
 
 
 
