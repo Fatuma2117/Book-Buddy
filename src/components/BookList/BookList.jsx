@@ -45,10 +45,12 @@ function BookList() {
             <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
                 Book List
             </Typography>
-<Grid container spacing={4}>
+<Grid container spacing={1}>
             {books.map(book => {
                 return (
-                    <Book key={book.id} book={book} />
+                  <Grid key={book.id}  item xs={4} >
+                    <Book book={book} />
+                    </Grid>
                 );
             })}
         

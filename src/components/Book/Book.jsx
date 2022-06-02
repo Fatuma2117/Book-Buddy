@@ -65,8 +65,8 @@ function Book({ book }) {
       className={classes.cardGrid}
       style={{ marginTop: "100px", marginLeft: "100px" }}
     >
-      <Grid item xs={4}>
-        <Box sx={{ width: "auto" }}>
+    
+        <Box >
           <Card className={classes.Card}>
             <CardMedia
               className={classes.cardMedia}
@@ -116,8 +116,6 @@ function Book({ book }) {
             </CardActions>
           </Card>
         </Box>
-      </Grid>
-      {/* </Grid> */}
     </Container>
   );
 }

@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { createTheme, ThemeProvider, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { CssBaseline, Card, Box } from "@material-ui/core";
-import { white } from "material-ui-colors";
+import { yellow } from "material-ui-colors";
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
@@ -19,10 +19,10 @@ function UserPage() {
       fontFamily: "Berkshire Swash",
     
 
-      color: "#d1c4e9",
+      color: '#03a9f4',
       fontSize: "70px",
     },
-    backgroundColor: "#ff3d00",
+    backgroundColor:'#03a9f4',
   }));
   const classes = useStyles();
 
@@ -32,7 +32,7 @@ function UserPage() {
       <Card
        className={classes.root}
       >
-        <Box mt={15}>
+        <Box mt={40} maxWidth='900px' style={{ backgroundColor: yellow[500] }}>
           We are the music makers, and we are the dreamers of dreams.” --- Roald
           Dahl
         </Box>
