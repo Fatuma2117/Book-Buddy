@@ -33,9 +33,11 @@ import { useDispatch, useSelector } from "react-redux";
    
      }
 
+     console.log('results reducer***********************',results)
 
 
   return (
+    <div>
     <Paper
       component="h4"
       sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: '100%' ,marginTop:'20px'}}
@@ -51,15 +53,20 @@ import { useDispatch, useSelector } from "react-redux";
       <IconButton onClick={handleSearch} type="submit" sx={{ p: '10px' }} aria-label="search">
         <SearchIcon />
       </IconButton>
+
     </Paper>
 
-//     {results.map(result => {
-//           return (
-//       <{result.} />
-//   );
-// })}
 
+      {results.map(result => {
+         return(
+           <> {result.title} - {result}
+           <img src={result.coverImage}/>
+           </>
+         )
+       })}
+   
+   </div>
       
-  );
+  )
 }
 export default Search;

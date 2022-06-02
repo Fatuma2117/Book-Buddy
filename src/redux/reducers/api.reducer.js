@@ -1,6 +1,6 @@
 const results = (state = [], action) => {
     switch (action.type) {
-        case 'SET_SEARCH':
+        case 'SET_RESULTS':
             return action.payload;
         default:
             return state;

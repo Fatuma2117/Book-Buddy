@@ -68,7 +68,7 @@ function* createBooks(action) {
       headers: { currentKidId },
       data: action.payload
     })
-    console.log('response from create books---------->',response)
+    console.log('response from create books*******************************>',response.data)
     yield put({
       type: 'FETCH_BOOKS' ,payload: response.data
     })
@@ -152,23 +152,7 @@ function* updateBook(action) {
     console.log('ERROR IN UPDATE BOOKS',err)
   }
 }
-// function* createParentBook(action) {
-//   const currentKidId = localStorage.getItem('current_kid_id')
-//   try {
-//     const response = yield axios({
-//       method: 'POST',
-//       url: '/parent',
-//       headers: { currentKidId },
-//       data: action.payload
-//     })
-//     console.log('response ParentBook--------->',response)
-//     yield put({
-//       type: 'FETCH_PARENT' ,payload: response.data
-//     })
-//   } catch {
-//     console.log('ERROR/POST PARENT Books');
-//   }
-// }
+
 
 function* rateBook(action) {
   const currentKidId = localStorage.getItem('current_kid_id')

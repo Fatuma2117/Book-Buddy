@@ -44,13 +44,9 @@ function KidList(){
         <div>
             <CssBaseline/>
    
-            {localStorage.getItem('current_kid_id') === '0' ? 
              <Typography  variant="h3"align="center" color="textSecondary" gutterBottom>
-                   Who would you like to add a book for??
-            </Typography> : 
-             <Typography  variant="h3"align="center" color="textSecondary" gutterBottom>
-                   Choose Your Name
-            </Typography> }
+                   Pick A Name
+            </Typography> 
 
 
 

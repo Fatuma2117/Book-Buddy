@@ -8,6 +8,7 @@ import RegisterForm from '../RegisterForm/RegisterForm';
 function LandingPage() {
   const [heading, setHeading] = useState('Welcome');
   const history = useHistory();
+  
 
   const onLogin = (event) => {
     history.push('/login');
