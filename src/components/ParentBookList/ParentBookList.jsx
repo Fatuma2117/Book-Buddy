@@ -24,6 +24,7 @@ function ParentBookList() {
   const dispatch = useDispatch();
   const parentBooks = useSelector((store) => store.parentBooks);
   console.log("parentBooks----------------->", parentBooks);
+  const books = useSelector(store => store.books);
 
   const theme = createTheme({
     typography: {
@@ -45,7 +46,7 @@ function ParentBookList() {
        }}>
           <Card  height= '100px' maxWidth='800px'>
 
-        {parentBooks.map((book) => {
+        {/* {parentBooks.map((book) => {
           // console.log('parent loop book',book)
           return (
            
@@ -60,7 +61,23 @@ function ParentBookList() {
                 </Typography>
            
           );
-        })}
+        })} */}
+
+{books.map(book => {
+  console.log('books map*********************************',book)
+                return (
+                    <> {book.name}--- 
+                    {book.title} - 
+                    {book.author} -
+                    {book.current_page}</>
+                );
+            })}
+
+
+
+
+
+
 
         <Typography>
           <Button

@@ -10,11 +10,11 @@ router.get("/", rejectUnauthenticated, (req, res) => {
   // console.log('userId',req.user)
   // console.log('currentKidId', req.headers.currentkidid)
   const sqlQuery = `
-      SELECT kids.name, books.title, books.current_page
+      SELECT kids.name, books.title, books.current_page,books.author
       FROM books 
       JOIN kids ON books.kid_id=kids.id
       WHERE  kids.user_id=$1
-      GROUP BY kids.name,books.title, books.current_page;
+      GROUP BY kids.name,books.title, books.author, books.current_page;
       `;
   const sqlValues = [req.user.id];
   pool

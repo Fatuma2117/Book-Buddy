@@ -3,7 +3,7 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector} from 'react-redux';
 import { createTheme, ThemeProvider,Typography } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
-import { CssBaseline, Card} from '@material-ui/core';
+import { CssBaseline, Card, Box} from '@material-ui/core';
 import { white } from "material-ui-colors";
 
 function UserPage() {
@@ -14,15 +14,13 @@ function UserPage() {
     typography: {
     
     },  root: {
-      minHeight: '100vh',
+      minHeight: '150vh',
       backgroundImage: `url(${process.env.PUBLIC_URL + '/images/books.jpeg'})`,
-      backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
       fontFamily: 'Berkshire Swash',
-      backgroundColor:'#2196f3' ,
       
 color: '#d1c4e9',
-fontSize:'60px'
+fontSize:'70px'
 
     },
   })); 
@@ -30,30 +28,24 @@ fontSize:'60px'
 
   return (
       <div className={classes.root}>
-<Typography variant='h3' color='primary' align='center' >
-   Hello!!!!!
-      Welcome, {user.username}!
-     Your ID is: {user.id}
-      <LogOutButton className="btn" />
-      khgljsdhgfjshdf
-      kjhsdjfsdf
-
-      ksdhgfjshagdf
-      sdfasjdhfksajdf
-      sdajfksdfksd
-      sdfsdf
+ 
+     
   
   <CssBaseline/>
   <Card className={classes.root}>
-    <box >
-    <typography >
+    <Box mt={15} >
+
+
+
+    Hello!!!!!
+      Welcome, {user.username}!
+     Your ID is: {user.id}
+      <LogOutButton className="btn" />
     We are the music makers, and we are the dreamers of dreams.”
     --- Roald Dahl
-    </typography>
-    </box>
+    </Box>
   </Card>
 
-    </Typography>    
      </div>
   );
 }
