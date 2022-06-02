@@ -1,9 +1,9 @@
-import React from 'react';
-import LogOutButton from '../LogOutButton/LogOutButton';
-import {useSelector} from 'react-redux';
-import { createTheme, ThemeProvider,Typography } from "@material-ui/core";
-import { makeStyles } from '@material-ui/core/styles';
-import { CssBaseline, Card, Box} from '@material-ui/core';
+import React from "react";
+import LogOutButton from "../LogOutButton/LogOutButton";
+import { useSelector } from "react-redux";
+import { createTheme, ThemeProvider, Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import { CssBaseline, Card, Box } from "@material-ui/core";
 import { white } from "material-ui-colors";
 
 function UserPage() {
@@ -11,42 +11,33 @@ function UserPage() {
 
   const user = useSelector((store) => store.user);
   const useStyles = makeStyles((theme) => ({
-    typography: {
+    typography: {},
+    root: {
+      minHeight: "150vh",
+      backgroundImage: `url(${process.env.PUBLIC_URL + "/images/books.jpeg"})`,
+      backgroundSize: "cover",
+      fontFamily: "Berkshire Swash",
     
-    },  root: {
-      minHeight: '150vh',
-      backgroundImage: `url(${process.env.PUBLIC_URL + '/images/books.jpeg'})`,
-      backgroundSize: 'cover',
-      fontFamily: 'Berkshire Swash',
-      
-color: '#d1c4e9',
-fontSize:'70px'
 
+      color: "#d1c4e9",
+      fontSize: "70px",
     },
-  })); 
-   const classes = useStyles();
+    backgroundColor: "#ff3d00",
+  }));
+  const classes = useStyles();
 
   return (
-      <div className={classes.root}>
- 
-     
-  
-  <CssBaseline/>
-  <Card className={classes.root}>
-    <Box mt={15} >
-
-
-
-    Hello!!!!!
-      Welcome, {user.username}!
-     Your ID is: {user.id}
-      <LogOutButton className="btn" />
-    We are the music makers, and we are the dreamers of dreams.”
-    --- Roald Dahl
-    </Box>
-  </Card>
-
-     </div>
+    <div >
+      {/* <CssBaseline /> */}
+      <Card
+       className={classes.root}
+      >
+        <Box mt={15}>
+          We are the music makers, and we are the dreamers of dreams.” --- Roald
+          Dahl
+        </Box>
+      </Card>
+    </div>
   );
 }
 

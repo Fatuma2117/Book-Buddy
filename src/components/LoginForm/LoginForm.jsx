@@ -22,7 +22,7 @@ function LoginForm() {
           password: password,
         },
       }); 
-      history.push('/KidList')
+      history.push('/user')
     } else {
       dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }

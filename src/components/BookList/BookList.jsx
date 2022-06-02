@@ -51,16 +51,18 @@ function BookList() {
                     <Book key={book.id} book={book} />
                 );
             })}
+        
+        </Grid>
+        </Typography>
+
            <Button
-            size="large"
+            size="small"
             variant="contained"
             color={"primary"}
             onClick={() => history.push("/BookForm")}
           >
             ADD NEW BOOK
           </Button>
-        </Grid>
-        </Typography>
     </ThemeProvider>
        </div>
     )

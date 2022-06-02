@@ -34,7 +34,7 @@ function Nav() {
       justifyContent: 'center',
       alignItems: 'center',
       height: '100vh',
-      fontFamily: 'Nunito',
+     
     },
     appbar: {
       backgroundColor: "#FF6E40",
@@ -63,22 +63,35 @@ function Nav() {
   return (
     <>
       <CssBaseline />
-      <AppBar className={classes.appbar} elevation={0}>
+      <AppBar 
+      className={classes.appbar}
+       elevation={0}>
         <Container maxWidth="xl">
           <Toolbar
-            // disableGutters
-            // display="flex"
+            disableGutters
+            display="flex"
           >
-<Stack className={classes.fontFamily} direction="row" spacing={2}>
-              <Typography className={classes.fontFamily}>
+<Stack
+ className={classes.fontFamily} 
+ direction="row" 
+ spacing={2}>
+              <Typography 
+              className={classes.fontFamily}
+              >
                 <Typography>
-                  <div className={classes.fontFamily}>
+                  <div 
+                  className={classes.fontFamily}
+                  >
                     {/* <img src="images/book-stack.jpg"/> */}
 <span>
-                    <Button className={classes.appbarTitle}>Book Buddy - Tracker App</Button>
+                    <Button 
+                    className={classes.appbarTitle}
+                    >Book Buddy - Tracker App</Button>
 </span>
 
-                    <div>
+                    <div
+                     className={classes.fontFamily}
+                     >
                       {/* If no user is logged in, show these links */}
                       {!user.id && (
                         // If there's no user, show login/registration links
@@ -102,10 +115,10 @@ function Nav() {
                               onClick={() => history.push("/KidList")}
                               style={{ color: "#c6ff00" }}
                             >
-                              Kid List
+                              Profiles
                             </Button>
                             <Button
-                              theme={theme}
+                              // theme={theme}
                               onClick={() => history.push("/BookList")}
                               style={{ color: "#c6ff00" }}
                             >
@@ -125,12 +138,7 @@ function Nav() {
                             >
                               Book Log
                             </Button>
-                            {/* <Button
-                              onClick={() => history.push("/KidProfile")}
-                              style={{ color: "#c6ff00" }} 
-                            >
-                              Kid Profile
-                            </Button> */}
+                         
 
                             
                             <LogOutButton />

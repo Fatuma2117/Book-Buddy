@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
-import { Button } from "@material-ui/core";
+import { Button, Box } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { yellow } from "material-ui-colors";
 import Search from "../Search/Search";
@@ -16,7 +16,7 @@ import swal from "sweetalert";
 import KidList from '../KidList/KidList'
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-
+import Nav from '../Nav/Nav'
 
 
 
@@ -49,7 +49,7 @@ function BookForm() {
   const theme = createTheme({
     typography: {
       fontFamily: ["Train One", "cursive"].join(","),
-    },
+    }
   });
 
   const handleSubmit = (e) => {
@@ -108,21 +108,24 @@ setKid(kidId)
   return (
     ///is there a kid?? if not drop down.
  <div>
-    <ThemeProvider theme={theme}>
-   
+    <ThemeProvider 
+    // theme={theme}
+    >
+   {/* <Nav/> */}
+   <Box mt={15} >
       <Typography>
         <Stack
+        
           component="form"
           sx={{
             width: "100%",
           }}
-          spacing={2}
-          // noValidate
-          autoComplete="off"
+          spacing={5}
+        
           onSubmit={handleSubmit}
         >
  
-          {/* <form onSubmit={handleSubmit}> */}
+      
           <TextField
             hiddenLabel
             id="filled-hidden-label-normal"
@@ -268,7 +271,9 @@ setKid(kidId)
 
 } 
         </Stack>
+        
       </Typography>
+      </Box>
     </ThemeProvider>
     </div>
   );

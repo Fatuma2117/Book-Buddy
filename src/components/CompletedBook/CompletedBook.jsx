@@ -4,14 +4,14 @@ import { Container } from '@material-ui/core';
 import {Card, CardContent, CardMedia} from '@material-ui/core'
 
 
-// import useStyles from './styles'
+// import useStyles from '../styles'
 
 
 function CompletedBook({book}){
     return(
 
        
-        <Container maxWidth='md'style={{marginTop: '100px'}}>
+        <Container maxWidth='md'style={{marginTop: '10px'}}>
              <div >
             <Grid container spacing={4}  >
                 <Grid item   style={{
@@ -37,7 +37,7 @@ function CompletedBook({book}){
                             
                             Points: {book.points} -
                             Total pages: {book.total_pages} -
-                            Rating:{book.rate} -
+                            Rating:{book.rate}-
                             Completed ✓
 
                         </Typography>

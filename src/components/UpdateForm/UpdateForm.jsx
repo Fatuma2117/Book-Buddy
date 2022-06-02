@@ -50,11 +50,12 @@ const handleSubmit=()=>{
  >
      <TextField
         hiddenLabel
-        id="filled-label-normal"
+        id="outlined-multiline-flexible"
         // defaultValue="Normal"
         variant="filled"
         margin="normal"
-        // placeholder=" Title"
+      
+        label={'Title'}
         value={editBook.title}
         onChange={(e) => { 
           dispatch({
@@ -65,12 +66,13 @@ const handleSubmit=()=>{
         />
 
 <TextField
-        hiddenLabel
-        id="filled-hidden-label-normal"
+        // hiddenLabel
+        id="outlined-multiline-flexible"
         // defaultValue="Normal"
         variant="filled"
          margin="normal"
-        // placeholder="Author"
+    
+        label={'Author'}
         value={editBook.author}
         onChange={(e) => { 
           dispatch({
@@ -84,12 +86,12 @@ const handleSubmit=()=>{
 <TextField
 
 hiddenLabel
-id="filled-hidden-label-normal"
+id="outlined-multiline-flexible"
 // defaultValue="Normal"
 variant="filled" margin="normal"
-// label={'Description'}
+label={'Description'}
 
-placeholder="Description"
+// placeholder="Description"
 value={editBook.description}
 onChange={(e) => { 
   dispatch({
@@ -101,11 +103,11 @@ onChange={(e) => {
 
 <TextField
         hiddenLabel
-        id="filled-hidden-label-normal"
+        id="outlined-multiline-flexible"
         //  defaultValue="Normal"
         variant="filled" margin="normal"
-        // label={'Year'}
-        // placeholder="Year"
+        label={'Year'}
+        placeholder="Year"
         value={editBook.publish_year}
         onChange={(e) => { 
           dispatch({
@@ -115,9 +117,9 @@ onChange={(e) => {
         }}  
         />
 
-<TextField
+{/* <TextField
         hiddenLabel
-        id="filled-hidden-label-normal"
+        id="outlined-multiline-flexible"
         // defaultValue="Normal"
         variant="filled" margin="normal"
         // label={'Image'}
@@ -128,15 +130,15 @@ onChange={(e) => {
             type: 'EDIT_IMAGE_URL',
             payload: e.target.value 
           })
-        }} />
+        }} /> */}
 
 <TextField
         hiddenLabel
-        id="filled-hidden-label-normal"
+        id="outlined-multiline-flexible"
         // defaultValue="Normal"
         variant="filled" margin="normal"
-        // label={'Total Pages'}
-        // placeholder="Total Pages"
+        label={'Total Pages'}
+        placeholder="Total Pages"
         value={editBook.total_pages}
         onChange={(e) => { 
           dispatch({
@@ -152,10 +154,10 @@ onChange={(e) => {
 
 <TextField
         hiddenLabel
-        id="label-normal"
+        id="outlined-multiline-flexible"
         // defaultValue="Normal"
         variant="filled" margin="normal"
-        // label={'Add Current Page'}
+        label={'Add Current Page'}
         placeholder="Add Current Page"
         value={editBook.current_page}
         onChange={(e) => { 
