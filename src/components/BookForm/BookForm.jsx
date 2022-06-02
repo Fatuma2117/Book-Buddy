@@ -14,6 +14,12 @@ import Search from "../Search/Search";
 import { createTheme, ThemeProvider, Typography } from "@material-ui/core";
 import swal from "sweetalert";
 import KidList from '../KidList/KidList'
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+
+
+
+
 
 function BookForm() {
   const [title, setTitle] = useState("");
@@ -60,8 +66,26 @@ function BookForm() {
       icon: "success",
       button: "Done!",
     });
-    history.push("/BookList");
+    // history.push("/BookList");
   };
+
+
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    localStorage.setItem('current_kid_id','3')
+    setAnchorEl(null);
+  };
+
+
+
+
+
+
+
 
   return (
     ///is there a kid?? if not drop down.
@@ -135,7 +159,7 @@ function BookForm() {
               setPublish_year(e.target.value);
             }}
           />
-          <TextField
+          {/* <TextField
             hiddenLabel
             id="filled-hidden-label-normal"
             // defaultValue="Normal"
@@ -147,7 +171,7 @@ function BookForm() {
             onChange={(e) => {
               setImage_Url(e.target.value);
             }}
-          />
+          /> */}
           <TextField
             hiddenLabel
             id="filled-hidden-label-normal"
@@ -174,7 +198,46 @@ function BookForm() {
           <Search />
           { localStorage.getItem('current_kid_id') === '0' &&
   
- <KidList/>
+//  <KidList/>
+
+<div>
+<Button
+  id="basic-button"
+  aria-controls={open ? 'basic-menu' : undefined}
+  aria-haspopup="true"
+  aria-expanded={open ? 'true' : undefined}
+  onClick={handleClick}
+>
+  Choose Kid
+</Button>
+<Menu
+  id="basic-menu"
+  anchorEl={anchorEl}
+  open={open}
+  onClose={handleClose}
+  MenuListProps={{
+    'aria-labelledby': 'basic-button',
+  }}
+>
+  <MenuItem onClick={handleClose}>Manny</MenuItem>
+  {/* <MenuItem onClick={handleClose}>Kid 2</MenuItem> */}
+</Menu>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 } 
         </Stack>
       </Typography>

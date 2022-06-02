@@ -23,7 +23,6 @@ import BookForm from '../BookForm/BookForm';
 import BookLog from '../BookLog/BookLog';
 import KidProfile from '../KidProfile/KidProfile';
 import ParentBookList from '../ParentBookList/ParentBookList';
-import ParentBookForm from '../ParentBookForm/ParentBookForm';
 import ParentProfile from '../ParentProfile/ParentProfile';
 import ProfileList from '../ProfileList/ProfileList';
 import KidList from '../KidList/KidList';
@@ -108,9 +107,7 @@ function App() {
         <ProtectedRoute exact path="/ParentBookList">
           <ParentBookList />
         </ProtectedRoute>
-        <ProtectedRoute exact path="/ParentBookForm">
-          <ParentBookForm />
-        </ProtectedRoute>
+       
 
         <ProtectedRoute exact path="/RateForm/:id">
           <RateForm />

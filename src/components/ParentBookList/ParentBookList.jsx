@@ -67,10 +67,10 @@ function ParentBookList() {
   console.log('books map*********************************',book)
                 return (
                   <Box>
-                    <> {book.name}--- 
-                    {book.title} - 
-                    {book.author} -
-                    {book.current_page}</>
+                    <> Name: {book.name}--- 
+                    Title: {book.title} - 
+                    Author: {book.author} -
+                   Current Page: {book.current_page}</>
 </Box>
 
                 );
