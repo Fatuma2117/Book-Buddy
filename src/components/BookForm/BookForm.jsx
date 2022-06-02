@@ -13,6 +13,7 @@ import { yellow } from "material-ui-colors";
 import Search from "../Search/Search";
 import { createTheme, ThemeProvider, Typography } from "@material-ui/core";
 import swal from "sweetalert";
+import KidList from '../KidList/KidList'
 
 function BookForm() {
   const [title, setTitle] = useState("");
@@ -171,9 +172,9 @@ function BookForm() {
           </Button>
 
           <Search />
-          { localStorage.getItem('current_kid_id') === null &&
+          { localStorage.getItem('current_kid_id') === '0' &&
   
-  <h1> no kids on parent</h1>
+ <KidList/>
 } 
         </Stack>
       </Typography>

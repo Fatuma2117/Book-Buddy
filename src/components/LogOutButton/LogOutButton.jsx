@@ -8,7 +8,7 @@ function LogOutButton(props) {
   const handleLogOut=()=>{
     dispatch({ type: 'LOGOUT' })
 
-    localStorage.removeItem('current_kid_id')
+    localStorage.setItem('current_kid_id', '0')
 
   }
   return (

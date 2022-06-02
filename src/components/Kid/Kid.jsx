@@ -9,14 +9,25 @@ function Kid({kid}){
     const history = useHistory();
 
     const handleKidClick=()=>{
-        localStorage.setItem('current_kid_id', kid.id)
+        if(localStorage.getItem('current_kid_id') === '0'){
+localStorage.setItem('current_kid_id', kid.id)
+
+        } else{
+ localStorage.setItem('current_kid_id', kid.id)
         history.push('/BookList')
-    }
+
+
+        }
+        
+
+} 
+       
+        
+    
 // console.log(kid.id)
     return(
        
-       <>
-       <div onClick={handleKidClick}>
+              <div onClick={handleKidClick}>
         <CssBaseline/>
         <Container maxWidth="sm">
           
@@ -25,11 +36,12 @@ function Kid({kid}){
                    {kid.name}
             </Typography>
             
+   
        
         
         </Container>
         </div>
-        </> 
+     
         
       
     )

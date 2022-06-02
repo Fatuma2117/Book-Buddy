@@ -22,7 +22,7 @@ router.get("/", rejectUnauthenticated, (req, res) => {
       res.send(dbRes.rows);
     })
     .catch((dbErr) => {
-      console.log("ERROR in GET/books", dbErr);
+      console.log("ERRORRRRRRRRR in GET/books", dbErr);
       res.sendStatus(500);
     });
 });

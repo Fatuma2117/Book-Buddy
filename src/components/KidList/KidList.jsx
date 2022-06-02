@@ -29,7 +29,7 @@ function KidList(){
       });
     const history = useHistory()
     const handleParent=()=>{
-        localStorage.removeItem('current_kid_id')
+        localStorage.setItem('current_kid_id', '0')
 
         history.push("/ParentBookList")
 
@@ -44,12 +44,20 @@ function KidList(){
         <div>
             <CssBaseline/>
    
-    {/* <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
-                   Kid Profile
-            </Typography> */}
-            <Typography  variant="h3"align="center" color="textSecondary" gutterBottom>
+            {localStorage.getItem('current_kid_id') === '0' ? 
+             <Typography  variant="h3"align="center" color="textSecondary" gutterBottom>
+                   Who would you like to add a book for??
+            </Typography> : 
+             <Typography  variant="h3"align="center" color="textSecondary" gutterBottom>
                    Choose Your Name
-            </Typography>
+            </Typography> }
+
+
+
+
+            {/* <Typography  variant="h3"align="center" color="textSecondary" gutterBottom>
+                   Choose Your Name
+            </Typography> */}
 
 
 
@@ -59,6 +67,13 @@ function KidList(){
                     );
                 })}
  <Button onClick={handleParent}align="center" size='small' variant="contained" style={{backgroundColor: yellow [500]}} >Parent Portal</Button>
+
+  
+
+
+
+
+
 
         </div>
         </Typography>
