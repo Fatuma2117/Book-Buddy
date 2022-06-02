@@ -5,6 +5,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { yellow } from 'material-ui-colors';
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import {Box} from '@material-ui/core'
 
  function Search() {
   const dispatch = useDispatch();
@@ -59,9 +60,13 @@ import { useDispatch, useSelector } from "react-redux";
 
       {results.map(result => {
          return(
-           <> {result.title} - {result}
-           <img src={result.coverImage}/>
+           <Box>
+           <> 
+            <img src={result.coverImage}/>
+           {result.title} - {result.authors} - {result.description} - Page Count:{result.pageCount}
+          
            </>
+           </Box>
          )
        })}
    
