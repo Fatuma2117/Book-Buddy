@@ -23,13 +23,14 @@ function KidProfile() {
   const theme = createTheme({
     typography: {
       fontFamily: ["Train One", "cursive"].join(","),
+      fontSize: 26,
     },
   });
   return (
     <div>
       <ThemeProvider theme={theme}>
         <Typography>
-          <Typography gutterBottom>
+          <Typography fontSize='' gutterBottom>
             {points.map((point) => {
               console.log("points map----->", point);
               return (

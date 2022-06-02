@@ -51,12 +51,7 @@ function Book({ book }) {
     history.push(`/RateForm/${book.id}`);
   };
 
-  const handlePageNumber = () => {
-    dispatch({
-      type: "UPDATE_ONE_BOOK",
-      payload: book.id,
-    });
-  };
+
 
   // console.log(kid.id)
   return (
@@ -80,7 +75,6 @@ function Book({ book }) {
                 {book.description} - Publish Year: {book.publish_year} - Points:{" "}
                 {book.points} - Total pages: {book.total_pages}
                 Current Page: {book.current_page}
-                {/* {pages} */}
               </Typography>
             </CardContent>
 

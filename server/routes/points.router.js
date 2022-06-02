@@ -10,10 +10,11 @@ router.get('/', rejectUnauthenticated, (req, res) => {
       const sqlQuery = `
       SELECT sum(books.points)
       FROM books 
-      WHERE kid_id=$1;
+      WHERE kid_id=$1 AND completed =$2;
       `
       const sqlValues = [ 
-        req.headers.currentkidid
+        req.headers.currentkidid,
+        true
   
       ];
       pool.query(sqlQuery, sqlValues)

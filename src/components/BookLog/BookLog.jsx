@@ -4,10 +4,10 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import CompletedBook from "../CompletedBook/CompletedBook";
 import { createTheme, ThemeProvider, Typography } from "@material-ui/core";
-import { Button } from "@material-ui/core";
+import { Button, Box } from "@material-ui/core";
 import { yellow } from "material-ui-colors";
 import { useHistory } from "react-router-dom";
-import KidProfile from'../KidProfile/KidProfile'
+import KidProfile from "../KidProfile/KidProfile";
 
 function BookLog() {
   const dispatch = useDispatch();
@@ -30,31 +30,26 @@ function BookLog() {
 
   return (
     <div>
+     
       <ThemeProvider theme={theme}>
-        <Typography>
-          <h1>Kid Book Log </h1>
+        <Box mt={15}>
+          <Typography>
+            <h1>Kid Book Log </h1>
+ <KidProfile />
+            {completedBooks.map((book) => {
+              return <CompletedBook key={book.id} book={book} />;
+            })}
 
-          {completedBooks.map((book) => {
-            return <CompletedBook key={book.id} book={book} />;
-          })}
-
-
-
-
-
- <KidProfile/>
- 
-          <Button
-            size="large"
-            variant="contained"
-            style={{ backgroundColor: yellow[500], marginTop: "200px" }}
-            onClick={() => history.push("/BookList")}
-          >
-            Back To Book List
-          </Button>
-
-         
-        </Typography>
+            <Button
+              size="large"
+              variant="contained"
+              style={{ backgroundColor: yellow[500], marginTop: "200px" }}
+              onClick={() => history.push("/BookList")}
+            >
+              Back To Book List
+            </Button>
+          </Typography>
+        </Box>
       </ThemeProvider>
     </div>
   );
