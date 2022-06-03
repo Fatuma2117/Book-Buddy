@@ -10,6 +10,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     const sqlQuery = `
     SELECT * FROM books
     WHERE kid_id=$1 AND completed = $2
+    ORDER BY rate ASC
     ;
     `
     const sqlValues = [

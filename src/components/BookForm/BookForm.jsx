@@ -13,24 +13,17 @@ import { yellow } from "material-ui-colors";
 import Search from "../Search/Search";
 import { createTheme, ThemeProvider, Typography } from "@material-ui/core";
 import swal from "sweetalert";
-import KidList from '../KidList/KidList'
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import Nav from '../Nav/Nav'
-
-
-
+import KidList from "../KidList/KidList";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import Nav from "../Nav/Nav";
 
 function BookForm() {
-
   useEffect(() => {
     dispatch({
-        type:'FETCH_KIDS'
-    })
-
-
-
-},[])
+      type: "FETCH_KIDS",
+    });
+  }, []);
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [description, setDescription] = useState("");
@@ -38,18 +31,17 @@ function BookForm() {
   const [image_url, setImage_Url] = useState("");
   const [total_pages, setTotal_Pages] = useState("");
   const [current_page, setCurrent_page] = useState(0);
-  const [kid, setKid] = useState('');
+  const [kid, setKid] = useState("");
 
   const dispatch = useDispatch();
   const history = useHistory();
-  const kids = useSelector(store => store.kids);
-  console.log('kids reducer***************', kids)
-
+  const kids = useSelector((store) => store.kids);
+  console.log("kids reducer***************", kids);
 
   const theme = createTheme({
     typography: {
       fontFamily: ["Train One", "cursive"].join(","),
-    }
+    },
   });
 
   const handleSubmit = (e) => {
@@ -64,7 +56,7 @@ function BookForm() {
         image_url,
         total_pages,
         current_page,
-        kid
+        kid,
       },
     });
     setTitle("");
@@ -83,104 +75,92 @@ function BookForm() {
     // history.push("/BookList");
   };
 
-
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleKid = (kidId) => {
-    localStorage.setItem('current_kid_id', kidId)
+    localStorage.setItem("current_kid_id", kidId);
     setAnchorEl(null);
-console.log('kidId*************',kidId)
+    console.log("kidId*************", kidId);
 
-setKid(kidId)
-
+    setKid(kidId);
   };
-
-
-
-
-
-
-
 
   return (
     ///is there a kid?? if not drop down.
- <div>
-    <ThemeProvider 
-    // theme={theme}
-    >
-   {/* <Nav/> */}
-   <Box mt={15} >
-      <Typography>
-        <Stack
-        
-          component="form"
-          sx={{
-            width: "100%",
-          }}
-          spacing={5}
-        
-          onSubmit={handleSubmit}
-        >
- 
-      
-          <TextField
-            hiddenLabel
-            id="filled-hidden-label-normal"
-            // defaultValue="Normal"
-            variant="filled"
-            label={"Title"}
-            margin="normal"
-            // placeholder=" Title"
-            value={title}
-            onChange={(e) => {
-              setTitle(e.target.value);
-            }}
-          />
+    <div>
+      <ThemeProvider
+      // theme={theme}
+      >
+        {/* <Nav/> */}
+        <Box mt={15}>
+          <h1>Add A New Book!</h1>
+          <Typography>
+            <Stack
+              component="form"
+              sx={{
+                width: "100%",
+              }}
+              spacing={5}
+              onSubmit={handleSubmit}
+            >
+              <TextField
+                hiddenLabel
+                id="filled-hidden-label-normal"
+                // defaultValue="Normal"
+                variant="filled"
+                label={"Title"}
+                margin="normal"
+                // placeholder=" Title"
+                value={title}
+                onChange={(e) => {
+                  setTitle(e.target.value);
+                }}
+              />
 
-          <TextField
-            hiddenLabel
-            id="filled-hidden-label-normal"
-            // defaultValue="Normal"
-            variant="filled"
-            label={"Author"}
-            margin="normal"
-            // placeholder="Author"
-            value={author}
-            onChange={(e) => {
-              setAuthor(e.target.value);
-            }}
-          />
+              <TextField
+                hiddenLabel
+                id="filled-hidden-label-normal"
+                // defaultValue="Normal"
+                variant="filled"
+                label={"Author"}
+                margin="normal"
+                // placeholder="Author"
+                value={author}
+                onChange={(e) => {
+                  setAuthor(e.target.value);
+                }}
+              />
 
-          <TextField
-            hiddenLabel
-            id="filled-hidden-label-normal"
-            // defaultValue="Normal"
-            variant="filled"
-            margin="normal"
-            label={"Description"}
-            placeholder="Description"
-            value={description}
-            onChange={(e) => {
-              setDescription(e.target.value);
-            }}
-          />
-          <TextField
-            hiddenLabel
-            id="filled-hidden-label-normal"
-            //  defaultValue="Normal"
-            variant="filled"
-            margin="normal"
-            label={"Year"}
-            // placeholder="Year"
-            value={publish_year}
-            onChange={(e) => {
-              setPublish_year(e.target.value);
-            }}
-          />
-          {/* <TextField
+              <TextField
+                hiddenLabel
+                id="filled-hidden-label-normal"
+                // defaultValue="Normal"
+                variant="filled"
+                margin="normal"
+                label={"Description"}
+                placeholder="Description"
+                value={description}
+                onChange={(e) => {
+                  setDescription(e.target.value);
+                }}
+              />
+              <TextField
+                hiddenLabel
+                id="filled-hidden-label-normal"
+                //  defaultValue="Normal"
+                variant="filled"
+                margin="normal"
+                label={"Year"}
+                // placeholder="Year"
+                value={publish_year}
+                onChange={(e) => {
+                  setPublish_year(e.target.value);
+                }}
+              />
+              {/* <TextField
             hiddenLabel
             id="filled-hidden-label-normal"
             // defaultValue="Normal"
@@ -193,88 +173,70 @@ setKid(kidId)
               setImage_Url(e.target.value);
             }}
           /> */}
-          <TextField
-            hiddenLabel
-            id="filled-hidden-label-normal"
-            // defaultValue="Normal"
-            variant="filled"
-            margin="normal"
-            label={"Total Pages"}
-            // placeholder="Total Pages"
-            value={total_pages}
-            onChange={(e) => {
-              setTotal_Pages(e.target.value);
-            }}
-          />
+              <TextField
+                hiddenLabel
+                id="filled-hidden-label-normal"
+                // defaultValue="Normal"
+                variant="filled"
+                margin="normal"
+                label={"Total Pages"}
+                // placeholder="Total Pages"
+                value={total_pages}
+                onChange={(e) => {
+                  setTotal_Pages(e.target.value);
+                }}
+              />
 
-          <Button
-            onClick={handleSubmit}
-            size="small"
-            variant="contained"
-            style={{ backgroundColor: yellow[500] }}
-          >
-            Add Book
-          </Button>
+              <Button
+                onClick={handleSubmit}
+                size="small"
+                variant="contained"
+                style={{ backgroundColor: yellow[500] }}
+              >
+                Add Book
+              </Button>
 
-          <Search />
-          { localStorage.getItem('current_kid_id') === '0' &&
-  
-//  <KidList/>
+              <Search />
+              {localStorage.getItem("current_kid_id") === "0" && (
+                //  <KidList/>
 
-<div>
-<Button
-  id="basic-button"
-  aria-controls={open ? 'basic-menu' : undefined}
-  aria-haspopup="true"
-  aria-expanded={open ? 'true' : undefined}
-  onClick={handleClick}
->
-  Choose Kid
-</Button>
-<Menu
-  id="basic-menu"
-  anchorEl={anchorEl}
-  open={open}
-  // onClose={handleClose}
-  value={kids.id}
-  MenuListProps={{
-    'aria-labelledby': 'basic-button',
-  }}
->
-
-
-{kids.map(kid => {
-                    return (
-                        <MenuItem onClick={()=> handleKid(kid.id)} key={kid.id}>
+                <div>
+                  <Button
+                    id="basic-button"
+                    aria-controls={open ? "basic-menu" : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={open ? "true" : undefined}
+                    onClick={handleClick}
+                  >
+                    Choose Kid
+                  </Button>
+                  <Menu
+                    id="basic-menu"
+                    anchorEl={anchorEl}
+                    open={open}
+                    // onClose={handleClose}
+                    value={kids.id}
+                    MenuListProps={{
+                      "aria-labelledby": "basic-button",
+                    }}
+                  >
+                    {kids.map((kid) => {
+                      return (
+                        <MenuItem
+                          onClick={() => handleKid(kid.id)}
+                          key={kid.id}
+                        >
                           {kid.name}
-                        </MenuItem> 
-                    );
-                })}
-
- 
-</Menu>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-} 
-        </Stack>
-        
-      </Typography>
-      </Box>
-    </ThemeProvider>
+                        </MenuItem>
+                      );
+                    })}
+                  </Menu>
+                </div>
+              )}
+            </Stack>
+          </Typography>
+        </Box>
+      </ThemeProvider>
     </div>
   );
 }

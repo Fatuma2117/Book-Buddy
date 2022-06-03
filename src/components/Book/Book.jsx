@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-
+//MUI-----------------------------------------------------
 import { Button, Grid } from "@material-ui/core";
 import { Typography } from "@material-ui/core";
 import { Container } from "@material-ui/core";
@@ -51,8 +51,6 @@ function Book({ book }) {
     history.push(`/RateForm/${book.id}`);
   };
 
-
-
   // console.log(kid.id)
   return (
     <Container
@@ -60,56 +58,55 @@ function Book({ book }) {
       className={classes.cardGrid}
       style={{ marginTop: "100px", marginLeft: "100px" }}
     >
-    
-        <Box >
-          <Card className={classes.Card}>
-            <CardMedia
-              className={classes.cardMedia}
-              image="https://prodimage.images-bn.com/pimages/9780142413852_p0_v3_s192x300.jpg"
-              title="Image title"
-            />
+      <Box>
+        <Card className={classes.Card}>
+          <CardMedia
+            className={classes.cardMedia}
+            image="https://prodimage.images-bn.com/pimages/9780142413852_p0_v3_s192x300.jpg"
+            title="Image title"
+          />
 
-            <CardContent size="small" className={classes.cardContent}>
-              <Typography gutterBottom>
-                Title: {book.title} - Author: {book.author} - Description:{" "}
-                {book.description} - Publish Year: {book.publish_year} - Points:{" "}
-                {book.points} - Total pages: {book.total_pages}
-                Current Page: {book.current_page}
-              </Typography>
-            </CardContent>
+          <CardContent size="small" className={classes.cardContent}>
+            <Typography gutterBottom>
+              Title: {book.title} - Author: {book.author} - Description:{" "}
+              {book.description} - Publish Year: {book.publish_year} - Points:{" "}
+              {book.points} - Total pages: {book.total_pages}
+              Current Page: {book.current_page}
+            </Typography>
+          </CardContent>
 
-            <CardActions>
-              <Button
-                onClick={handleDelete}
-                size="small"
-                className={classes.buttons}
-                variant="contained"
-                color="primary"
-              >
-                Delete
-              </Button>
-              <Button
-                onClick={handleCompleted}
-                size="small"
-                className={classes.buttons}
-                variant="contained"
-                color={"secondary"}
-              >
-                Completed ✓
-              </Button>
+          <CardActions>
+            <Button
+              onClick={handleDelete}
+              size="small"
+              className={classes.buttons}
+              variant="contained"
+              color="primary"
+            >
+              Delete
+            </Button>
+            <Button
+              onClick={handleCompleted}
+              size="small"
+              className={classes.buttons}
+              variant="contained"
+              color={"secondary"}
+            >
+              Completed ✓
+            </Button>
 
-              <Button
-                onClick={() => history.push(`/edit/${book.id}`)}
-                size="small"
-                className={classes.buttons}
-                variant="contained"
-                color={"primary"}
-              >
-                Edit
-              </Button>
-            </CardActions>
-          </Card>
-        </Box>
+            <Button
+              onClick={() => history.push(`/edit/${book.id}`)}
+              size="small"
+              className={classes.buttons}
+              variant="contained"
+              color={"primary"}
+            >
+              Edit
+            </Button>
+          </CardActions>
+        </Card>
+      </Box>
     </Container>
   );
 }

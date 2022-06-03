@@ -1,54 +1,56 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import {
   HashRouter as Router,
   Redirect,
   Route,
   Switch,
-} from 'react-router-dom';
+} from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import Nav from "../Nav/Nav";
+import Footer from "../Footer/Footer";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import UserPage from "../UserPage/UserPage";
+import LandingPage from "../LandingPage/LandingPage";
+import LoginPage from "../LoginPage/LoginPage";
+import RegisterPage from "../RegisterPage/RegisterPage";
+import BookList from "../BookList/BookList";
+import BookForm from "../BookForm/BookForm";
+import BookLog from "../BookLog/BookLog";
+import KidProfile from "../KidProfile/KidProfile";
+import ParentBookList from "../ParentBookList/ParentBookList";
+import KidList from "../KidList/KidList";
+import UpdateForm from "../UpdateForm/UpdateForm";
+import "./App.css";
+import RateForm from "../RateForm/RateForm";
+import { createTheme, ThemeProvider} from "@material-ui/core";
 
-import { useDispatch, useSelector } from 'react-redux';
 
-import Nav from '../Nav/Nav';
-import Footer from '../Footer/Footer';
 
-import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
-import UserPage from '../UserPage/UserPage';
-
-import LandingPage from '../LandingPage/LandingPage';
-import LoginPage from '../LoginPage/LoginPage';
-import RegisterPage from '../RegisterPage/RegisterPage';
-import BookList from '../BookList/BookList';
-import BookForm from '../BookForm/BookForm';
-import BookLog from '../BookLog/BookLog';
-import KidProfile from '../KidProfile/KidProfile';
-import ParentBookList from '../ParentBookList/ParentBookList';
-import ParentProfile from '../ParentProfile/ParentProfile';
-import ProfileList from '../ProfileList/ProfileList';
-import KidList from '../KidList/KidList';
-import Kid from '../Kid/Kid';
-import UpdateForm from '../UpdateForm/UpdateForm';
-import './App.css';
-import Theme from '../Nav/navStyles'
-import RateForm from '../RateForm/RateForm'
 function App() {
+
+
+  const theme = createTheme({
+    typography: {
+      fontFamily: ["Train One", "cursive"].join(","),
+    },
+  });
   const dispatch = useDispatch();
 
-  const user = useSelector(store => store.user);
+  const user = useSelector((store) => store.user);
 
   useEffect(() => {
-    dispatch({ type: 'FETCH_USER' });
+    dispatch({ type: "FETCH_USER" });
   }, [dispatch]);
 
   return (
+    <ThemeProvider theme={theme}>
     <Router>
       <div>
         <Nav />
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/home" />
-
-       
 
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
@@ -62,113 +64,80 @@ function App() {
             <UserPage />
           </ProtectedRoute>
 
-
-          <ProtectedRoute
-            exact
-            path="/KidList"
-          >
+          <ProtectedRoute exact path="/KidList">
             {/* <ProfileList/> */}
-            <KidList/>
+            <KidList />
           </ProtectedRoute>
 
-          <ProtectedRoute
-            exact
-            path="/BookList"
-          >
+          <ProtectedRoute exact path="/BookList">
             <BookList />
           </ProtectedRoute>
 
-          <ProtectedRoute
-            exact
-            path="/BookForm"
-          >
-            <BookForm/>
+          <ProtectedRoute exact path="/BookForm">
+            <BookForm />
           </ProtectedRoute>
 
-          <ProtectedRoute
-            exact
-            path="/BookLog"
-          >
-            <BookLog/>
-
+          <ProtectedRoute exact path="/BookLog">
+            <BookLog />
           </ProtectedRoute>
 
-          <ProtectedRoute
-            exact
-            path="/KidProfile"
-          >
-            <KidProfile/>
-
+          <ProtectedRoute exact path="/KidProfile">
+            <KidProfile />
           </ProtectedRoute>
           <ProtectedRoute exact path="/edit/:id">
-          <UpdateForm />
-        </ProtectedRoute>
-        
-        <ProtectedRoute exact path="/ParentBookList">
-          <ParentBookList />
-        </ProtectedRoute>
-       
+            <UpdateForm />
+          </ProtectedRoute>
 
-        <ProtectedRoute exact path="/RateForm/:id">
-          <RateForm />
-        </ProtectedRoute>
+          <ProtectedRoute exact path="/ParentBookList">
+            <ParentBookList />
+          </ProtectedRoute>
 
+          <ProtectedRoute exact path="/RateForm/:id">
+            <RateForm />
+          </ProtectedRoute>
 
-
-
-  
-          <Route
-            exact
-            path="/login"
-          >
-            {user.id ?
-              // If the user is already logged in, 
+          <Route exact path="/login">
+            {user.id ? (
+              // If the user is already logged in,
               // redirect to the /user page
               <Redirect to="/user" />
-              :
+            ) : (
               // Otherwise, show the login page
               <LoginPage />
-            }
+            )}
           </Route>
 
-          <Route
-            exact
-            path="/registration"
-          >
-            {user.id ?
-              // If the user is already logged in, 
+          <Route exact path="/registration">
+            {user.id ? (
+              // If the user is already logged in,
               // redirect them to the /user page
               <Redirect to="/user" />
-              :
+            ) : (
               // Otherwise, show the registration page
               <RegisterPage />
-            }
+            )}
           </Route>
 
-          <Route
-            exact
-            path="/home"
-          >
-            {user.id ?
-              // If the user is already logged in, 
+          <Route exact path="/home">
+            {user.id ? (
+              // If the user is already logged in,
               // redirect them to the /user page
               <Redirect to="/user" />
-              :
+            ) : (
               // Otherwise, show the Landing page
               <LandingPage />
-            }
+            )}
           </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
             <h1>404</h1>
           </Route>
-
-         
         </Switch>
         <Footer />
       </div>
     </Router>
+    </ThemeProvider>
   );
 }
 
