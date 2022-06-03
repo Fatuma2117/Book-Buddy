@@ -11,8 +11,6 @@ import { useHistory } from "react-router-dom";
 import { Card, CardMedia, CardContent, CardActions } from "@material-ui/core";
 import { createTheme, ThemeProvider } from "@material-ui/core";
 
-
-
 function ParentBookList() {
   useEffect(() => {
     dispatch({
@@ -24,29 +22,28 @@ function ParentBookList() {
   const dispatch = useDispatch();
   const parentBooks = useSelector((store) => store.parentBooks);
   console.log("parentBooks----------------->", parentBooks);
-  const books = useSelector(store => store.books);
+  const books = useSelector((store) => store.books);
 
   const theme = createTheme({
     typography: {
-      fontFamily: ["Train One", "cursive"].join(","),
+      // fontFamily: ["Train One", "cursive"].join(","),
     },
   });
- 
 
   return (
     <div>
       <h1>Parent Book List</h1>
-      <ThemeProvider theme={theme} >
-      <Container maxWidth='100px'style={{marginTop: '100px'}}>
-      <Grid container spacing={4}  >
-                <Grid item   style={{
-          
-         backgroundColor: "#ffff00",
-          
-       }}>
-          <Card  height= '100px' maxWidth='800px'>
-
-        {/* {parentBooks.map((book) => {
+      {/* <ThemeProvider theme={theme} > */}
+      <Container maxWidth="100px" style={{ marginTop: "100px" }}>
+        <Grid container spacing={4}>
+          <Grid
+            item
+            style={{
+              backgroundColor: "#ffff00",
+            }}
+          >
+            <Card height="100px" maxWidth="800px">
+              {/* {parentBooks.map((book) => {
           // console.log('parent loop book',book)
           return (
            
@@ -63,42 +60,35 @@ function ParentBookList() {
           );
         })} */}
 
-{books.map(book => {
-  // console.log('books map*********************************',book)
+              {books.map((book) => {
+                // console.log('books map*********************************',book)
                 return (
                   <Box>
-                    <> Name: {book.name}--- 
-                    Title: {book.title} - 
-                    Author: {book.author} -
-                   Current Page: {book.current_page}</>
-</Box>
-
+                    <>
+                      {" "}
+                      Name: {book.name}--- Title: {book.title} - Author:{" "}
+                      {book.author} - Current Page: {book.current_page}
+                    </>
+                  </Box>
                 );
-            })}
+              })}
 
-
-
-
-
-
-
-        <Typography>
-          <Button
-            size="large"
-            variant="contained"
-            color={"primary"}
-            onClick={() => history.push("/BookForm")}
-          >
-            ADD NEW BOOK
-          </Button>
-        </Typography>
-        </Card>
+              <Typography>
+                <Button
+                  size="large"
+                  variant="contained"
+                  color={"primary"}
+                  onClick={() => history.push("/BookForm")}
+                >
+                  ADD NEW BOOK
+                </Button>
+              </Typography>
+            </Card>
+          </Grid>
         </Grid>
-            </Grid>
-        </Container>
+      </Container>
 
-        </ThemeProvider>
-
+      {/* </ThemeProvider> */}
     </div>
   );
 }

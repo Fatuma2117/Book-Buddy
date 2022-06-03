@@ -105,8 +105,64 @@ function BookForm() {
       // theme={theme}
       >
         {/* <Nav/> */}
+
+
+        
         <Box mt={15} textAlign='center'>
           <h1 onClick={handleFill}>Add A New Book!</h1>
+
+          {localStorage.getItem("current_kid_id") === "0" && (
+                //  <KidList/>
+
+                <div>
+                  <Button
+                    id="basic-button"
+                    aria-controls={open ? "basic-menu" : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={open ? "true" : undefined}
+                    onClick={handleClick}
+                  >
+                    Choose Kid
+                  </Button>
+                  <Menu
+                    id="basic-menu"
+                    anchorEl={anchorEl}
+                    open={open}
+                    // onClose={handleClose}
+                    value={kids.id}
+                    MenuListProps={{
+                      "aria-labelledby": "basic-button",
+                    }}
+                  >
+                    {kids.map((kid) => {
+                      return (
+                        <MenuItem
+                          onClick={() => handleKid(kid.id)}
+                          key={kid.id}
+                        >
+                          {kid.name}
+                        </MenuItem>
+                      );
+                    })}
+                  </Menu>
+                </div>
+              )}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           <Typography >
             <Stack
               component="form"
@@ -206,8 +262,8 @@ function BookForm() {
                 Submit
               </Button>
 
-              <Search />
-              {localStorage.getItem("current_kid_id") === "0" && (
+              {/* <Search /> */}
+              {/* {localStorage.getItem("current_kid_id") === "0" && (
                 //  <KidList/>
 
                 <div>
@@ -242,7 +298,7 @@ function BookForm() {
                     })}
                   </Menu>
                 </div>
-              )}
+              )} */}
             </Stack>
           </Typography>
         </Box>

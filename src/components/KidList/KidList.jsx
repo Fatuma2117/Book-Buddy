@@ -34,7 +34,7 @@ function KidList() {
   return (
     <>
       {/* <ThemeProvider alignItems="center" theme={theme}> */}
-        <Box mt={30} ml={64} textAlign='center' alignContent='center' maxWidth='900px' style={{ backgroundColor: yellow[500] }} >
+        <Box mt={30} ml={38} textAlign='center' alignContent='center' maxWidth='900px' style={{ backgroundColor: yellow[500] }} >
           <Typography>
             <div>
               <CssBaseline />
