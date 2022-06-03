@@ -16,16 +16,16 @@ const useStyles = makeStyles((theme)=>({
     },
     card:{
         height: '100%',
-        display: 'flex',
+        // display: 'flex',
        
 
     },
     cardMedia:{
         paddingTop: '56.25%'
     },
-    cardContent:{
-        flexGrow: 1
-    },
+    // cardContent:{
+    //     flexGrow: 1
+    // },
     swal:{
         backgroundColor: 'primary',
         border: '3px' 

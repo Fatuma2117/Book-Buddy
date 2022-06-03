@@ -12,7 +12,6 @@ import { Toolbar, Button } from "@material-ui/core";
 import Stack from "@mui/material/Stack";
 
 import { Container } from "@material-ui/core";
-import CollectionsBookmarkIcon from "@mui/icons-material/CollectionsBookmark";
 import { useHistory } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@material-ui/core";
 import Themes from "../Nav/navStyles";
@@ -22,28 +21,29 @@ function Nav() {
   const user = useSelector((store) => store.user);
   const history = useHistory();
 
-  const theme = createTheme({
-    typography: {
-      fontFamily: ["Train One", "cursive"].join(","),
-    },
-  });
+  // const theme = createTheme({
+  //   typography: {
+  //     fontFamily: ["Train One", "cursive"].join(","),
+    
+  //   },
+  // });
 
   const useStyles = makeStyles((theme) => ({
     root: {
       display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      height: "500vh",
+      justifyContent: "space-between",
+      // alignItems: "center",
+      // height: "10vh",
     },
     appbar: {
       backgroundColor: "#FF6E40",
     },
     appbarWrapper: {
       width: "60%",
-      height: '100vh',
+      height: "100vh",
       margin: "0 auto",
     },
-    fontFamily: "Train One",
+ 
   }));
 
   const classes = useStyles();
@@ -56,7 +56,7 @@ function Nav() {
           <Toolbar disableGutters display="flex">
             <Stack className={classes.fontFamily} direction="row" spacing={2}>
               <Typography className={classes.fontFamily}>
-                <Typography>
+                <Typography style={{ marginRight: 16 }}>
                   <div className={classes.fontFamily}>
                     {/* <img src="images/book-stack.jpg"/> */}
                     <span>
@@ -65,7 +65,7 @@ function Nav() {
                       </Button>
                     </span>
 
-                    <div className={classes.fontFamily}>
+                    <div className={classes.root}>
                       {/* If no user is logged in, show these links */}
                       {!user.id && (
                         // If there's no user, show login/registration links
@@ -82,6 +82,13 @@ function Nav() {
                             style={{ color: "#c6ff00" }}
                           >
                             Home
+                          </Button>
+
+                          <Button
+                            onClick={() => history.push("/About")}
+                            style={{ color: "#c6ff00" }}
+                          >
+                            About
                           </Button>
 
                           <Button

@@ -16,22 +16,22 @@ function KidProfile() {
   }, []);
   const theme = createTheme({
     typography: {
-      fontFamily: ["Train One", "cursive"].join(","),
+      // fontFamily: ["Train One", "cursive"].join(","),
       fontSize: 26,
     },
   });
   return (
     <div>
-      <ThemeProvider theme={theme}>
-        <Typography>
-          <Typography fontSize="" gutterBottom>
+      {/* <ThemeProvider theme={theme}> */}
+        <Typography align='center'>
+          <Typography   fontSize="" gutterBottom>
             {points.map((point) => {
               console.log("points map----->", point);
-              return <>Total Book Points: {point.sum} ------</>;
+              return <>Total Book Points:  {point.sum}</>;
             })}
           </Typography>
         </Typography>
-      </ThemeProvider>
+      {/* </ThemeProvider> */}
     </div>
   );
 }

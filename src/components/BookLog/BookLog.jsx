@@ -21,7 +21,7 @@ function BookLog() {
 
   const theme = createTheme({
     typography: {
-      fontFamily: ["Train One", "cursive"].join(","),
+      // fontFamily: ["Train One", "cursive"].join(","),
     },
   });
 
@@ -30,9 +30,9 @@ function BookLog() {
 
   return (
     <div>
-      <ThemeProvider theme={theme}>
-        <Box mt={15}>
-          <Typography>
+      {/* <ThemeProvider theme={theme}> */}
+        <Box mt={20}>
+          <Typography align='center'>
             <h1>Reading Log </h1>
             <KidProfile />
             {completedBooks.map((book) => {
@@ -49,7 +49,7 @@ function BookLog() {
             </Button>
           </Typography>
         </Box>
-      </ThemeProvider>
+      {/* </ThemeProvider> */}
     </div>
   );
 }

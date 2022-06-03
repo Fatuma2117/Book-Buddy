@@ -39,9 +39,9 @@ function BookForm() {
   console.log("kids reducer***************", kids);
 
   const theme = createTheme({
-    typography: {
-      fontFamily: ["Train One", "cursive"].join(","),
-    },
+    // typography: {
+    //   // fontFamily: ["Train One", "cursive"].join(","),
+    // },
   });
 
   const handleSubmit = (e) => {
@@ -88,6 +88,16 @@ function BookForm() {
     setKid(kidId);
   };
 
+  const handleFill = () => {
+    setTitle('Matila')
+    setAuthor('Roald Dahl')
+    setDescription('Matilda is a sweet, exceptional smart young girl, but her parents think shes just a nuisance. ') 
+    setPublish_year('1990')
+    setTotal_Pages('30')
+
+
+  }
+
   return (
     ///is there a kid?? if not drop down.
     <div>
@@ -95,9 +105,9 @@ function BookForm() {
       // theme={theme}
       >
         {/* <Nav/> */}
-        <Box mt={15}>
-          <h1>Add A New Book!</h1>
-          <Typography>
+        <Box mt={15} textAlign='center'>
+          <h1 onClick={handleFill}>Add A New Book!</h1>
+          <Typography >
             <Stack
               component="form"
               sx={{
@@ -193,7 +203,7 @@ function BookForm() {
                 variant="contained"
                 style={{ backgroundColor: yellow[500] }}
               >
-                Add Book
+                Submit
               </Button>
 
               <Search />

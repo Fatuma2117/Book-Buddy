@@ -17,8 +17,6 @@ function UserPage() {
       backgroundImage: `url(${process.env.PUBLIC_URL + "/images/books.jpeg"})`,
       backgroundSize: "cover",
       fontFamily: "Berkshire Swash",
-    
-
       color: '#03a9f4',
       fontSize: "70px",
     },

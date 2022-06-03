@@ -54,11 +54,11 @@ function Book({ book }) {
   // console.log(kid.id)
   return (
     <Container
-      maxWidth="md"
+      maxWidth="sm"
       className={classes.cardGrid}
       style={{ marginTop: "100px", marginLeft: "100px" }}
     >
-      <Box>
+      <Box sx={{ boxShadow: 8 }}>
         <Card className={classes.Card}>
           <CardMedia
             className={classes.cardMedia}
@@ -66,7 +66,7 @@ function Book({ book }) {
             title="Image title"
           />
 
-          <CardContent size="small" className={classes.cardContent}>
+          <CardContent  className={classes.cardContent}>
             <Typography gutterBottom>
               Title: {book.title} - Author: {book.author} - Description:{" "}
               {book.description} - Publish Year: {book.publish_year} - Points:{" "}
@@ -92,7 +92,7 @@ function Book({ book }) {
               variant="contained"
               color={"secondary"}
             >
-              Completed ✓
+              Mark As Completed
             </Button>
 
             <Button

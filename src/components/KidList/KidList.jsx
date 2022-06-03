@@ -21,7 +21,6 @@ function KidList() {
   }, []);
   const theme = createTheme({
     typography: {
-      fontFamily: ["Train One", "cursive"].join(","),
     },
     justifyContent: "center",
   });
@@ -34,8 +33,8 @@ function KidList() {
 
   return (
     <>
-      <ThemeProvider alignItems="center" theme={theme}>
-        <Box mt={15} ml={38} textAlign='center' alignContent='center' maxWidth='700px' style={{ backgroundColor: yellow[500] }} >
+      {/* <ThemeProvider alignItems="center" theme={theme}> */}
+        <Box mt={30} ml={64} textAlign='center' alignContent='center' maxWidth='900px' style={{ backgroundColor: yellow[500] }} >
           <Typography>
             <div>
               <CssBaseline />
@@ -64,7 +63,7 @@ function KidList() {
             </div>
           </Typography>
         </Box>
-      </ThemeProvider>
+      {/* </ThemeProvider> */}
     </>
   );
 }

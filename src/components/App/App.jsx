@@ -22,6 +22,7 @@ import KidList from "../KidList/KidList";
 import UpdateForm from "../UpdateForm/UpdateForm";
 import "./App.css";
 import RateForm from "../RateForm/RateForm";
+import About from '../About/About'
 import { createTheme, ThemeProvider} from "@material-ui/core";
 
 
@@ -32,7 +33,9 @@ function App() {
 
   const theme = createTheme({
     typography: {
-      fontFamily: ["Train One", "cursive"].join(","),
+      // fontFamily: ['Orbitron', 'sans-serif'].join(","),
+      fontFamily: ['Bangers', 'cursive'].join(","),
+      fontSize: 25
     },
   });
   const dispatch = useDispatch();
@@ -64,8 +67,11 @@ function App() {
             <UserPage />
           </ProtectedRoute>
 
+          <ProtectedRoute exact path="/About">
+            <About />
+          </ProtectedRoute>
+
           <ProtectedRoute exact path="/KidList">
-            {/* <ProfileList/> */}
             <KidList />
           </ProtectedRoute>
 

@@ -23,7 +23,7 @@ function BookList() {
 
   const theme = createTheme({
     typography: {
-      fontFamily: ["Train One", "cursive"].join(","),
+      // fontFamily: ["Train One", "cursive"].join(","),
     },
   });
 
@@ -39,10 +39,10 @@ function BookList() {
           >
             Book List
           </Typography>
-          <Grid container spacing={1}>
+          <Grid container mr={4} ml={4}p={4}spacing={2}>
             {books.map((book) => {
               return (
-                <Grid key={book.id} item xs={4}>
+                <Grid key={book.id} item xs={6}>
                   <Book book={book} />
                 </Grid>
               );
@@ -54,6 +54,7 @@ function BookList() {
           size="small"
           variant="contained"
           color={"primary"}
+          align='center'
           onClick={() => history.push("/BookForm")}
         >
           ADD NEW BOOK
