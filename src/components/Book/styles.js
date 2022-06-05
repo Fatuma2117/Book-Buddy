@@ -9,19 +9,21 @@ const useStyles = makeStyles((theme)=>({
         marginTop: '40px'
     },
     cardGrid:{
-        padding: '20px 0',
+        padding: '10px ',
+        marginBlock:'20px',
+        marginRight:'100px'
        
 
     
     },
     card:{
-        height: '100%',
-        // display: 'flex',
-       
+        // height: '100vh',
+marginRight: '30px' ,
+marginLeft:'30px'      
 
     },
     cardMedia:{
-        paddingTop: '56.25%'
+    
     },
     // cardContent:{
     //     flexGrow: 1

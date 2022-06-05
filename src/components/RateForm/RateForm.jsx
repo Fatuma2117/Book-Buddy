@@ -61,7 +61,7 @@ function RateForm() {
               variant="contained"
               style={{ backgroundColor: yellow[500] }}
             >
-              Add Book
+              Add Rating
             </Button>
           </Stack>
         </Typography>

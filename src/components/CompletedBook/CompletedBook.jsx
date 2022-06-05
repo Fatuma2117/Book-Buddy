@@ -16,10 +16,10 @@ function CompletedBook({ book }) {
               backgroundColor: "#ffff00",
             }}
           >
-            <Card height="20px">
+            <Card elevation={9} height="20px">
               <CardMedia
                 // className={classes.cardMedia}
-                image="https://prodimage.images-bn.com/pimages/9780142413852_p0_v3_s192x300.jpg"
+                image={book.image_url}
                 title="Image title"
               />
 
@@ -28,8 +28,9 @@ function CompletedBook({ book }) {
                 // className={classes.cardContent}
               >
                 <Typography gutterBottom>
-                  Title: {book.title} - Author: {book.author} - Description:{" "}
-                  {book.description} - Publish Year: {book.publish_year} -
+                  
+                  Title: {book.title} - Author: {book.author} 
+                  - Publish Year: {book.publish_year} - Description: {book.description}
                   Points: {book.points} - Total pages: {book.total_pages} -
                   Rating:{book.rate}- Completed ✓
                 </Typography>

@@ -56,21 +56,23 @@ function Book({ book }) {
     <Container
       maxWidth="sm"
       className={classes.cardGrid}
-      style={{ marginTop: "100px", marginLeft: "100px" }}
+      style={{ marginTop: "100px", marginLeft: "50px" , marginRight:"80px"}}
     >
       <Box sx={{ boxShadow: 8 }}>
-        <Card className={classes.Card}>
+        <Card  elevation={12} className={classes.card}>
           <CardMedia
             className={classes.cardMedia}
-            image="https://prodimage.images-bn.com/pimages/9780142413852_p0_v3_s192x300.jpg"
+            image={book.image_url}// image="https://prodimage.images-bn.com/pimages/9780142413852_p0_v3_s192x300.jpg"
             title="Image title"
+            component="img"
+           
           />
 
           <CardContent  className={classes.cardContent}>
             <Typography gutterBottom>
-              Title: {book.title} - Author: {book.author} - Description:{" "}
-              {book.description} - Publish Year: {book.publish_year} - Points:{" "}
-              {book.points} - Total pages: {book.total_pages}
+              Title: {book.title} - Author: {book.author} - Description:
+              {book.description} - Published: {book.publish_year} - Points:
+              {book.points} - Total pages: {book.total_pages} - 
               Current Page: {book.current_page}
             </Typography>
           </CardContent>

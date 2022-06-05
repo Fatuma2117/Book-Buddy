@@ -9,6 +9,9 @@ import { container } from "@material-ui/core";
 import { Typography } from "@material-ui/core";
 import { yellow, orange } from "material-ui-colors";
 import { Button, Box } from "@material-ui/core";
+import {Avatar} from '@mui/material/'
+import Stack from '@mui/material/Stack';
+
 import { createTheme, ThemeProvider } from "@material-ui/core";
 
 function KidList() {
@@ -31,13 +34,32 @@ function KidList() {
     history.push("/ParentBookList");
   };
 
+
+
+
+
+
+
+
+
+
+
   return (
     <>
       {/* <ThemeProvider alignItems="center" theme={theme}> */}
-        <Box mt={30} ml={38} textAlign='center' alignContent='center' maxWidth='900px' style={{ backgroundColor: yellow[500] }} >
+     
+        <Box sx={{ borderRadius: '16px' }} mt={30} ml={58} textAlign='center' alignContent='center' maxWidth='900px' style={{ backgroundColor: yellow[500] }} >
           <Typography>
             <div>
               <CssBaseline />
+
+       
+
+
+
+
+
+              
 
               <Typography
                 variant="h3"
@@ -54,7 +76,7 @@ function KidList() {
               <Button
                 onClick={handleParent}
                 align="center"
-                size="small"
+                size="large"
                 variant="contained"
                 style={{ backgroundColor: orange[700]}}
               >
@@ -63,7 +85,7 @@ function KidList() {
             </div>
           </Typography>
         </Box>
-      {/* </ThemeProvider> */}
+    
     </>
   );
 }

@@ -27,9 +27,17 @@ function LoginForm() {
     }
   }; // end login
 
+  const handleLogin =()=>{
+ setUsername('Fatuma')
+ setPassword('123')
+  }
+
+
+
+
   return (
     <form className="formPanel" onSubmit={login}>
-      <h2>Login</h2>
+      <h2 onClick={handleLogin}>Login</h2>
       {errors.loginMessage && (
         <h3 className="alert" role="alert">
           {errors.loginMessage}

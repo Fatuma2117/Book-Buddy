@@ -3,6 +3,9 @@ import { useHistory } from "react-router-dom";
 import { CssBaseline } from "@material-ui/core";
 import { Container } from "@material-ui/core";
 import { Typography } from "@material-ui/core";
+import {Avatar} from '@mui/material/'
+import Stack from '@mui/material/Stack';
+
 
 function Kid({ kid }) {
   const history = useHistory();
@@ -27,6 +30,7 @@ function Kid({ kid }) {
           color="textPrimary"
           gutterBottom
         >
+      
           {kid.name}
         </Typography>
       </Container>

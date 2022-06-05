@@ -11,6 +11,8 @@ import { AppBar } from "@material-ui/core";
 import { Toolbar, Button } from "@material-ui/core";
 import Stack from "@mui/material/Stack";
 
+
+
 import { Container } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@material-ui/core";
@@ -30,8 +32,9 @@ function Nav() {
 
   const useStyles = makeStyles((theme) => ({
     root: {
-      display: "flex",
-      justifyContent: "space-between",
+      // display: "flex",
+      // justifyContent: "space-between",
+      flexGrow: 1
       // alignItems: "center",
       // height: "10vh",
     },
@@ -51,7 +54,7 @@ function Nav() {
   return (
     <>
       <CssBaseline />
-      <AppBar className={classes.appbar} elevation={0}>
+      <AppBar    className={classes.appbar} elevation={0}>
         <Container maxWidth="xl">
           <Toolbar disableGutters display="flex">
             <Stack className={classes.fontFamily} direction="row" spacing={2}>
@@ -60,6 +63,7 @@ function Nav() {
                   <div className={classes.fontFamily}>
                     {/* <img src="images/book-stack.jpg"/> */}
                     <span>
+               
                       <Button className={classes.appbarTitle}>
                         Book Buddy - Tracker App
                       </Button>
@@ -118,10 +122,16 @@ function Nav() {
                             Reading Log
                           </Button>
 
-                          <LogOutButton />
+                       
                         </>
                       )}
+                      <LogOutButton />
                     </div>
+   
+
+
+
+
                   </div>
                 </Typography>
               </Typography>

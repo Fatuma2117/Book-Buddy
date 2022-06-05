@@ -5,12 +5,12 @@ import Book from "../Book/Book";
 import Kid from "../Kid/Kid";
 //MUI--------------------------------------------------
 import { Typography, Button } from "@material-ui/core";
-import { Grid } from "@material-ui/core";
+import { Grid, Box} from "@material-ui/core";
 import { createTheme, ThemeProvider } from "@material-ui/core";
 
 function BookList() {
   const dispatch = useDispatch();
-  // const history = useHistory();
+  const history = useHistory();
 
   const books = useSelector((store) => store.books);
   const kids = useSelector((store) => store.kids);
@@ -21,15 +21,11 @@ function BookList() {
     });
   }, []);
 
-  const theme = createTheme({
-    typography: {
-      // fontFamily: ["Train One", "cursive"].join(","),
-    },
-  });
+
 
   return (
     <div>
-      <ThemeProvider theme={theme}>
+     <Box mt={18}>
         <Typography>
           <Typography
             variant="h2"
@@ -37,12 +33,12 @@ function BookList() {
             color="textPrimary"
             gutterBottom
           >
-            Book List
+            Current Books
           </Typography>
-          <Grid container mr={4} ml={4}p={4}spacing={2}>
+          <Grid container >
             {books.map((book) => {
               return (
-                <Grid key={book.id} item xs={6}>
+                <Grid mr={45} key={book.id} item xs={4}>
                   <Book book={book} />
                 </Grid>
               );
@@ -51,15 +47,16 @@ function BookList() {
         </Typography>
 
         <Button
-          size="small"
+          size="large"
           variant="contained"
           color={"primary"}
           align='center'
+         
           onClick={() => history.push("/BookForm")}
         >
           ADD NEW BOOK
         </Button>
-      </ThemeProvider>
+        </Box>
     </div>
   );
 }

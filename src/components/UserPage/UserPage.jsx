@@ -27,12 +27,19 @@ function UserPage() {
   return (
     <div >
       {/* <CssBaseline /> */}
+         {/* <img src="images/book-stack.jpg"/> */}
       <Card
        className={classes.root}
-      >
-        <Box mt={40} maxWidth='900px' style={{ backgroundColor: yellow[500] }}>
+      > 
+    
+     
+        <Box sx={{ borderRadius: '16px' }} mt={39} maxWidth='900px' style={{ backgroundColor: yellow[500] }}>
+
+
+
           We are the music makers, and we are the dreamers of dreams.” --- Roald
           Dahl
+           
         </Box>
       </Card>
     </div>

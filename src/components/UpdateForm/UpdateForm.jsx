@@ -38,25 +38,31 @@ const handleSubmit=()=>{
     return(
      
   //  <>Update Book Form</>
-  <Box mt={15} >
+  <Box textAlign='center' mt={15} >
+
    <Stack
    component="form"
    sx={{
-     width: '100%',
+    '& .MuiTextField-root': { m: 1, width: '90ch', marginLeft:'450px' },
    }}
+   
    spacing={2}
    noValidate
    autoComplete="off"
    onSubmit={handleSubmit}
  >
+   <h1> Edit Book</h1>
      <TextField
         hiddenLabel
-        id="outlined-multiline-flexible"
+        // id="outlined-multiline-flexible"
         // defaultValue="Normal"
+         id="outlined-read-only-input"
+          // label="Title"
         variant="filled"
         margin="normal"
+        helperText="Title"
       
-        label={'Title'}
+        // label={'Title'}
         value={editBook.title}
         onChange={(e) => { 
           dispatch({
@@ -72,8 +78,8 @@ const handleSubmit=()=>{
         // defaultValue="Normal"
         variant="filled"
          margin="normal"
-    
-        label={'Author'}
+         helperText="Author"
+        // label={'Author'}
         value={editBook.author}
         onChange={(e) => { 
           dispatch({
@@ -90,7 +96,8 @@ hiddenLabel
 id="outlined-multiline-flexible"
 // defaultValue="Normal"
 variant="filled" margin="normal"
-label={'Description'}
+// label={'Description'}
+helperText="Description"
 
 // placeholder="Description"
 value={editBook.description}
@@ -107,8 +114,9 @@ onChange={(e) => {
         id="outlined-multiline-flexible"
         //  defaultValue="Normal"
         variant="filled" margin="normal"
-        label={'Year'}
-        placeholder="Year"
+        // label={'Year'}
+        helperText="Year"
+        
         value={editBook.publish_year}
         onChange={(e) => { 
           dispatch({
@@ -138,8 +146,9 @@ onChange={(e) => {
         id="outlined-multiline-flexible"
         // defaultValue="Normal"
         variant="filled" margin="normal"
-        label={'Total Pages'}
-        placeholder="Total Pages"
+        // label={'Total Pages'}
+        // placeholder="Total Pages"
+        helperText="Total Pages"
         value={editBook.total_pages}
         onChange={(e) => { 
           dispatch({
@@ -158,8 +167,9 @@ onChange={(e) => {
         id="outlined-multiline-flexible"
         // defaultValue="Normal"
         variant="filled" margin="normal"
-        label={'Add Current Page'}
-        placeholder="Add Current Page"
+        // label={'Add Current Page'}
+        // placeholder="Add Current Page"
+        helperText="Current Page"
         value={editBook.current_page}
         onChange={(e) => { 
           dispatch({
@@ -168,10 +178,12 @@ onChange={(e) => {
           })
         }} 
         />
-        <Button onClick={handleSubmit}size='small' variant="contained" style={{backgroundColor: yellow [500]}} >Update Book</Button>
 
 
 </Stack>
+        <Button onClick={handleSubmit}size='small' variant="contained" style={{backgroundColor: yellow [500]}} >Update Book</Button>
+
+
 </Box>
        
     )

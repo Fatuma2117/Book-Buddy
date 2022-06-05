@@ -1,22 +1,16 @@
-// Book form will have a children's book search bar from API.
-// Inputs included for title, author, book url, year, and total pages.
-// So that users can create book items if not found in the API.
-// Add book button puts the book on the 1.5 kid  book list page.
-
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Search from "../Search/Search";
+import { useHistory } from "react-router-dom";
+//MUI-----------------------------------------------------
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import { Button, Box } from "@material-ui/core";
-import { useHistory } from "react-router-dom";
 import { yellow } from "material-ui-colors";
-import Search from "../Search/Search";
 import { createTheme, ThemeProvider, Typography } from "@material-ui/core";
 import swal from "sweetalert";
-import KidList from "../KidList/KidList";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import Nav from "../Nav/Nav";
 
 function BookForm() {
   useEffect(() => {
@@ -72,7 +66,7 @@ function BookForm() {
       icon: "success",
       button: "Done!",
     });
-    // history.push("/BookList");
+    history.push("/BookList");
   };
 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -89,14 +83,15 @@ function BookForm() {
   };
 
   const handleFill = () => {
-    setTitle('Matila')
-    setAuthor('Roald Dahl')
-    setDescription('Matilda is a sweet, exceptional smart young girl, but her parents think shes just a nuisance. ') 
-    setPublish_year('1990')
-    setTotal_Pages('30')
-
-
-  }
+    setTitle("Matila");
+    setAuthor("Roald Dahl");
+    setDescription(
+      "Matilda is a sweet, exceptional smart young girl, but her parents think shes just a nuisance. She expects school to be different but there she has to face Miss Trunchbull, a kid-hating terror of a headmistress. "
+    );
+    setImage_Url("https://images-na.ssl-images-amazon.com/images/I/410fCk2oWtL._SX324_BO1,204,203,200_.jpg")
+    setPublish_year("1990");
+    setTotal_Pages("30");
+  };
 
   return (
     ///is there a kid?? if not drop down.
@@ -106,64 +101,44 @@ function BookForm() {
       >
         {/* <Nav/> */}
 
-
-        
-        <Box mt={15} textAlign='center'>
+        <Box mt={15} textAlign="center">
           <h1 onClick={handleFill}>Add A New Book!</h1>
 
           {localStorage.getItem("current_kid_id") === "0" && (
-                //  <KidList/>
+            //  <KidList/>
 
-                <div>
-                  <Button
-                    id="basic-button"
-                    aria-controls={open ? "basic-menu" : undefined}
-                    aria-haspopup="true"
-                    aria-expanded={open ? "true" : undefined}
-                    onClick={handleClick}
-                  >
-                    Choose Kid
-                  </Button>
-                  <Menu
-                    id="basic-menu"
-                    anchorEl={anchorEl}
-                    open={open}
-                    // onClose={handleClose}
-                    value={kids.id}
-                    MenuListProps={{
-                      "aria-labelledby": "basic-button",
-                    }}
-                  >
-                    {kids.map((kid) => {
-                      return (
-                        <MenuItem
-                          onClick={() => handleKid(kid.id)}
-                          key={kid.id}
-                        >
-                          {kid.name}
-                        </MenuItem>
-                      );
-                    })}
-                  </Menu>
-                </div>
-              )}
+            <div>
+              <Button
+                id="basic-button"
+                aria-controls={open ? "basic-menu" : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? "true" : undefined}
+                onClick={handleClick}
+              >
+                Choose Kid
+              </Button>
+              <Menu
+                id="basic-menu"
+                anchorEl={anchorEl}
+                open={open}
+                // onClose={handleClose}
+                value={kids.id}
+                MenuListProps={{
+                  "aria-labelledby": "basic-button",
+                }}
+              >
+                {kids.map((kid) => {
+                  return (
+                    <MenuItem onClick={() => handleKid(kid.id)} key={kid.id}>
+                      {kid.name}
+                    </MenuItem>
+                  );
+                })}
+              </Menu>
+            </div>
+          )}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          <Typography >
+          <Typography>
             <Stack
               component="form"
               sx={{
@@ -226,19 +201,19 @@ function BookForm() {
                   setPublish_year(e.target.value);
                 }}
               />
-              {/* <TextField
-            hiddenLabel
-            id="filled-hidden-label-normal"
-            // defaultValue="Normal"
-            variant="filled"
-            margin="normal"
-            label={"Image"}
-            // placeholder="Image"
-            value={image_url}
-            onChange={(e) => {
-              setImage_Url(e.target.value);
-            }}
-          /> */}
+              <TextField
+                hiddenLabel
+                id="filled-hidden-label-normal"
+                // defaultValue="Normal"
+                variant="filled"
+                margin="normal"
+                label={"Image"}
+                // placeholder="Image"
+                value={image_url}
+                onChange={(e) => {
+                  setImage_Url(e.target.value);
+                }}
+              />
               <TextField
                 hiddenLabel
                 id="filled-hidden-label-normal"
@@ -255,50 +230,12 @@ function BookForm() {
 
               <Button
                 onClick={handleSubmit}
-                size="small"
+                size="medium"
                 variant="contained"
                 style={{ backgroundColor: yellow[500] }}
               >
                 Submit
               </Button>
-
-              {/* <Search /> */}
-              {/* {localStorage.getItem("current_kid_id") === "0" && (
-                //  <KidList/>
-
-                <div>
-                  <Button
-                    id="basic-button"
-                    aria-controls={open ? "basic-menu" : undefined}
-                    aria-haspopup="true"
-                    aria-expanded={open ? "true" : undefined}
-                    onClick={handleClick}
-                  >
-                    Choose Kid
-                  </Button>
-                  <Menu
-                    id="basic-menu"
-                    anchorEl={anchorEl}
-                    open={open}
-                    // onClose={handleClose}
-                    value={kids.id}
-                    MenuListProps={{
-                      "aria-labelledby": "basic-button",
-                    }}
-                  >
-                    {kids.map((kid) => {
-                      return (
-                        <MenuItem
-                          onClick={() => handleKid(kid.id)}
-                          key={kid.id}
-                        >
-                          {kid.name}
-                        </MenuItem>
-                      );
-                    })}
-                  </Menu>
-                </div>
-              )} */}
             </Stack>
           </Typography>
         </Box>
