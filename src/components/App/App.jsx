@@ -35,7 +35,7 @@ function App() {
     typography: {
       // fontFamily: ['Orbitron', 'sans-serif'].join(","),
       fontFamily: ['Bangers', 'cursive'].join(","),
-      fontSize: 25
+      fontSize: 29
     },
   });
   const dispatch = useDispatch();

@@ -5,8 +5,9 @@ import Book from "../Book/Book";
 import Kid from "../Kid/Kid";
 //MUI--------------------------------------------------
 import { Typography, Button } from "@material-ui/core";
-import { Grid, Box} from "@material-ui/core";
+import { Grid, Box } from "@material-ui/core";
 import { createTheme, ThemeProvider } from "@material-ui/core";
+import { yellow } from "material-ui-colors";
 
 function BookList() {
   const dispatch = useDispatch();
@@ -21,11 +22,9 @@ function BookList() {
     });
   }, []);
 
-
-
   return (
     <div>
-     <Box mt={18}>
+      <Box mt={18}>
         <Typography>
           <Typography
             variant="h2"
@@ -35,7 +34,7 @@ function BookList() {
           >
             Current Books
           </Typography>
-          <Grid container >
+          <Grid container>
             {books.map((book) => {
               return (
                 <Grid mr={45} key={book.id} item xs={4}>
@@ -49,14 +48,12 @@ function BookList() {
         <Button
           size="large"
           variant="contained"
-          color={"primary"}
-          align='center'
-         
+          style={{ backgroundColor: yellow[500] }}
           onClick={() => history.push("/BookForm")}
         >
           ADD NEW BOOK
         </Button>
-        </Box>
+      </Box>
     </div>
   );
 }

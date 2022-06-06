@@ -31,7 +31,7 @@ function BookLog() {
   return (
     <div>
       {/* <ThemeProvider theme={theme}> */}
-        <Box mt={20}>
+        <Box mt={20} >
           <Typography align='center'>
             <h1>Reading Log </h1>
             <KidProfile />

@@ -24,25 +24,30 @@ function ParentBookList() {
   console.log("parentBooks----------------->", parentBooks);
   const books = useSelector((store) => store.books);
 
-  const theme = createTheme({
-    typography: {
-      // fontFamily: ["Train One", "cursive"].join(","),
-    },
-  });
+
 
   return (
     <div>
+      <Box mt={23} textAlign="center" alignContent='center'>
+
+     
       <h1>Parent Book List</h1>
-      {/* <ThemeProvider theme={theme} > */}
-      <Container maxWidth="100px" style={{ marginTop: "100px" }}>
+    
+      <Container  style={{ marginTop: "100px" }}>
         <Grid container spacing={4}>
           <Grid
             item
-            style={{
-              backgroundColor: "#ffff00",
-            }}
+            // style={{
+            //   backgroundColor: "#ffff00",
+            // }}
+            container
+            spacing={0}
+            direction="column"
+            alignItems="center"
+            justify="center"
+            style={{ minHeight: '70vh' , backgroundColor: "#ffff00"}}
           >
-            <Card height="100px" maxWidth="800px">
+            <Card   >
               {/* {parentBooks.map((book) => {
           // console.log('parent loop book',book)
           return (
@@ -88,8 +93,9 @@ function ParentBookList() {
         </Grid>
       </Container>
 
-      {/* </ThemeProvider> */}
+      </Box>
     </div>
+
   );
 }
 

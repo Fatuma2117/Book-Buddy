@@ -32,14 +32,19 @@ function Nav() {
 
   const useStyles = makeStyles((theme) => ({
     root: {
-      // display: "flex",
-      // justifyContent: "space-between",
-      flexGrow: 1
-      // alignItems: "center",
-      // height: "10vh",
+      display: "flex",
+      justifyContent: "space-between",
+      flexGrow: 1,
+      alignItems: "center",
+      marginRight:'500px'
     },
     appbar: {
       backgroundColor: "#FF6E40",
+      justifyContent: "space-between",
+      flexGrow: 1,
+      
+
+
     },
     appbarWrapper: {
       width: "60%",
@@ -56,8 +61,8 @@ function Nav() {
       <CssBaseline />
       <AppBar    className={classes.appbar} elevation={0}>
         <Container maxWidth="xl">
-          <Toolbar disableGutters display="flex">
-            <Stack className={classes.fontFamily} direction="row" spacing={2}>
+          <Toolbar  style={{ alignItems: "center"}}>
+            {/* <Stack className={classes.fontFamily} direction="row" spacing={2}> */}
               <Typography className={classes.fontFamily}>
                 <Typography style={{ marginRight: 16 }}>
                   <div className={classes.fontFamily}>
@@ -65,7 +70,7 @@ function Nav() {
                     <span>
                
                       <Button className={classes.appbarTitle}>
-                        Book Buddy - Tracker App
+                        Book Buddy - Reading Tracker
                       </Button>
                     </span>
 
@@ -135,7 +140,7 @@ function Nav() {
                   </div>
                 </Typography>
               </Typography>
-            </Stack>
+            {/* </Stack> */}
           </Toolbar>
         </Container>
       </AppBar>

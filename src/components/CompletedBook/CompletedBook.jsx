@@ -1,4 +1,4 @@
-import { Button, Grid } from "@material-ui/core";
+import { Button, Grid, Box } from "@material-ui/core";
 import { Typography } from "@material-ui/core";
 import { Container } from "@material-ui/core";
 import { Card, CardContent, CardMedia } from "@material-ui/core";
@@ -7,16 +7,19 @@ import { Card, CardContent, CardMedia } from "@material-ui/core";
 
 function CompletedBook({ book }) {
   return (
-    <Container maxWidth="md" style={{ marginTop: "10px" }}>
+    <Container maxwidth="md" style={{ marginTop: "10px" }}>
+      <Box  sx={{ width: '100%' }} >
+
+      
       <div>
-        <Grid container spacing={4}>
+        <Grid container  spacing={4}>
           <Grid
             item
             style={{
               backgroundColor: "#ffff00",
             }}
           >
-            <Card elevation={9} height="20px">
+            <Card maxWidth='700px' elevation={9} >
               <CardMedia
                 // className={classes.cardMedia}
                 image={book.image_url}
@@ -24,7 +27,7 @@ function CompletedBook({ book }) {
               />
 
               <CardContent
-                size="small"
+                size="large"
                 // className={classes.cardContent}
               >
                 <Typography gutterBottom>
@@ -39,6 +42,7 @@ function CompletedBook({ book }) {
           </Grid>
         </Grid>
       </div>
+      </Box>
     </Container>
   );
 }

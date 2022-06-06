@@ -43,7 +43,7 @@ const handleSubmit=()=>{
    <Stack
    component="form"
    sx={{
-    '& .MuiTextField-root': { m: 1, width: '90ch', marginLeft:'450px' },
+    '& .MuiTextField-root': { m: 1, width: '80ch', marginLeft:'430px' },
    }}
    
    spacing={2}

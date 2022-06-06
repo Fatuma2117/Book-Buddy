@@ -14,11 +14,12 @@ function UserPage() {
     typography: {},
     root: {
       minHeight: "150vh",
-      backgroundImage: `url(${process.env.PUBLIC_URL + "/images/books.jpeg"})`,
+      backgroundImage: `url(${process.env.PUBLIC_URL + "/images/best.png"})`,
       backgroundSize: "cover",
       fontFamily: "Berkshire Swash",
       color: '#03a9f4',
       fontSize: "70px",
+      height:'900px'
     },
     backgroundColor:'#03a9f4',
   }));
@@ -33,7 +34,7 @@ function UserPage() {
       > 
     
      
-        <Box sx={{ borderRadius: '16px' }} mt={39} maxWidth='900px' style={{ backgroundColor: yellow[500] }}>
+        <Box sx={{ borderRadius: '16px' }} mt={50} maxWidth='950px' Height='900px' style={{ backgroundColor: yellow[500] }}>
 
 
 
