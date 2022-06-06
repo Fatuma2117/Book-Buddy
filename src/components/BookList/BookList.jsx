@@ -27,7 +27,7 @@ function BookList() {
       <Box mt={18}>
         <Typography>
           <Typography
-            variant="h2"
+            variant="h3"
             align="center"
             color="textPrimary"
             gutterBottom

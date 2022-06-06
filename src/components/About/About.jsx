@@ -1,4 +1,5 @@
 import { Box,Typography, Paper } from "@material-ui/core";
+import '../About/About.css'
 
 export default function About() {
   return (

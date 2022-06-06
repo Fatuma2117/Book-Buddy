@@ -30,7 +30,21 @@ function RateForm() {
   return (
     <div>
       <Box mt={20} textAlign="center">
-        <h1> Rate Completed Book 1-10</h1>
+        {/* <h1> Rate Completed Book 1-10</h1> */}
+
+
+
+
+
+        <Typography
+            variant="h3"
+            align="center"
+            color="textPrimary"
+            gutterBottom
+ 
+          >
+          Rate Completed Book 1-10
+          </Typography>
         <Typography>
           <Stack
             component="form"

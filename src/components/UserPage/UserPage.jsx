@@ -17,7 +17,7 @@ function UserPage() {
       backgroundImage: `url(${process.env.PUBLIC_URL + "/images/best.png"})`,
       backgroundSize: "cover",
       fontFamily: "Berkshire Swash",
-      color: '#03a9f4',
+      color: '#212121',
       fontSize: "70px",
       height:'900px'
     },

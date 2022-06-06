@@ -33,7 +33,18 @@ function BookLog() {
       {/* <ThemeProvider theme={theme}> */}
         <Box mt={20} >
           <Typography align='center'>
-            <h1>Reading Log </h1>
+            {/* <h1>Reading Log </h1> */}
+
+
+            <Typography
+            variant="h3"
+            align="center"
+            color="textPrimary"
+            gutterBottom
+          
+          >
+          Reading Log
+          </Typography>
             <KidProfile />
             {completedBooks.map((book) => {
               return <CompletedBook key={book.id} book={book} />;

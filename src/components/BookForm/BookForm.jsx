@@ -101,7 +101,20 @@ function BookForm() {
       {/* <Nav/> */}
 
       <Box mt={15} textAlign="center">
-        <h1 onClick={handleFill}>Add A New Book!</h1>
+        {/* <h1 onClick={handleFill}>Add A New Book!</h1> */}
+
+
+
+
+        <Typography
+            variant="h3"
+            align="center"
+            color="textPrimary"
+            gutterBottom
+            onClick={handleFill}
+          >
+          Add A New Book
+          </Typography>
 
         {localStorage.getItem("current_kid_id") === "0" && (
           //  <KidList/>
