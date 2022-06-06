@@ -1,12 +1,14 @@
 import React from 'react';
 import LoginForm from '../LoginForm/LoginForm';
 import { useHistory } from 'react-router-dom';
+import { Box } from "@material-ui/core";
 
 function LoginPage() {
   const history = useHistory();
 
   return (
     <div>
+      <Box mt={15}>
       <LoginForm />
 
       <center>
@@ -20,6 +22,7 @@ function LoginPage() {
           Register
         </button>
       </center>
+      </Box>
     </div>
   );
 }

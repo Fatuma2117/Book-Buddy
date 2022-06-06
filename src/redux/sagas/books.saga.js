@@ -61,6 +61,12 @@ function* fetchParent() {
 
 function* createBooks(action) {
   const currentKidId = localStorage.getItem('current_kid_id')
+  // if curentKidId is 0, that means we're in "parent mode"
+  // in that case, action.payload should have a kidId value in it
+  // so then, we'd reassign the value of currentKidId to equal action.payload.kidId
+  console.log('payload post kid******************',action.payload.kid)
+  if(currentKidId === '0'){
+      currentKidId === action.payload.kid
   try {
     const response = yield axios({
       method: 'POST',
@@ -74,7 +80,25 @@ function* createBooks(action) {
     })
   } catch {
     console.log('ERROR/POST Books');
-  }
+  } 
+} else {
+  try {
+    const response = yield axios({
+      method: 'POST',
+      url: '/books',
+      headers: { currentKidId },
+      data: action.payload
+    })
+    console.log('response from create books*******************************>',response.data)
+    yield put({
+      type: 'FETCH_BOOKS' ,payload: response.data
+    })
+  } catch {
+    console.log('ERROR/POST Books');
+  } 
+
+
+}
 }
 
 function* deleteBooks(action) {

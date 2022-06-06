@@ -3,7 +3,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import TextField from '@mui/material/TextField'
-import { Button } from '@material-ui/core';
+import { Button,Box } from '@material-ui/core';
 import Stack from '@mui/material/Stack';
 import BookForm from '../BookForm/BookForm'
 import { yellow } from 'material-ui-colors';
@@ -38,23 +38,31 @@ const handleSubmit=()=>{
     return(
      
   //  <>Update Book Form</>
+  <Box textAlign='center' mt={15} >
+
    <Stack
    component="form"
    sx={{
-     width: '100%',
+    '& .MuiTextField-root': { m: 1, width: '80ch', marginLeft:'430px' },
    }}
+   
    spacing={2}
    noValidate
    autoComplete="off"
    onSubmit={handleSubmit}
  >
+   <h1> Edit Book</h1>
      <TextField
         hiddenLabel
-        id="filled-label-normal"
+        // id="outlined-multiline-flexible"
         // defaultValue="Normal"
+         id="outlined-read-only-input"
+          // label="Title"
         variant="filled"
         margin="normal"
-        // placeholder=" Title"
+        helperText="Title"
+      
+        // label={'Title'}
         value={editBook.title}
         onChange={(e) => { 
           dispatch({
@@ -65,12 +73,13 @@ const handleSubmit=()=>{
         />
 
 <TextField
-        hiddenLabel
-        id="filled-hidden-label-normal"
+        // hiddenLabel
+        id="outlined-multiline-flexible"
         // defaultValue="Normal"
         variant="filled"
          margin="normal"
-        // placeholder="Author"
+         helperText="Author"
+        // label={'Author'}
         value={editBook.author}
         onChange={(e) => { 
           dispatch({
@@ -84,12 +93,13 @@ const handleSubmit=()=>{
 <TextField
 
 hiddenLabel
-id="filled-hidden-label-normal"
+id="outlined-multiline-flexible"
 // defaultValue="Normal"
 variant="filled" margin="normal"
 // label={'Description'}
+helperText="Description"
 
-placeholder="Description"
+// placeholder="Description"
 value={editBook.description}
 onChange={(e) => { 
   dispatch({
@@ -101,11 +111,12 @@ onChange={(e) => {
 
 <TextField
         hiddenLabel
-        id="filled-hidden-label-normal"
+        id="outlined-multiline-flexible"
         //  defaultValue="Normal"
         variant="filled" margin="normal"
         // label={'Year'}
-        // placeholder="Year"
+        helperText="Year"
+        
         value={editBook.publish_year}
         onChange={(e) => { 
           dispatch({
@@ -115,9 +126,9 @@ onChange={(e) => {
         }}  
         />
 
-<TextField
+{/* <TextField
         hiddenLabel
-        id="filled-hidden-label-normal"
+        id="outlined-multiline-flexible"
         // defaultValue="Normal"
         variant="filled" margin="normal"
         // label={'Image'}
@@ -128,15 +139,16 @@ onChange={(e) => {
             type: 'EDIT_IMAGE_URL',
             payload: e.target.value 
           })
-        }} />
+        }} /> */}
 
 <TextField
         hiddenLabel
-        id="filled-hidden-label-normal"
+        id="outlined-multiline-flexible"
         // defaultValue="Normal"
         variant="filled" margin="normal"
         // label={'Total Pages'}
         // placeholder="Total Pages"
+        helperText="Total Pages"
         value={editBook.total_pages}
         onChange={(e) => { 
           dispatch({
@@ -152,11 +164,12 @@ onChange={(e) => {
 
 <TextField
         hiddenLabel
-        id="label-normal"
+        id="outlined-multiline-flexible"
         // defaultValue="Normal"
         variant="filled" margin="normal"
         // label={'Add Current Page'}
-        placeholder="Add Current Page"
+        // placeholder="Add Current Page"
+        helperText="Current Page"
         value={editBook.current_page}
         onChange={(e) => { 
           dispatch({
@@ -165,10 +178,13 @@ onChange={(e) => {
           })
         }} 
         />
-        <Button onClick={handleSubmit}size='small' variant="contained" style={{backgroundColor: yellow [500]}} >Update Book</Button>
 
 
 </Stack>
+        <Button onClick={handleSubmit}size='small' variant="contained" style={{backgroundColor: yellow [500]}} >Update Book</Button>
+
+
+</Box>
        
     )
 }

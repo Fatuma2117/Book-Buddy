@@ -11,7 +11,7 @@ function* apiBooks(action) {
       url:  `https://magicblox.p.rapidapi.com/v1/book?title=${action.payload}`,
       headers: {
               'X-RapidAPI-Host': 'magicblox.p.rapidapi.com',
-              'X-RapidAPI-Key': 'f010151a61msh66accc926c221e8p1a12a0jsn507a180bd783'
+              'X-RapidAPI-Key': 'process.env.X-RapidAPI-Key'
             }
     });
    

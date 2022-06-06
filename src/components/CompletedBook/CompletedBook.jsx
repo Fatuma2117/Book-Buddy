@@ -1,58 +1,49 @@
-import { Button, Grid } from '@material-ui/core';
-import { Typography } from '@material-ui/core';
-import { Container } from '@material-ui/core';
-import {Card, CardContent, CardMedia} from '@material-ui/core'
+import { Button, Grid, Box } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
+import { Container } from "@material-ui/core";
+import { Card, CardContent, CardMedia } from "@material-ui/core";
 
 
-// import useStyles from './styles'
 
+function CompletedBook({ book }) {
+  return (
+    <Container maxwidth="md" style={{ marginTop: "10px" }}>
+      <Box  sx={{ width: '100%' }} >
 
-function CompletedBook({book}){
-    return(
+      
+      <div>
+        <Grid container  spacing={4}>
+          <Grid
+            item
+            style={{
+              backgroundColor: "#ffff00",
+            }}
+          >
+            <Card maxWidth='700px' elevation={9} >
+              <CardMedia
+                // className={classes.cardMedia}
+                image={book.image_url}
+                title="Image title"
+              />
 
-       
-        <Container maxWidth='md'style={{marginTop: '100px'}}>
-             <div >
-            <Grid container spacing={4}  >
-                <Grid item   style={{
-          
-         backgroundColor: "#ffff00",
-          
-       }}>
-                    <Card  height= '20px'>
-                    <CardMedia
-                        // className={classes.cardMedia}
-                        image= "https://prodimage.images-bn.com/pimages/9780142413852_p0_v3_s192x300.jpg"
-                        title="Image title"
-                        />
-                       
-                        <CardContent size='small'
-                        // className={classes.cardContent}
-                        >
-                        <Typography gutterBottom >
-                            Title: {book.title} -
-                            Author: {book.author} -
-                            Description: {book.description} -
-                            Publish Year: {book.publish_year} -
-                            
-                            Points: {book.points} -
-                            Total pages: {book.total_pages} -
-                            Rating:{book.rate} -
-                            Completed ✓
-
-                        </Typography>
-
-
-                        </CardContent>
-
-
-                   
-                    </Card>
-                </Grid>
-            </Grid>
- </div>
-        </Container>
-    )
-    
+              <CardContent
+                size="large"
+                // className={classes.cardContent}
+              >
+                <Typography gutterBottom>
+                  
+                  Title: {book.title} - Author: {book.author} 
+                  - Publish Year: {book.publish_year} - Description: {book.description}
+                  Points: {book.points} - Total pages: {book.total_pages} -
+                  Rating:{book.rate}- Completed ✓
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
+      </div>
+      </Box>
+    </Container>
+  );
 }
 export default CompletedBook;

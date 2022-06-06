@@ -11,51 +11,47 @@ import { AppBar } from "@material-ui/core";
 import { Toolbar, Button } from "@material-ui/core";
 import Stack from "@mui/material/Stack";
 
+
+
 import { Container } from "@material-ui/core";
-import CollectionsBookmarkIcon from "@mui/icons-material/CollectionsBookmark";
 import { useHistory } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@material-ui/core";
 import Themes from "../Nav/navStyles";
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@material-ui/core/styles";
 
 function Nav() {
   const user = useSelector((store) => store.user);
   const history = useHistory();
 
-  const theme = createTheme({
-    typography: {
-      fontFamily: ["Train One", "cursive"].join(","),
-    },
-  });
+  // const theme = createTheme({
+  //   typography: {
+  //     fontFamily: ["Train One", "cursive"].join(","),
+    
+  //   },
+  // });
 
   const useStyles = makeStyles((theme) => ({
     root: {
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      height: '100vh',
-      fontFamily: 'Nunito',
+      display: "flex",
+      justifyContent: "space-between",
+      flexGrow: 1,
+      alignItems: "center",
+      marginRight:'500px'
     },
     appbar: {
       backgroundColor: "#FF6E40",
-   },
-    appbarWrapper: {
-      width: '60%',
-      margin: '0 auto',
-    },
-    appbarTitle: {
-      flexGrow: '3',
-    },
-    icon: {
-      color: '#fff',
-      fontSize: '2rem',
-    },
-    colorText: {
-      color: '#5AFF3D',
-    },
-    fontFamily: "Train One",
-  
+      justifyContent: "space-between",
+      flexGrow: 1,
+      
 
+
+    },
+    appbarWrapper: {
+      width: "60%",
+      height: "100vh",
+      margin: "0 auto",
+    },
+ 
   }));
 
   const classes = useStyles();
@@ -63,22 +59,22 @@ function Nav() {
   return (
     <>
       <CssBaseline />
-      <AppBar className={classes.appbar} elevation={0}>
+      <AppBar    className={classes.appbar} elevation={0}>
         <Container maxWidth="xl">
-          <Toolbar
-            // disableGutters
-            // display="flex"
-          >
-<Stack className={classes.fontFamily} direction="row" spacing={2}>
+          <Toolbar  style={{ alignItems: "center"}}>
+            {/* <Stack className={classes.fontFamily} direction="row" spacing={2}> */}
               <Typography className={classes.fontFamily}>
-                <Typography>
+                <Typography style={{ marginRight: 16 }}>
                   <div className={classes.fontFamily}>
                     {/* <img src="images/book-stack.jpg"/> */}
-<span>
-                    <Button className={classes.appbarTitle}>Book Buddy - Tracker App</Button>
-</span>
+                    <span>
+               
+                      <Button className={classes.appbarTitle}>
+                        Book Buddy - Reading Tracker
+                      </Button>
+                    </span>
 
-                    <div>
+                    <div className={classes.root}>
                       {/* If no user is logged in, show these links */}
                       {!user.id && (
                         // If there's no user, show login/registration links
@@ -86,7 +82,7 @@ function Nav() {
                           Login / Register
                         </Link>
                       )}
- 
+
                       {/* If a user is logged in, show these links */}
                       {user.id && (
                         <>
@@ -97,51 +93,54 @@ function Nav() {
                             Home
                           </Button>
 
-                         
-                            <Button
-                              onClick={() => history.push("/KidList")}
-                              style={{ color: "#c6ff00" }}
-                            >
-                              Kid List
-                            </Button>
-                            <Button
-                              theme={theme}
-                              onClick={() => history.push("/BookList")}
-                              style={{ color: "#c6ff00" }}
-                            >
-                              Book List
-                            </Button>
-                            <Button
-                              onClick={() => history.push("/BookForm")}
-                              style={{ color: "#c6ff00" }}
-                            >
-                              Book Form
-                            </Button>
+                          <Button
+                            onClick={() => history.push("/About")}
+                            style={{ color: "#c6ff00" }}
+                          >
+                            About
+                          </Button>
 
-                           
-                            <Button
-                              onClick={() => history.push("/BookLog")}
-                              style={{ color: "#c6ff00" }}
-                            >
-                              Book Log
-                            </Button>
-                            {/* <Button
-                              onClick={() => history.push("/KidProfile")}
-                              style={{ color: "#c6ff00" }} 
-                            >
-                              Kid Profile
-                            </Button> */}
+                          <Button
+                            onClick={() => history.push("/KidList")}
+                            style={{ color: "#c6ff00" }}
+                          >
+                            Profiles
+                          </Button>
+                          <Button
+                            // theme={theme}
+                            onClick={() => history.push("/BookList")}
+                            style={{ color: "#c6ff00" }}
+                          >
+                            Books
+                          </Button>
+                          <Button
+                            onClick={() => history.push("/BookForm")}
+                            style={{ color: "#c6ff00" }}
+                          >
+                            Add New Book
+                          </Button>
 
-                            
-                            <LogOutButton />
-                        
+                          <Button
+                            onClick={() => history.push("/BookLog")}
+                            style={{ color: "#c6ff00" }}
+                          >
+                            Reading Log
+                          </Button>
+
+                       
                         </>
                       )}
+                      <LogOutButton />
                     </div>
+   
+
+
+
+
                   </div>
                 </Typography>
               </Typography>
-              </Stack>
+            {/* </Stack> */}
           </Toolbar>
         </Container>
       </AppBar>
