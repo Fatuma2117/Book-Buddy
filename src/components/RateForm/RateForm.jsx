@@ -29,13 +29,17 @@ function RateForm() {
   };
   return (
     <div>
-      <Box mt={15}>
+      <Box mt={20} textAlign="center">
         <h1> Rate Completed Book 1-10</h1>
         <Typography>
           <Stack
             component="form"
             sx={{
-              width: "100%",
+              "& .MuiTextField-root": {
+                m: 1,
+                width: "80ch",
+                marginLeft: "300px",
+              },
             }}
             spacing={2}
             // noValidate
@@ -54,7 +58,7 @@ function RateForm() {
                 setRating(e.target.value);
               }}
             />
-
+ </Stack>
             <Button
               onClick={handleSubmit}
               size="small"
@@ -63,7 +67,7 @@ function RateForm() {
             >
               Add Rating
             </Button>
-          </Stack>
+         
         </Typography>
       </Box>
     </div>

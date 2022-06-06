@@ -48,7 +48,7 @@ function KidList() {
     <>
       {/* <ThemeProvider alignItems="center" theme={theme}> */}
      
-        <Box sx={{ borderRadius: '16px' }} mt={30} ml={60} textAlign='center' alignContent='center' maxWidth='900px' style={{ backgroundColor: yellow[500] }} >
+        <Box sx={{ borderRadius: '16px' }} mt={27} ml={60} textAlign='center' alignContent='center' maxWidth='900px' style={{ backgroundColor: yellow[500] }} >
           <Typography>
             <div>
               <CssBaseline />

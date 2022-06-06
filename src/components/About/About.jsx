@@ -1,8 +1,8 @@
-import { Box,Typography } from "@material-ui/core";
+import { Box,Typography, Paper } from "@material-ui/core";
 
 export default function About() {
   return (
-    <Box mt={15} pl={3}sx={{ flexDirection: 'column' , flexWrap: 'nowrap' ,fontSize: 30,}}>
+    <Box mt={20} pl={3}sx={{ flexDirection: 'column' , flexWrap: 'nowrap' ,fontSize: 30,}}>
       {/* <h1>About page</h1>  */}
       <Typography align='center'>
       <h1>Technologies Used</h1>
@@ -33,8 +33,14 @@ export default function About() {
         <li> Dahl Cohort</li>
         <li> Prime Academy</li>
         <li> Friends and Family</li>
+        <li> QA Testers</li>
       </ul>
-      </Typography>
+      <Box elevation={5}>
+   <img src="images/qa.jpg"/> 
+</Box>
+
+        
+          </Typography>
     </Box>
   );
 }
