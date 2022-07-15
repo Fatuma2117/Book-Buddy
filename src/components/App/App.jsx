@@ -33,7 +33,6 @@ function App() {
 
   const theme = createTheme({
     typography: {
-      // fontFamily: ['Orbitron', 'sans-serif'].join(","),
       fontFamily: ['Bangers', 'cursive'].join(","),
       fontSize: 29
     },
