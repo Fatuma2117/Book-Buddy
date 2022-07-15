@@ -4,7 +4,6 @@ import '../About/About.css'
 export default function About() {
   return (
     <Box mt={20} pl={3}sx={{ flexDirection: 'column' , flexWrap: 'nowrap' ,fontSize: 30,}}>
-      {/* <h1>About page</h1>  */}
       <Typography align='center'>
       <h1>Technologies Used</h1>
       <ul>
