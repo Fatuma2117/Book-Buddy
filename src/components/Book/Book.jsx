@@ -62,7 +62,7 @@ function Book({ book }) {
         <Card  elevation={12} className={classes.card}>
           <CardMedia
             className={classes.cardMedia}
-            image={book.image_url}// image="https://prodimage.images-bn.com/pimages/9780142413852_p0_v3_s192x300.jpg"
+            image={book.image_url}
             title="Image title"
             component="img"
            
